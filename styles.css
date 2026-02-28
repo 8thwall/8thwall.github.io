@@ -6,7 +6,7 @@
   --color-bg-card-hover: #222222;
   --color-text: #ffffff;
   --color-text-secondary: #a1a1a1;
-  --color-text-muted: #666666;
+  --color-text-muted: #8a8a8a; /* Lightened for WCAG AA contrast on dark backgrounds */
   --color-primary: #a855f7;
   --color-primary-hover: #9333ea;
   --color-border: #2a2a2a;
@@ -1021,7 +1021,7 @@ img {
   color: var(--color-text-muted);
 }
 
-/* Downloads Page */
+/* Downloads Page: compact hero so buttons are visible without scrolling */
 .downloads-hero {
   margin-top: 0;
   min-height: 0;
