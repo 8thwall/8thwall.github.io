@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Downloads - 8th Wall</title>
   <meta name="description" content="Download 8th Wall Desktop for Mac and Windows. XR Game Engine for AR and 3D development.">
-  <link rel="canonical" href="https://8thwall.org/downloads.html">
+  <link rel="canonical" href="https://8thwall.org/downloads">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="logo.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://8thwall.org/downloads.html">
+  <meta property="og:url" content="https://8thwall.org/downloads">
   <meta property="og:title" content="Downloads - 8th Wall">
   <meta property="og:description" content="Download 8th Wall Desktop for Mac and Windows. XR Game Engine for AR and 3D development.">
   <meta property="og:image" content="https://8thwall.org/social-cover.png">
@@ -25,7 +25,9 @@
   <meta name="twitter:image:alt" content="Downloads - 8th Wall">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&family=Mozilla+Headline:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Load fonts async to avoid render-blocking (Lighthouse) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&family=Mozilla+Headline:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&family=Mozilla+Headline:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -84,6 +86,7 @@
     </nav>
   </header>
 
+  <main>
   <!-- Downloads Hero -->
   <section class="hero downloads-hero">
     <div class="container">
@@ -178,6 +181,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -190,21 +195,21 @@
         </div>
         <div class="footer-links">
           <div class="footer-column">
-            <h4 class="footer-heading">Product</h4>
+            <h2 class="footer-heading">Product</h2>
             <a href="index.html#available">Features</a>
             <a href="index.html#local-dev">Getting Started</a>
             <a href="downloads.html">Download</a>
             <a href="index.html#faq">FAQ</a>
           </div>
           <div class="footer-column">
-            <h4 class="footer-heading">Resources</h4>
+            <h2 class="footer-heading">Resources</h2>
             <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Documentation</a>
             <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
             <a href="https://github.com/8thwall/web" target="_blank" rel="noopener">Example Projects</a>
             <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
           </div>
           <div class="footer-column">
-            <h4 class="footer-heading">Community</h4>
+            <h2 class="footer-heading">Community</h2>
             <a href="https://discord.gg/YkTkTerDHr" target="_blank" rel="noopener">Discord</a>
             <a href="https://github.com/8thwall/web/discussions" target="_blank" rel="noopener">Discussions</a>
             <a href="https://www.instagram.com/8thwall" target="_blank" rel="noopener">Instagram</a>
