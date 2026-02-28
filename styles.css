@@ -1023,7 +1023,13 @@ img {
 
 /* Downloads Page */
 .downloads-hero {
-  padding: var(--spacing-2xl) 0 var(--spacing-xl);
+  margin-top: 0;
+  min-height: 0;
+  padding: var(--spacing-2xl) 0 var(--spacing-md);
+}
+
+.downloads-hero + .section {
+  padding-top: var(--spacing-lg);
 }
 
 .downloads-hero .hero-title {
