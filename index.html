@@ -46,58 +46,37 @@
   <!-- Header -->
   <header class="header">
     <nav class="nav">
-      <a href="/" class="logo">
-        <img src="logo.png" alt="8th Wall" width="32" height="32">
-      </a>
+      <div class="nav-start">
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <a href="/" class="logo">
+          <img src="logo.png" alt="8th Wall" width="32" height="32">
+        </a>
+      </div>
       <div class="nav-links">
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle">
-            About
-            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="#available">Features</a>
-            <a href="#local-dev">Getting Started</a>
-            <a href="#get-involved">Get Involved</a>
-            <a href="#faq">FAQ</a>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle">
-            Community
-            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="https://discord.gg/FtYCNTYeuJ" target="_blank" rel="noopener">Discord</a>
-            <a href="https://github.com/orgs/8thwall/discussions" target="_blank" rel="noopener">GitHub Discussions</a>
-            <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
-            <a href="https://www.instagram.com/8thwall" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://www.linkedin.com/company/8thwall" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle">
-            Resources
-            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Video Tutorials</a>
-            <a href="https://github.com/8thwall/archive/tree/main/apps/examples" target="_blank" rel="noopener">Example Projects</a>
-          </div>
-        </div>
-        <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Docs</a>
         <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Docs</a>
+        <a href="https://github.com/8thwall/archive/tree/main/apps/examples" target="_blank" rel="noopener">Samples</a>
+        <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Tutorials</a>
+        <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
+        <a href="https://discord.gg/FtYCNTYeuJ" target="_blank" rel="noopener">Discord</a>
       </div>
       <div class="nav-actions">
         <a href="downloads.html" class="btn btn-primary">Download</a>
       </div>
     </nav>
+    <div class="nav-drawer-overlay" id="nav-overlay" aria-hidden="true"></div>
+    <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+      <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/8thwall/archive/tree/main/apps/examples" target="_blank" rel="noopener">Samples</a>
+      <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Tutorials</a>
+      <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
+      <a href="https://discord.gg/FtYCNTYeuJ" target="_blank" rel="noopener">Discord</a>
+    </div>
   </header>
 
   <main>
@@ -110,7 +89,7 @@
         is now Open Source
       </h1>
       <p class="hero-description">
-        Everything you need to build 3D experiences and WebAR, now free for everyone.<br><br> More components on the way — follow along on GitHub and Discord.
+        Everything you need to build 3D experiences and WebAR, now free for everyone.
       </p>
     </div>
   </section>
@@ -119,6 +98,7 @@
   <section id="available" class="section product-cards-section">
     <div class="container">
       <h2 class="section-title">Available Today</h2>
+      <p class="section-subtitle">More components on the way — follow along on GitHub and Discord.</p>
       <div class="product-cards-grid">
         <div class="product-card">
           <div class="product-card-icon">
@@ -141,7 +121,7 @@
             <li>Sky Effects</li>
           </ul>
           <p class="product-card-footnote">*Available via XR engine binary only</p>
-          <a href="https://github.com/8thwall/engine" class="btn btn-outline">View on GitHub</a>
+          <a href="https://github.com/8thwall/engine" class="btn btn-outline" target="_blank" rel="noopener">View on GitHub</a>
         </div>
         <div class="product-card">
           <div class="product-card-icon">
@@ -151,14 +131,14 @@
               <line x1="12" y1="17" x2="12" y2="21"></line>
             </svg>
           </div>
-          <h3 class="product-card-title">8th Wall Desktop App</h3>
+          <h3 class="product-card-title">8th Wall Desktop</h3>
           <p class="product-card-description">XR Game Engine</p>
           <ul class="product-card-list">
             <li>Visual editor</li>
             <li>Develop 3D & AR</li>
-            <li>Deploy to web, iOS and Android</li>
+            <li>Deploy to web & native*</li>
           </ul>
-          <p class="product-card-footnote">Offline download available now. Full open source coming soon.</p>
+          <p class="product-card-footnote">* Native export coming soon</p>
           <a href="downloads.html" class="btn btn-outline">Download</a>
         </div>
         <div class="product-card">
@@ -172,8 +152,8 @@
           <ul class="product-card-list">
             <li>Image Target Processor</li>
             <li>XR Extras - UI Components & helpers</li>
-            <li><em>...more coming soon!</em></li>
           </ul>
+          <p class="product-card-footnote">More coming soon</p>
           <a href="https://github.com/8thwall/tree/main/utilities" class="btn btn-outline" target="_blank" rel="noopener">View on GitHub</a>
         </div>
         <div class="product-card">
@@ -196,30 +176,31 @@
   </section>
 
   <!-- Local Development Section -->
-  <section id="local-dev" class="section section-alt">
+  <section id="getting-started" class="section section-alt">
     <div class="container">
       <h2 class="section-title">Getting Started</h2>
+      <p class="section-subtitle">Begin developing in a few simple steps, then deploy your project anywhere.</p>
       <div class="local-dev-grid">
         <div class="local-dev-steps-card">
           <div class="step-item">
             <div class="step-number">1</div>
             <div class="step-content">
-              <h3 class="step-title">Download 8th Wall Desktop App</h3>
-              <p class="step-description">Get the latest release for Mac or Windows from the downloads page.</p>
+              <h3 class="step-title">Download & Install</h3>
+              <p class="step-description">Get the latest release for Mac or Windows from the downloads page, then run the installer and open 8th Wall Desktop.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-number">2</div>
             <div class="step-content">
-              <h3 class="step-title">Install & Launch</h3>
-              <p class="step-description">Run the installer and open 8th Wall Desktop.</p>
+              <h3 class="step-title">Start Building</h3>
+              <p class="step-description">Create a new project or open an existing one.</p>
             </div>
           </div>
           <div class="step-item">
             <div class="step-number">3</div>
             <div class="step-content">
-              <h3 class="step-title">Start Building</h3>
-              <p class="step-description">Create a new project or open an existing one.</p>
+              <h3 class="step-title">Export your project</h3>
+              <p class="step-description">Host your built project anywhere. See our <a href="https://www.8thwall.com/docs/migration/8thwall-hosted/publishing/" target="_blank" rel="noopener">publishing guide</a> for options.</p>
             </div>
           </div>
           <a href="downloads.html" class="btn btn-outline">Download 8th Wall</a>
@@ -237,7 +218,7 @@
   <section id="get-involved" class="section">
     <div class="container">
       <h2 class="section-title">Get Involved</h2>
-      <p class="section-subtitle">Join the community <br>and help shape the future of 8th Wall</p>
+      <p class="section-subtitle">Join the community and help shape the future of 8th Wall.</p>
       <div class="involve-grid">
         <div class="involve-card">
           <div class="involve-icon">
@@ -265,23 +246,9 @@
           <h3 class="involve-title">Contribute</h3>
           <p class="involve-description">Help improve 8th Wall for everyone</p>
           <ul class="involve-list">
+            <li><a href="https://github.com/8thwall/8thwall" target="_blank" rel="noopener">⭐ Star on GitHub</a></li>
             <li><a href="https://github.com/8thwall/web/issues" target="_blank" rel="noopener">Report bugs & issues</a></li>
             <li><a href="https://github.com/8thwall/web/pulls" target="_blank" rel="noopener">Submit pull requests</a></li>
-            <li><a href="https://github.com/8thwall/web" target="_blank" rel="noopener">Improve documentation</a></li>
-          </ul>
-        </div>
-        <div class="involve-card">
-          <div class="involve-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </div>
-          <h3 class="involve-title">Support</h3>
-          <p class="involve-description">Help the project grow</p>
-          <ul class="involve-list">
-            <li><a href="https://github.com/8thwall/8thwall" target="_blank" rel="noopener">Star on GitHub</a></li>
-            <li><a href="https://github.com/orgs/8thwall/discussions/categories/q-a" target="_blank" rel="noopener">Answer community questions</a></li>
-            <li><a href="https://github.com/orgs/8thwall/discussions/categories/show-and-tell" target="_blank" rel="noopener">Share your projects</a></li>
           </ul>
         </div>
       </div>
@@ -307,7 +274,7 @@
             Yes. You can use 8th Wall to build commercial AR experiences, branded campaigns, and
             client projects. The open source components are free to use, and the distributed engine
             binary permits commercial use as part of a broader application or experience. See the
-            <a href="https://www.8thwall.com/docs/migration/faq/" target="_blank" rel="noopener">full FAQ</a> for
+            <a href="https://www.8thwall.com/docs/migration/faq/#distributed-engine-binary-license-and-permitted-use" target="_blank" rel="noopener">full FAQ</a> for
             details on permitted use and licensing.
           </p>
         </details>
@@ -324,9 +291,7 @@
           <summary class="faq-question">Is there a paid tier?</summary>
           <p class="faq-answer">
             No. All paid subscriptions ended on February 28, 2026 when the hosted platform was retired.
-            The open source tools and distributed engine binary are free to use. See the
-            <a href="https://www.8thwall.com/docs/migration/faq/" target="_blank" rel="noopener">migration FAQ</a> for
-            details on billing and licensing.
+            The open source tools and distributed engine binary are free to use.
           </p>
         </details>
         <details class="faq-item">
@@ -339,10 +304,15 @@
         <details class="faq-item">
           <summary class="faq-question">Is everything fully open source?</summary>
           <p class="faq-answer">
-            Not yet. The XR Engine is currently distributed as a binary — free to use, including
-            for commercial projects. We're working on open sourcing the non-SLAM AR features and
-            will have more information soon. Everything else, the Desktop app, utilities, and
+            The XR Engine is distributed as a binary — free to use, including
+            for commercial projects under a limited use license.  See the
+            <a href="https://www.8thwall.com/docs/migration/faq/#distributed-engine-binary-license-and-permitted-use" target="_blank" rel="noopener">full FAQ</a> for
+            details on permitted use and licensing.
+            <br><br>8th Wall Desktop is available as an offline download today, with full open source coming soon.
+            <br><br>Everything else, Image Targets, Face Effects, Sky Effects, utilities, and
             example projects, is fully open source under the MIT License.
+            <br><br>
+            We have more features and tools coming soon! Follow along on GitHub and Discord.
           </p>
         </details>
         <details class="faq-item">
@@ -386,24 +356,24 @@
           <div class="footer-column">
             <h2 class="footer-heading">Product</h2>
             <a href="#available">Features</a>
-            <a href="#local-dev">Getting Started</a>
+            <a href="#getting-started">Getting Started</a>
             <a href="downloads.html">Download</a>
             <a href="#faq">FAQ</a>
           </div>
           <div class="footer-column">
             <h2 class="footer-heading">Resources</h2>
             <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Documentation</a>
+            <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Video Tutorials</a>
             <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
             <a href="https://github.com/8thwall/archive/tree/main/apps/examples" target="_blank" rel="noopener">Example Projects</a>
             <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
           </div>
           <div class="footer-column">
-            <h2 class="footer-heading">Community</h2>
+            <h2 class="footer-heading">Get Involved</h2>
             <a href="https://discord.gg/FtYCNTYeuJ" target="_blank" rel="noopener">Discord</a>
             <a href="https://github.com/orgs/8thwall/discussions" target="_blank" rel="noopener">Discussions</a>
             <a href="https://www.instagram.com/8thwall" target="_blank" rel="noopener">Instagram</a>
             <a href="https://www.linkedin.com/company/8thwall" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="#get-involved">Get Involved</a>
           </div>
         </div>
       </div>
@@ -441,6 +411,34 @@
       }
     });
   }
+})();
+
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var overlay = document.getElementById('nav-overlay');
+  var drawer = document.getElementById('nav-drawer');
+  if (!toggle || !overlay || !drawer) return;
+  function open() {
+    document.body.classList.add('nav-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+    overlay.setAttribute('aria-hidden', 'false');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    document.body.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    overlay.setAttribute('aria-hidden', 'true');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', function() {
+    if (document.body.classList.contains('nav-open')) close(); else open();
+  });
+  overlay.addEventListener('click', close);
+  drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
 })();
 
 (function() {
