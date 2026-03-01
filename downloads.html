@@ -35,55 +35,34 @@
   <!-- Header -->
   <header class="header">
     <nav class="nav">
-      <a href="index.html" class="logo">
-        <img src="logo.png" alt="8th Wall" width="32" height="32">
-      </a>
+      <div class="nav-start">
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <a href="index.html" class="logo">
+          <img src="logo.png" alt="8th Wall" width="32" height="32">
+        </a>
+      </div>
       <div class="nav-links">
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle">
-            About
-            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="index.html#available">Features</a>
-            <a href="index.html#local-dev">Getting Started</a>
-            <a href="index.html#get-involved">Get Involved</a>
-            <a href="index.html#faq">FAQ</a>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle">
-            Community
-            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="https://discord.gg/YkTkTerDHr" target="_blank" rel="noopener">Discord</a>
-            <a href="https://github.com/8thwall/web/discussions" target="_blank" rel="noopener">GitHub Discussions</a>
-            <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
-            <a href="https://www.instagram.com/8thwall" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://www.linkedin.com/company/8thwall" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle">
-            Resources
-            <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Video Tutorials</a>
-            <a href="https://github.com/8thwall/web" target="_blank" rel="noopener">Example Projects</a>
-          </div>
-        </div>
-        <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Docs</a>
         <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Docs</a>
+        <a href="https://github.com/8thwall/archive/tree/main/apps/examples" target="_blank" rel="noopener">Samples</a>
+        <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Tutorials</a>
+        <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
+        <a href="https://discord.gg/YkTkTerDHr" target="_blank" rel="noopener">Discord</a>
       </div>
     </nav>
+    <div class="nav-drawer-overlay" id="nav-overlay" aria-hidden="true"></div>
+    <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+      <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/8thwall/archive/tree/main/apps/examples" target="_blank" rel="noopener">Samples</a>
+      <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Tutorials</a>
+      <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
+      <a href="https://discord.gg/YkTkTerDHr" target="_blank" rel="noopener">Discord</a>
+    </div>
   </header>
 
   <main>
@@ -197,24 +176,24 @@
           <div class="footer-column">
             <h2 class="footer-heading">Product</h2>
             <a href="index.html#available">Features</a>
-            <a href="index.html#local-dev">Getting Started</a>
+            <a href="index.html#getting-started">Getting Started</a>
             <a href="downloads.html">Download</a>
             <a href="index.html#faq">FAQ</a>
           </div>
           <div class="footer-column">
             <h2 class="footer-heading">Resources</h2>
             <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Documentation</a>
+            <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Video Tutorials</a>
             <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
             <a href="https://github.com/8thwall/web" target="_blank" rel="noopener">Example Projects</a>
             <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
           </div>
           <div class="footer-column">
-            <h2 class="footer-heading">Community</h2>
+            <h2 class="footer-heading">Get Involved</h2>
             <a href="https://discord.gg/YkTkTerDHr" target="_blank" rel="noopener">Discord</a>
             <a href="https://github.com/8thwall/web/discussions" target="_blank" rel="noopener">Discussions</a>
             <a href="https://www.instagram.com/8thwall" target="_blank" rel="noopener">Instagram</a>
             <a href="https://www.linkedin.com/company/8thwall" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="index.html#get-involved">Get Involved</a>
           </div>
         </div>
       </div>
@@ -223,6 +202,35 @@
       </div>
     </div>
   </footer>
+  <script>
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var overlay = document.getElementById('nav-overlay');
+  var drawer = document.getElementById('nav-drawer');
+  if (!toggle || !overlay || !drawer) return;
+  function open() {
+    document.body.classList.add('nav-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+    overlay.setAttribute('aria-hidden', 'false');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    document.body.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    overlay.setAttribute('aria-hidden', 'true');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', function() {
+    if (document.body.classList.contains('nav-open')) close(); else open();
+  });
+  overlay.addEventListener('click', close);
+  drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
+})();
+  </script>
 </body>
 
 </html>
