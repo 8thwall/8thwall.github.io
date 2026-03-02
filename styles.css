@@ -1213,6 +1213,11 @@ a[target="_blank"]::after {
   transition: color 0.2s;
 }
 
+/* Don't show external-link icon on download buttons; we use the download icon instead */
+.download-option[target="_blank"]::after {
+  display: none;
+}
+
 .download-option:hover .download-arrow {
   color: var(--color-primary);
 }
