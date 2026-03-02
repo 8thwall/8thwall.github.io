@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8th Wall - Open Source AR & 3D</title>
+  <meta name="description" content="Build immersive AR and interactive 3D experiences. Free and open source.">
+  <link rel="canonical" href="https://8thwall.org/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="favicon.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://8thwall.org/">
+  <meta property="og:title" content="8th Wall - Open Source AR & 3D">
+  <meta property="og:description" content="Build immersive AR and interactive 3D experiences. Free and open source.">
+  <meta property="og:image" content="https://8thwall.org/social-cover.png">
+  <meta property="og:image:alt" content="8th Wall - Open Source AR & 3D">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="8th Wall - Open Source AR & 3D">
+  <meta name="twitter:description" content="Build immersive AR and interactive 3D experiences. Free and open source.">
+  <meta name="twitter:image" content="https://8thwall.org/social-cover.png">
+  <meta name="twitter:image:alt" content="8th Wall - Open Source AR & 3D">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Load fonts async to avoid render-blocking (Lighthouse) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&family=Mozilla+Headline:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&family=Mozilla+Headline:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Announcement Banner -->
+  <div class="announcement-banner">
+    <div class="container">
+      <p>The hosted 8th Wall platform was retired Feb 28, 2026. Existing published experiences continue to run until Feb 28, 2027.</p>
+      <div class="banner-buttons">
+        <a href="https://8th.io/migration" class="banner-btn" target="_blank" rel="noopener">View Migration Guide</a>
+        <a href="https://8th.io/blog" class="banner-btn" target="_blank" rel="noopener">View Announcements</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="nav-start">
+        <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <a href="/" class="logo">
+          <img src="logo.png" alt="8th Wall" width="32" height="32">
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Docs</a>
+        <a href="https://8th.io/examples" target="_blank" rel="noopener">Samples</a>
+        <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Tutorials</a>
+        <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
+        <a href="https://8th.io/discord" target="_blank" rel="noopener">Discord</a>
+      </div>
+      <div class="nav-actions">
+        <a href="downloads.html" class="btn btn-primary">Download</a>
+      </div>
+    </nav>
+    <div class="nav-drawer-overlay" id="nav-overlay" aria-hidden="true"></div>
+    <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+      <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://docs.8thwall.com" target="_blank" rel="noopener">Docs</a>
+      <a href="https://8th.io/examples" target="_blank" rel="noopener">Samples</a>
+      <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Tutorials</a>
+      <a href="https://www.8thwall.com/blog" target="_blank" rel="noopener">Blog</a>
+      <a href="https://discord.gg/FtYCNTYeuJ" target="_blank" rel="noopener">Discord</a>
+    </div>
+  </header>
+
+  <main>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
+    <div class="container hero-content">
+      <h1 class="hero-title">
+        8th Wall<br>
+        is now open source
+      </h1>
+      <p class="hero-description">
+        Everything you need to build 3D experiences and WebAR, now free for everyone.
+      </p>
+    </div>
+  </section>
+
+  <!-- Product Cards Section -->
+  <section id="available" class="section product-cards-section">
+    <div class="container">
+      <h2 class="section-title">Available Today</h2>
+      <p class="section-subtitle">More components on the way — follow along on GitHub and Discord.</p>
+      <div class="product-cards-grid">
+        <div class="product-card">
+          <div class="product-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline>
+              <polyline points="7.5 19.79 7.5 14.6 3 12"></polyline>
+              <polyline points="21 12 16.5 14.6 16.5 19.79"></polyline>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <h3 class="product-card-title">XR Engine</h3>
+          <p class="product-card-description">Powerful AR features for web and native</p>
+          <ul class="product-card-list">
+            <li>World Effects*</li>
+            <li>Absolute Scale*</li>
+            <li>Image Targets</li>
+            <li>Face Effects</li>
+            <li>Sky Effects</li>
+          </ul>
+          <p class="product-card-footnote">*Available via XR engine binary only</p>
+          <a href="https://8th.io/xrjs" class="btn btn-outline" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+        <div class="product-card">
+          <div class="product-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3 class="product-card-title">8th Wall Desktop</h3>
+          <p class="product-card-description">XR Game Engine</p>
+          <ul class="product-card-list">
+            <li>Visual editor</li>
+            <li>Develop 3D & AR</li>
+            <li>Export to web & native*</li>
+          </ul>
+          <p class="product-card-footnote">* Native export coming soon</p>
+          <a href="downloads.html" class="btn btn-outline">Download</a>
+        </div>
+        <div class="product-card">
+          <div class="product-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+          </div>
+          <h3 class="product-card-title">Utilities</h3>
+          <p class="product-card-description">Open source tools to streamline your workflow</p>
+          <ul class="product-card-list">
+            <li>Image Target Processor</li>
+            <li>XR Extras - UI Components & helpers</li>
+          </ul>
+          <p class="product-card-footnote">More coming soon</p>
+          <a href="https://github.com/8thwall/8thwall" class="btn btn-outline" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+        <div class="product-card">
+          <div class="product-card-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="product-card-title">Example Projects</h3>
+          <p class="product-card-description">Ready-to-use sample projects</p>
+          <ul class="product-card-list">
+            <li>Starter templates</li>
+            <li>Feature demos</li>
+            <li>Best practices</li>
+          </ul>
+          <a href="https://8th.io/examples" class="btn btn-outline" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local Development Section -->
+  <section id="getting-started" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Getting Started</h2>
+      <p class="section-subtitle">Begin developing in a few simple steps, then deploy your project anywhere.</p>
+      <div class="local-dev-grid">
+        <div class="local-dev-steps-card">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3 class="step-title">Download & Install</h3>
+              <p class="step-description">Get the latest release for Mac or Windows from the downloads page, then run the installer and open 8th Wall Desktop.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3 class="step-title">Start Building</h3>
+              <p class="step-description">Create a new project or open an existing one. See our <a href="https://8th.io/getting-started" target="_blank" rel="noopener">engine integration guide</a></p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3 class="step-title">Export your project</h3>
+              <p class="step-description">Host your built project anywhere. See our <a href="https://8th.io/publishing" target="_blank" rel="noopener">publishing guide</a> for options.</p>
+            </div>
+          </div>
+          <a href="downloads.html" class="btn btn-outline">Download 8th Wall</a>
+        </div>
+        <div class="local-dev-content">
+          <p class="local-dev-text">You're in Control</p>
+          <p class="local-dev-text">8th Wall is free to use, with no login requirement, and offers complete freedom in how you build! Bring your own source control management, tools, and workflows for maximum flexibility. 8th Wall projects can be deployed and hosted anywhere that matches your needs.</p>
+          <p class="local-dev-text">Have an existing project? View our <a href="https://8th.io/migration" target="_blank" rel="noopener">migration guide</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Involved Section -->
+  <section id="get-involved" class="section">
+    <div class="container">
+      <h2 class="section-title">Get Involved</h2>
+      <p class="section-subtitle">Join the community and help shape the future of 8th Wall.</p>
+      <div class="involve-grid">
+        <div class="involve-card">
+          <div class="involve-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3 class="involve-title">Community</h3>
+          <p class="involve-description">Connect with other developers and get help</p>
+          <ul class="involve-list">
+            <li><a href="https://discord.gg/FtYCNTYeuJ" target="_blank" rel="noopener">Join the Discord</a></li>
+            <li><a href="https://github.com/orgs/8thwall/discussions" target="_blank" rel="noopener">GitHub Discussions</a></li>
+            <li><a href="https://8th.io/blog" target="_blank" rel="noopener">Follow the blog</a></li>
+          </ul>
+        </div>
+        <div class="involve-card">
+          <div class="involve-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h3 class="involve-title">Contribute</h3>
+          <p class="involve-description">Help improve 8th Wall for everyone</p>
+          <ul class="involve-list">
+            <li><a href="https://github.com/8thwall/8thwall" target="_blank" rel="noopener">⭐ Star on GitHub</a></li>
+            <li><a href="https://github.com/8thwall/web/issues" target="_blank" rel="noopener">Report bugs & issues</a></li>
+            <li><a href="https://github.com/8thwall/web/pulls" target="_blank" rel="noopener">Submit pull requests</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">Can I use the XR Engine with other platforms?</summary>
+          <p class="faq-answer">
+            Yes! The XR Engine is designed to work with popular 3D frameworks including A-Frame,
+            Three.js, Babylon.js, and PlayCanvas. You can integrate it into your existing workflow
+            and use it alongside other tools and platforms.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Can I use this for commercial projects?</summary>
+          <p class="faq-answer">
+            Yes. You can use 8th Wall to build commercial AR experiences, branded campaigns, and
+            client projects. The open source components are free to use, and the distributed engine
+            binary permits commercial use as part of a broader application or experience. See the
+            <a href="https://8th.io/license-FAQ" target="_blank" rel="noopener">full FAQ</a> for
+            details on permitted use and licensing.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Can I migrate existing projects?</summary>
+          <p class="faq-answer">
+            If you exported your project before February 28, 2026, you can migrate it to run locally
+            or self-host it. Project export is no longer available. Check the
+            <a href="https://8th.io/migration" target="_blank" rel="noopener">migration guide</a> for
+            instructions, or see the full <a href="https://8th.io/FAQ" target="_blank" rel="noopener">migration FAQ</a> for more details.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Is there a paid tier?</summary>
+          <p class="faq-answer">
+            No. All paid subscriptions ended on February 28, 2026 when the hosted platform was retired.
+            The open source tools and distributed engine binary are free to use.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Do I need an account?</summary>
+          <p class="faq-answer">
+            No account is required. Simply download the tools from GitHub and start building.
+            The hosted platform has been retired, so there's no login or account management needed.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">Is everything fully open source?</summary>
+          <p class="faq-answer">
+            The XR Engine is distributed as a binary — free to use, including
+            for commercial projects under a limited use license.  See the
+            <a href="https://8th.io/license-FAQ" target="_blank" rel="noopener">full FAQ</a> for
+            details on permitted use and licensing.
+            <br><br>8th Wall Desktop is available as an offline download today, with full open source coming soon.
+            <br><br>Everything else, Image Targets, Face Effects, Sky Effects, utilities, and
+            example projects, is fully open source under the MIT License.
+            <br><br>
+            We have more features and tools coming soon! Follow along on GitHub and Discord.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-question">How can I get involved?</summary>
+          <p class="faq-answer">
+            There are many ways to contribute! Join our Discord community, participate in GitHub
+            Discussions, report issues, submit pull requests, or help improve documentation.
+            Check out the <a href="#get-involved">Get Involved</a> section for more details.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download" class="section section-cta">
+    <div class="container">
+      <h2 class="section-title">Ready to Build?</h2>
+      <p class="section-subtitle">Download 8th Wall and start creating AR experiences today.</p>
+      <div class="cta-buttons">
+        <a href="downloads.html" class="btn btn-primary btn-lg">
+          Download
+        </a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <img src="logo.png" alt="8th Wall" width="25" height="25" loading="lazy">
+          </a>
+          <p class="footer-tagline">Build immersive AR and interactive 3D. Free and open.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h2 class="footer-heading">Product</h2>
+            <a href="#available">Features</a>
+            <a href="#getting-started">Getting Started</a>
+            <a href="downloads.html">Download</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div class="footer-column">
+            <h2 class="footer-heading">Resources</h2>
+            <a href="https://8th.io/migration" target="_blank" rel="noopener">Documentation</a>
+            <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Video Tutorials</a>
+            <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://8th.io/examples" target="_blank" rel="noopener">Example Projects</a>
+            <a href="https://8th.io/blog" target="_blank" rel="noopener">Blog</a>
+          </div>
+          <div class="footer-column">
+            <h2 class="footer-heading">Get Involved</h2>
+            <a href="https://8th.io/discord" target="_blank" rel="noopener">Discord</a>
+            <a href="https://github.com/orgs/8thwall/discussions" target="_blank" rel="noopener">Discussions</a>
+            <a href="https://www.instagram.com/8thwall" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.linkedin.com/company/8thwall" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">© 2026 Niantic Spatial, Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+(function() {
+  // Header sticky state and height (for hero alignment with header section)
+  const header = document.querySelector('.header');
+  if (header) {
+    function setHeaderHeight() {
+      document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+    }
+    function updateStuck() {
+      header.classList.toggle('is-stuck', header.getBoundingClientRect().top <= 0);
+    }
+    setHeaderHeight();
+    window.addEventListener('scroll', updateStuck, { passive: true });
+    window.addEventListener('resize', setHeaderHeight);
+    updateStuck();
+  }
+
+  // Logo: scroll to top when on home
+  var logo = document.querySelector('.header .logo');
+  if (logo) {
+    var path = window.location.pathname || '';
+    var isHome = path === '/' || path === '' || path.endsWith('index.html');
+    logo.addEventListener('click', function(e) {
+      if (isHome) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
+})();
+
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var overlay = document.getElementById('nav-overlay');
+  var drawer = document.getElementById('nav-drawer');
+  if (!toggle || !overlay || !drawer) return;
+  function open() {
+    document.body.classList.add('nav-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+    overlay.setAttribute('aria-hidden', 'false');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    document.body.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    overlay.setAttribute('aria-hidden', 'true');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  toggle.addEventListener('click', function() {
+    if (document.body.classList.contains('nav-open')) close(); else open();
+  });
+  overlay.addEventListener('click', close);
+  drawer.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
+})();
+
+(function() {
+  const hero = document.getElementById('hero');
+  const canvas = document.getElementById('hero-canvas');
+  if (!hero || !canvas) return;
+  const ctx = canvas.getContext('2d');
+  const WORD = 'forever';
+  const CELL = 10;
+  const GRAD = [[255,248,6],[173,80,255],[87,191,255]];
+  const RADIUS = CELL * 7;
+  const fsz = CELL * 0.82;
+  const mouse = { x: -9999, y: -9999 };
+  let cells = [];
+
+  function lerpGrad(t) {
+    const s = t * (GRAD.length - 1);
+    const i = Math.min(Math.floor(s), GRAD.length - 2);
+    const f = s - i;
+    const a = GRAD[i], b = GRAD[i+1];
+    return [a[0]+f*(b[0]-a[0]), a[1]+f*(b[1]-a[1]), a[2]+f*(b[2]-a[2])];
+  }
+  function getColor(c, dist) {
+    const base = [153, 92, 214];
+    const grad = lerpGrad(c.idx / Math.max(cells.length, 1));
+    if (c.colorT > 0.01) {
+      return 'rgb('+((base[0]+(grad[0]-base[0])*c.colorT)|0)+','+((base[1]+(grad[1]-base[1])*c.colorT)|0)+','+((base[2]+(grad[2]-base[2])*c.colorT)|0)+')';
+    }
+    if (dist < RADIUS) {
+      const p = Math.pow(1 - dist / RADIUS, 2);
+      return 'rgb('+((153+p*58)|0)+','+((92+p*69)|0)+','+((214+p*40)|0)+')';
+    }
+    return 'hsl(270,60%,60%)';
+  }
+
+  function buildShape() {
+    const W = Math.max(canvas.offsetWidth, 100);
+    const H = Math.max(canvas.offsetHeight, 100);
+    canvas.width = W;
+    canvas.height = H;
+    const cx = W / 2, cy = H / 2;
+    const isSmall = W <= 768;
+    // On small screens: larger 8 so content fills more space; otherwise more negative space
+    const shapeScale = isSmall ? 1.05 : 0.85;
+    const heightDiv = isSmall ? 2.6 : 3.2;
+    const widthFactor = isSmall ? 0.3 : 0.22;
+    const R = Math.min(H / heightDiv, W * widthFactor) * shapeScale;
+    const T = R * 0.56;
+    const r = R - T;
+    const SY = 0.9;
+    const offset = (2 * R - T) * SY;
+
+    const off = document.createElement('canvas');
+    off.width = W; off.height = H;
+    const octx = off.getContext('2d');
+    function hexPoints(radius, centerY) {
+      return Array.from({ length: 6 }, (_, i) => {
+        const a = -Math.PI / 2 + (i * Math.PI * 2) / 6;
+        return [cx + radius * Math.cos(a), centerY + radius * Math.sin(a) * SY];
+      });
+    }
+    function roundedPoly(c2, pts, rad) {
+      const n = pts.length;
+      c2.moveTo((pts[0][0]+pts[1][0])/2, (pts[0][1]+pts[1][1])/2);
+      for (let i = 0; i < n; i++) {
+        const [x1,y1] = pts[(i+1)%n], [x2,y2] = pts[(i+2)%n];
+        c2.arcTo(x1, y1, (x1+x2)/2, (y1+y2)/2, rad);
+        c2.lineTo((x1+x2)/2, (y1+y2)/2);
+      }
+      c2.closePath();
+    }
+    function drawHex(centerY) {
+      octx.beginPath();
+      roundedPoly(octx, hexPoints(R, centerY), R * 0.1);
+      roundedPoly(octx, hexPoints(r, centerY), R * 0.1);
+      octx.fillStyle = '#fff';
+      octx.fill('evenodd');
+    }
+    drawHex(cy - offset / 2);
+    drawHex(cy + offset / 2);
+
+    const imgData = octx.getImageData(0, 0, W, H).data;
+    const litRows = new Set();
+    for (let row = 0; row < H; row += CELL) {
+      for (let col = 0; col < W; col += CELL) {
+        const px = col+CELL/2|0, py = row+CELL/2|0;
+        if (imgData[(py*W+px)*4] > 100) { litRows.add(row); break; }
+      }
+    }
+    const trimmedRows = new Set([...litRows].sort((a,b)=>a-b).slice(1,-1));
+    cells = [];
+    let li = 0;
+    for (let row = 0; row < H; row += CELL) {
+      if (!trimmedRows.has(row)) continue;
+      for (let col = 0; col < W; col += CELL) {
+        const px = col+CELL/2|0, py = row+CELL/2|0;
+        if (imgData[(py*W+px)*4] > 100) {
+          cells.push({ bx:px, by:py, x:px, y:py, char:WORD[li%WORD.length], idx:li++, vx:0, vy:0, glitch:0, cooldown:0, colorT:0 });
+        }
+      }
+    }
+  }
+
+  function scatter() {
+    cells.forEach(c => {
+      const a = Math.random() * Math.PI * 2;
+      const spd = 6 + Math.random() * 14;
+      c.vx = Math.cos(a) * spd; c.vy = Math.sin(a) * spd;
+      c.glitch = 240; c.cooldown = 230;
+    });
+  }
+  function setMouse(e) {
+    const rb = canvas.getBoundingClientRect();
+    const src = e.touches ? e.touches[0] : e;
+    mouse.x = (src.clientX - rb.left) * (canvas.width / rb.width);
+    mouse.y = (src.clientY - rb.top) * (canvas.height / rb.height);
+  }
+
+  hero.addEventListener('mousemove', setMouse);
+  hero.addEventListener('touchmove', function(e) { setMouse(e); }, { passive: false });
+  hero.addEventListener('click', scatter);
+  hero.addEventListener('touchstart', function(e) { setMouse(e); scatter(); }, { passive: false });
+  window.addEventListener('resize', buildShape);
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.font = 'bold ' + fsz + 'px monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (const c of cells) {
+      if (c.glitch > 0) {
+        c.colorT = Math.min(1, c.colorT + 0.06);
+        c.vx *= 0.98; c.vy *= 0.98;
+        c.x += c.vx; c.y += c.vy;
+        c.glitch--;
+        if (c.cooldown > 0) c.cooldown--;
+      } else if (c.cooldown > 0 || Math.hypot(c.bx-c.x, c.by-c.y) > 100) {
+        c.colorT = Math.max(0, c.colorT - 0.008);
+        c.x += (c.bx-c.x)*0.003; c.y += (c.by-c.y)*0.003;
+        if (c.cooldown > 0) c.cooldown--;
+      } else {
+        c.colorT = Math.max(0, c.colorT - 0.02);
+        const dx = c.bx-mouse.x, dy = c.by-mouse.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < RADIUS && dist > 0) {
+          const force = Math.pow(1-dist/RADIUS,2)*CELL*4;
+          c.x += (c.bx+(dx/dist)*force-c.x)*0.18;
+          c.y += (c.by+(dy/dist)*force-c.y)*0.18;
+        } else {
+          c.x += (c.bx-c.x)*0.005;
+          c.y += (c.by-c.y)*0.005;
+        }
+      }
+      const dist = Math.hypot(c.bx-mouse.x, c.by-mouse.y);
+      ctx.shadowBlur = (c.colorT < 0.01 && dist < RADIUS) ? 9*(1-dist/RADIUS) : 0;
+      ctx.shadowColor = '#a855f7';
+      ctx.fillStyle = getColor(c, dist);
+      ctx.fillText(c.char, c.x, c.y);
+    }
+    requestAnimationFrame(draw);
+  }
+
+  setTimeout(function() { buildShape(); draw(); }, 50);
+})();
+  </script>
+</body>
+
+</html>
