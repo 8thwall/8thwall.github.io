@@ -450,9 +450,14 @@
   const CELL = 10;
   const GRAD = [[255,248,6],[173,80,255],[87,191,255]];
   const RADIUS = CELL * 7;
+  const SHAPE_HIT_RADIUS = CELL * 2.5;
+  const RESIZE_THRESHOLD = 80;
+  const REFORM_THRESHOLD = 3;
+  const REFORMED_RATIO_UNLOCK = 0.9;
   const fsz = CELL * 0.82;
   const mouse = { x: -9999, y: -9999 };
   let cells = [];
+  var lastCanvasW = 0, lastCanvasH = 0;
 
   function lerpGrad(t) {
     const s = t * (GRAD.length - 1);
@@ -542,6 +547,21 @@
     }
   }
 
+  function isPointOverShape(px, py) {
+    for (var i = 0; i < cells.length; i++) {
+      if (Math.hypot(cells[i].bx - px, cells[i].by - py) <= SHAPE_HIT_RADIUS) return true;
+    }
+    return false;
+  }
+  function getReformedRatio() {
+    if (!cells.length) return 1;
+    var n = 0;
+    for (var i = 0; i < cells.length; i++) {
+      var c = cells[i];
+      if (Math.hypot(c.bx - c.x, c.by - c.y) < REFORM_THRESHOLD) n++;
+    }
+    return n / cells.length;
+  }
   function scatter() {
     cells.forEach(c => {
       const a = Math.random() * Math.PI * 2;
@@ -558,10 +578,27 @@
   }
 
   hero.addEventListener('mousemove', setMouse);
-  hero.addEventListener('touchmove', function(e) { setMouse(e); }, { passive: false });
+  hero.addEventListener('touchmove', function(e) {
+    setMouse(e);
+    if (e.touches.length && isPointOverShape(mouse.x, mouse.y)) e.preventDefault();
+  }, { passive: false });
   hero.addEventListener('click', scatter);
-  hero.addEventListener('touchstart', function(e) { setMouse(e); scatter(); }, { passive: false });
-  window.addEventListener('resize', buildShape);
+  hero.addEventListener('touchstart', function(e) {
+    setMouse(e);
+    if (e.touches.length && isPointOverShape(mouse.x, mouse.y)) {
+      e.preventDefault();
+      if (getReformedRatio() >= REFORMED_RATIO_UNLOCK) scatter();
+    }
+  }, { passive: false });
+  window.addEventListener('resize', function() {
+    var W = Math.max(canvas.offsetWidth, 100);
+    var H = Math.max(canvas.offsetHeight, 100);
+    if (Math.abs(W - lastCanvasW) > RESIZE_THRESHOLD || Math.abs(H - lastCanvasH) > RESIZE_THRESHOLD) {
+      lastCanvasW = W;
+      lastCanvasH = H;
+      buildShape();
+    }
+  });
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -577,7 +614,7 @@
         if (c.cooldown > 0) c.cooldown--;
       } else if (c.cooldown > 0 || Math.hypot(c.bx-c.x, c.by-c.y) > 100) {
         c.colorT = Math.max(0, c.colorT - 0.008);
-        c.x += (c.bx-c.x)*0.003; c.y += (c.by-c.y)*0.003;
+        c.x += (c.bx-c.x)*0.0054; c.y += (c.by-c.y)*0.0054;
         if (c.cooldown > 0) c.cooldown--;
       } else {
         c.colorT = Math.max(0, c.colorT - 0.02);
@@ -588,8 +625,8 @@
           c.x += (c.bx+(dx/dist)*force-c.x)*0.18;
           c.y += (c.by+(dy/dist)*force-c.y)*0.18;
         } else {
-          c.x += (c.bx-c.x)*0.005;
-          c.y += (c.by-c.y)*0.005;
+          c.x += (c.bx-c.x)*0.009;
+          c.y += (c.by-c.y)*0.009;
         }
       }
       const dist = Math.hypot(c.bx-mouse.x, c.by-mouse.y);
@@ -601,7 +638,12 @@
     requestAnimationFrame(draw);
   }
 
-  setTimeout(function() { buildShape(); draw(); }, 50);
+  setTimeout(function() {
+    buildShape();
+    lastCanvasW = canvas.width;
+    lastCanvasH = canvas.height;
+    draw();
+  }, 50);
 })();
   </script>
 </body>
