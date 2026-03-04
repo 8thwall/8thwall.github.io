@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - 8th Wall</title>
+  <meta name="robots" content="noindex">
+  <script>
+    // Smart redirect logic for 404 pages
+    (function() {
+      const path = window.location.pathname;
+      const redirects = {
+        // Exact path redirects
+        '/old-path': '/',
+        '/docs': '/',
+        '/api': '/',
+        // Pattern-based redirects
+        '/blog/': '/',
+        '/downloads/': '/downloads.html'
+      };
+
+      // Check for exact matches
+      if (redirects[path]) {
+        window.location.replace(redirects[path]);
+        return;
+      }
+
+      // Check for pattern matches
+      for (const [pattern, target] of Object.entries(redirects)) {
+        if (pattern.endsWith('/') && path.startsWith(pattern)) {
+          window.location.replace(target);
+          return;
+        }
+      }
+
+      // If no redirect found, show 404 message after a short delay
+      setTimeout(() => {
+        document.body.style.display = 'block';
+      }, 500);
+    })();
+  </script>
+  <style>
+    body {
+      display: none; /* Hide initially to prevent flash of content */
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { color: #333; }
+    p { color: #666; line-height: 1.5; }
+    a { color: #007bff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>Page Not Found</h1>
+  <p>The page you're looking for doesn't exist or has been moved.</p>
+  <p><a href="/">Return to the homepage</a></p>
+</body>
+</html>
