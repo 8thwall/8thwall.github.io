@@ -4,6 +4,20 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import HeroCanvas from '@site/src/components/HeroCanvas';
 
+const REDIRECTS = {
+  'tutorials': 'https://youtube.com/@8thwall',
+}
+
+const REDIRECT_SCRIPT = `
+const sitePath = new URLSearchParams(window.location.search).get('site_path');
+const redirects = ${JSON.stringify(REDIRECTS)};
+if (sitePath && redirects[sitePath]) {
+  window.location.replace(redirects[sitePath]);
+  document.pause();
+}
+`
+
+
 export default function Home() {
   return (
     <Layout title="Open Source AR & 3D" description="Build immersive AR and interactive 3D experiences. Free and open source.">
@@ -12,6 +26,7 @@ export default function Home() {
         <meta property="og:title" content="8th Wall - Open Source AR & 3D" />
         <meta name="twitter:title" content="8th Wall - Open Source AR & 3D" />
         <meta name="twitter:description" content="Build immersive AR and interactive 3D experiences. Free and open source." />
+        <script type="module">{REDIRECT_SCRIPT}</script>
       </Head>
       <section className="hero" id="hero">
         <HeroCanvas />
