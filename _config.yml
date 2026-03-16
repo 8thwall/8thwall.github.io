@@ -1,0 +1,11 @@
+# Jekyll configuration for GitHub Pages
+plugins:
+  - jekyll-redirect-from
+
+# GitHub Pages safe whitelist
+whitelist:
+  - jekyll-redirect-from
+
+# Enable redirects
+redirect_from:
+  enable: true
