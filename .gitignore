@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Docusaurus build output and cache
+build/
+.docusaurus/
+
+# Claude Code local config (plans, memory, worktrees)
+.claude/
+
+# System files
+.DS_Store
