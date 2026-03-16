@@ -26,7 +26,7 @@ Output is in `build/`. To preview: `npm run serve`.
 - **Docs** (`/docs`) – Docusaurus docs (placeholder in `docs/` for future content)
 - **Blog** (`/blog`) – Docusaurus blog (folder ready for future posts)
 
-Static assets (logo, favicon, images) live in `static/`. Custom styles are in `src/css/custom.css`. The original static `index.html` and `downloads.html` remain in the repo for reference; the live site is served from the Docusaurus build.
+Static assets (logo, favicon, images) live in `static/`. Custom styles are in `src/css/custom.css`.
 
 ## Mobile Testing
 
@@ -47,6 +47,9 @@ Then open `http://<your-local-ip>:3000` on your phone. Make sure both devices ar
 
 ## Deployment
 
-Merging to `main` triggers `.github/workflows/deploy.yml`, which builds the site and pushes the output to the `gh-pages` branch. GitHub Pages serves from `gh-pages`, so the static `index.html` and `downloads.html` in the repo root are never served on the live site.
+Two workflows handle CI/CD:
 
-**First-time setup:** After the first merge, go to **Settings → Pages** in the GitHub repo and set the source to the `gh-pages` branch.
+- **`deploy.yml`** — triggers on merge to `main`. Builds the site and deploys via GitHub's native Pages deployment.
+- **`test-deploy.yml`** — triggers on pull requests to `main`. Runs a build to catch errors before merge.
+
+**First-time setup:** Go to **Settings → Pages** and set the source to **GitHub Actions**.
