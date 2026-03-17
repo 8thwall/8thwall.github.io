@@ -13,7 +13,6 @@ const sitePath = new URLSearchParams(window.location.search).get('site_path');
 const redirects = ${JSON.stringify(REDIRECTS)};
 if (sitePath && redirects[sitePath]) {
   window.location.replace(redirects[sitePath]);
-  document.pause();
 }
 `
 
