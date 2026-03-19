@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## Description {#description}
 
-This event is emitted in response to the [`xr:screenshotrequest`](/api/playcanvaseventlisteners/xrscreenshotrequest) resulting in an error.
+This event is emitted in response to the [`xr:screenshotrequest`](/docs/engine/api/playcanvaseventlisteners/xrscreenshotrequest) resulting in an error.
 
 ## Example {#example}
 

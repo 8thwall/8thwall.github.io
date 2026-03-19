@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted in response to the [`screenshotrequest`](/api/aframeeventlisenters/screenshotrequest) resulting in an error.
+This event is emitted in response to the [`screenshotrequest`](/docs/engine/api/aframeeventlisenters/screenshotrequest) resulting in an error.
 
 ## Example {#example}
 

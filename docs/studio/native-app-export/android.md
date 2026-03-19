@@ -7,7 +7,7 @@ description: This section explains how to export to Android.
 
 ## Exporting to Android
 
-1. **Open your Studio project**. Ensure the project meets the [requirement criteria](/studio/native-app-export/#requirements).
+1. **Open your Studio project**. Ensure the project meets the [requirement criteria](/docs/studio/native-app-export/#requirements).
 
 2. Click **Publish**. Under **Export**, select **Android**.
 

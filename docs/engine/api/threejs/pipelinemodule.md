@@ -7,15 +7,15 @@ sidebar_label: pipelineModule()
 
 ## Description {#description}
 
-A pipeline module that interfaces with the three.js environment and lifecyle. The three.js scene can be queried using [`XR8.Threejs.xrScene()`](xrscene.md) after [`XR8.Threejs.pipelineModule()`](pipelinemodule.md)'s [`onStart`](/api/camerapipelinemodule/onstart) method is called. Setup can be done in another pipeline module's [`onStart`](/api/camerapipelinemodule/onstart) method by referring to [`XR8.Threejs.xrScene()`](xrscene.md) as long as [`XR8.addCameraPipelineModule()`](/api/xr8/addcamerapipelinemodule) is called on the second module *after* calling `XR8.addCameraPipelineModule(XR8.Threejs.pipelineModule())`.
+A pipeline module that interfaces with the three.js environment and lifecyle. The three.js scene can be queried using [`XR8.Threejs.xrScene()`](xrscene.md) after [`XR8.Threejs.pipelineModule()`](pipelinemodule.md)'s [`onStart`](/docs/engine/api/camerapipelinemodule/onstart) method is called. Setup can be done in another pipeline module's [`onStart`](/docs/engine/api/camerapipelinemodule/onstart) method by referring to [`XR8.Threejs.xrScene()`](xrscene.md) as long as [`XR8.addCameraPipelineModule()`](/docs/engine/api/xr8/addcamerapipelinemodule) is called on the second module *after* calling `XR8.addCameraPipelineModule(XR8.Threejs.pipelineModule())`.
 
-* [`onStart`](/api/camerapipelinemodule/onstart), a three.js renderer and scene are created and configured to draw over a camera feed.
-* [`onUpdate`](/api/camerapipelinemodule/onupdate), the three.js camera is driven with the phone's motion.
-* [`onRender`](/api/camerapipelinemodule/onrender), the renderer's `render()` method is invoked.
+* [`onStart`](/docs/engine/api/camerapipelinemodule/onstart), a three.js renderer and scene are created and configured to draw over a camera feed.
+* [`onUpdate`](/docs/engine/api/camerapipelinemodule/onupdate), the three.js camera is driven with the phone's motion.
+* [`onRender`](/docs/engine/api/camerapipelinemodule/onrender), the renderer's `render()` method is invoked.
 
 Note that this module does not actually draw the camera feed to the canvas, GlTextureRenderer does
 that. To add a camera feed in the background, install the
-[`XR8.GlTextureRenderer.pipelineModule()`](/api/gltexturerenderer/pipelinemodule) before installing this
+[`XR8.GlTextureRenderer.pipelineModule()`](/docs/engine/api/gltexturerenderer/pipelinemodule) before installing this
 module (so that it is rendered before the scene is drawn).
 
 ## Parameters {#parameters}
@@ -24,7 +24,7 @@ None
 
 ## Returns {#returns}
 
-A three.js pipeline module that can be added via [`XR8.addCameraPipelineModule()`](/api/xr8/addcamerapipelinemodule).
+A three.js pipeline module that can be added via [`XR8.addCameraPipelineModule()`](/docs/engine/api/xr8/addcamerapipelinemodule).
 
 ## Example {#example}
 

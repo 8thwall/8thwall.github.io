@@ -4,7 +4,7 @@
 
 There are three types of Cameras in Studio: 3D only, Face, and World. Each of these camera types
 will have different settings. A Face or World Camera is necessary for AR experiences. To learn more
-about creating and managing a Camera in your scene please see the [Camera](/studio/guides/camera)
+about creating and managing a Camera in your scene please see the [Camera](/docs/studio/guides/camera)
 section.
 
 Studio provides tooling for working with XR in your project. For working with World Effects, Studio
@@ -25,4 +25,4 @@ the face anchor is placed in front of the face camera as seen in the screenshot 
 
 ## XR API Reference {#xr-api-reference}
 
-Please refer to the [Camera](/studio/api/ecs/camera) component APIs that define camera behavior.
+Please refer to the [Camera](/docs/studio/api/ecs/camera) component APIs that define camera behavior.

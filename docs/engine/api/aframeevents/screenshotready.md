@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted in response to the [`screenshotrequest`](/api/aframeeventlisenters/screenshotrequest) event being being completed successfully. The JPEG compressed image of the AFrame canvas will be provided.
+This event is emitted in response to the [`screenshotrequest`](/docs/engine/api/aframeeventlisenters/screenshotrequest) event being being completed successfully. The JPEG compressed image of the AFrame canvas will be provided.
 
 ## Example {#example}
 

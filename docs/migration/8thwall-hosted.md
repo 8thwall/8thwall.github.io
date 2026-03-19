@@ -41,12 +41,12 @@ For Studio projects, the scene graph is stored in a file called `.expanse.json` 
 
 ## Development
 
-If your project was built with Studio, open the project in the [8th Wall Desktop App](/studio/getting-started/installation/). With the 8th Wall Desktop App, you can seamlessly continue development and test across desktop and mobile devices without any additional steps.
+If your project was built with Studio, open the project in the [8th Wall Desktop App](/docs/studio/getting-started/installation/). With the 8th Wall Desktop App, you can seamlessly continue development and test across desktop and mobile devices without any additional steps.
 
 If your project was built with a web 3D framework such as A-Frame or three.js, you can continue developing using an IDE of your choice and follow the steps below to test the project in realtime on desktop and mobile devices.
 
 :::warning[Important]
-Be sure to make [required project updates](/migration/project-updates.md) and review updated documentation on [publishing your project](/engine/getting-started/publishing).
+Be sure to make [required project updates](/docs/migration/project-updates.md) and review updated documentation on [publishing your project](/docs/engine/getting-started/publishing).
 :::
 
 ### Test on Desktop

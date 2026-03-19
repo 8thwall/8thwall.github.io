@@ -17,7 +17,7 @@ Parameter | Description
 status | One of [ `'requesting'`, `'hasStream'`, `'hasVideo'`, `'failed'` ]
 stream: [Optional] | The [`MediaStream`](https://developer.mozilla.org/en-US/docs/Web/API/MediaStream) associated with the camera feed, if status is `'hasStream'`.
 video: [Optional] | The video DOM element displaying the stream, if status is hasVideo.
-config | The configuration parameters that were passed to [`XR8.run()`](/api/xr8/run), if status is `'requesting'`.
+config | The configuration parameters that were passed to [`XR8.run()`](/docs/engine/api/xr8/run), if status is `'requesting'`.
 
 The `status` parameter has the following states:
 

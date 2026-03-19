@@ -8,11 +8,11 @@ You can listen for these events in your web application.
 
 Event Emitted | Description
 ------------- | -----------
-[xr:camerastatuschange](xrcamerastatuschange.md) | This event is emitted when the status of the camera changes. See [`onCameraStatusChange`](/api/camerapipelinemodule/oncamerastatuschange) from [`XR8.addCameraPipelineModule()`](/api/xr8/addcamerapipelinemodule) for more information on the possible status.
-[xr:realityerror](xrrealityerror.md) | This event is emitted when an error has occured when initializing 8th Wall Web. This is the recommended time at which any error messages should be displayed. The [`XR8.XrDevice()` API](/api/xrdevice) can help with determining what type of error messaging should be displayed.
+[xr:camerastatuschange](xrcamerastatuschange.md) | This event is emitted when the status of the camera changes. See [`onCameraStatusChange`](/docs/engine/api/camerapipelinemodule/oncamerastatuschange) from [`XR8.addCameraPipelineModule()`](/docs/engine/api/xr8/addcamerapipelinemodule) for more information on the possible status.
+[xr:realityerror](xrrealityerror.md) | This event is emitted when an error has occured when initializing 8th Wall Web. This is the recommended time at which any error messages should be displayed. The [`XR8.XrDevice()` API](/docs/engine/api/xrdevice) can help with determining what type of error messaging should be displayed.
 [xr:realityready](xrrealityready.md) | This event is emitted when 8th Wall Web has initialized and at least one frame has been successfully processed. This is the recommended time at which any loading elements should be hidden.
-[xr:screenshoterror](xrscreenshoterror.md) | This event is emitted in response to the [`screenshotrequest`](/api/aframeeventlisenters/screenshotrequest) resulting in an error.
-[xr:screenshotready](xrscreenshotready.md) | This event is emitted in response to the [`screenshotrequest`](/api/aframeeventlisenters/screenshotrequest) event being being completed successfully. The JPEG compressed image of the AFrame canvas will be provided.
+[xr:screenshoterror](xrscreenshoterror.md) | This event is emitted in response to the [`screenshotrequest`](/docs/engine/api/aframeeventlisenters/screenshotrequest) resulting in an error.
+[xr:screenshotready](xrscreenshotready.md) | This event is emitted in response to the [`screenshotrequest`](/docs/engine/api/aframeeventlisenters/screenshotrequest) event being being completed successfully. The JPEG compressed image of the AFrame canvas will be provided.
 
 ## XR8.XrController Events Emitted {#xrcontroller-events-emitted}
 

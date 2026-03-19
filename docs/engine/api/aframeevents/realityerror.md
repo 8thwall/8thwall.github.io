@@ -3,7 +3,7 @@
 ## Description {#description}
 
 This event is emitted when an error has occured when initializing 8th Wall Web. This is the
-recommended time at which any error messages should be displayed. The [`XR8.XrDevice()` API](/api/xrdevice)
+recommended time at which any error messages should be displayed. The [`XR8.XrDevice()` API](/docs/engine/api/xrdevice)
 can help with determining what type of error messaging should be displayed.
 
 ## Example {#example}

@@ -13,7 +13,7 @@ Returns an array of [`XR8.XrDevice.IncompatibilityReasons`](incompatibilityreaso
 
 Parameter | Description
 --------- | -----------
-allowedDevices [Optional] | Supported device classes, a value in [`XR8.XrConfig.device()`](/api/xrconfig/device).
+allowedDevices [Optional] | Supported device classes, a value in [`XR8.XrConfig.device()`](/docs/engine/api/xrconfig/device).
 
 ## Returns {#returns}
 

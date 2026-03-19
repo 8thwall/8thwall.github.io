@@ -9,7 +9,7 @@ sidebar_label: runPreRender()
 
 Executes all lifecycle updates that should happen before rendering.
 
-**IMPORTANT**: Make sure that [`onStart`](/api/camerapipelinemodule/onstart) has been called before calling `XR8.runPreRender()` / `XR8.runPostRender()`.
+**IMPORTANT**: Make sure that [`onStart`](/docs/engine/api/camerapipelinemodule/onstart) has been called before calling `XR8.runPreRender()` / `XR8.runPostRender()`.
 
 ## Parameters {#parameters}
 

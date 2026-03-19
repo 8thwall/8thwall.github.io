@@ -4,7 +4,7 @@
 
 ## Description {#description}
 
-`onResume()` is called when [`XR8.resume()`](/api/xr8/resume) is called.
+`onResume()` is called when [`XR8.resume()`](/docs/engine/api/xr8/resume) is called.
 
 ## Parameters {#parameters}
 

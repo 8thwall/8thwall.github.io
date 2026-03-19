@@ -40,12 +40,12 @@ Web](/docs/engine/guides/your-3d-models-on-the-web/).
 ### Prefabs {#prefabs}
 
 Create reusable, customizable game templates that streamline and scale your development.
-[Learn more about Prefabs](/studio/guides/prefabs/).
+[Learn more about Prefabs](/docs/studio/guides/prefabs/).
 
 ### Targets {#targets}
 
 Upload and manage project Image Targets.
-[Learn more about Image Targets](/studio/guides/xr/image-targets/).
+[Learn more about Image Targets](/docs/studio/guides/xr/image-targets/).
 
 ## Viewport {#viewport}
 
@@ -97,7 +97,7 @@ like:
 ## Publish Button {#publish-button}
 
 The final step is to publish your project. To learn more about publishing a project for public viewing please see the
-[Publish your project](/studio/getting-started/publish) section.
+[Publish your project](/docs/studio/getting-started/publishing) section.
 
 ## Settings & Inspector {#settings-inspector}
 
@@ -113,7 +113,7 @@ When **no entity is selected** you will see general settings for your project.
 
 Style your Space with settings like Skybox and Fog. Skyboxes are a wrapper around your entire scene that shows what the world
 looks like beyond your geometry. If your project is configured to use AR on an AR-compatible device,
-(see [XR](/studio/guides/xr/world/)) the Skybox will not be rendered.
+(see [XR](/docs/studio/guides/xr/world/)) the Skybox will not be rendered.
 
 #### Project Settings {#project-settings}
 
@@ -121,7 +121,7 @@ If you have multiple Spaces, select which one is the entry space.
 
 Use the Input Manager to set up experiences that work across different devices inputs like
 keyboards, gamepad controls, trackpads, and touch screen actions. Create your event action and set
-up a mapping (or binding) to different inputs. [Learn more the Input system](/studio/guides/input)
+up a mapping (or binding) to different inputs. [Learn more the Input system](/docs/studio/guides/input)
 
 #### Project Version {#project-version}
 
@@ -140,7 +140,7 @@ Choose from different usability settings like light/dark modes, keybindings, and
 
 ### Inspector {#inspector}
 
-Inspect and configure an entity and its components. Learn more about entities and components in [Overview](/studio/essentials/overview/).
+Inspect and configure an entity and its components. Learn more about entities and components in [Overview](/docs/studio/essentials/overview/).
 
 By default every entity displays a Transform component in the Inspector. Different types of entities
 may display different components, for example a Primitive will display a Mesh component with
@@ -150,7 +150,7 @@ configurable options like geometry shape settings, materials, textures, etc.
 
 You can add a component using the "+ New Component" button. There are several types of built-in
 components in Studio, including Physics, Lighting, Audio, Animations, and more. Custom components
-can also be added - [Learn more about Custom Components](/studio/essentials/custom-components/). Once set up, your custom component
+can also be added - [Learn more about Custom Components](/docs/studio/essentials/custom-components/). Once set up, your custom component
 will
 appear in the Custom category. Click the three dots to remove a component.
 

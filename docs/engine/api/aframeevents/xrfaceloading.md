@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted by [`xrface`](/api/aframe/#face-effects) when when loading begins for additional face AR resources.
+This event is emitted by [`xrface`](/docs/engine/api/aframe/xrface) when when loading begins for additional face AR resources.
 
 `xrfaceloading.detail : {maxDetections, pointsPerDetection, indices, uvs}`
 

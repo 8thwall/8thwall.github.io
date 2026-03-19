@@ -32,4 +32,4 @@ stream | The [`MediaStream`](https://developer.mozilla.org/en-US/docs/Web/API/Me
 video | The video dom element displaying the stream.
 version [Optional] | The engine version, e.g. 14.0.8.949, if app resources are loaded.
 imageTargets [Optional] | An array of image targets with the fields `{imagePath, metadata, name}`
-config | The configuration parameters that were passed to [`XR8.run()`](/api/xr8/run).
+config | The configuration parameters that were passed to [`XR8.run()`](/docs/engine/api/xr8/run).

@@ -6,6 +6,6 @@ The 8th Wall Engine powers AR experiences that work in the browser across all de
 - **Face Effects**: Try on accessories, face filters and more with Face Effects
 - **Sky Effects**: Use the sky as a canvas to create immersive, interactive experiences
 
-The 8th Wall engine is an API that can be integrated into various web 3D frameworks, and is built-in to [8th Wall Studio](/studio).
+The 8th Wall engine is an API that can be integrated into various web 3D frameworks, and is built-in to [8th Wall Studio](/docs/studio).
 
 ![](/images/engine/getting-started/getting-started.png)

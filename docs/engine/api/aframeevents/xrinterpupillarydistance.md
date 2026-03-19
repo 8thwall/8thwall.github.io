@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted by [`xrface`](/api/aframe/#face-effects) when a tracked face's distance in millimeters between the centers of each pupil is first detected.
+This event is emitted by [`xrface`](/docs/engine/api/aframe/xrface) when a tracked face's distance in millimeters between the centers of each pupil is first detected.
 
 `xrinterpupillarydistance.detail : {id}`
 

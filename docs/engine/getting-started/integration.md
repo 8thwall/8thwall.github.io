@@ -22,14 +22,14 @@ If this is your first time working with 8th Wall, we strongly recommend starting
 ```
 <script async src="./path/to/xr.js"></script>
 ```
-4. Add the [`xrconfig`](/engine/api/aframe/xrconfig/) component to your `<a-scene>`
+4. Add the [`xrconfig`](/docs/engine/api/aframe/xrconfig/) component to your `<a-scene>`
 5. Depending on the type of experience you want to develop, add one of the following components to your `<a-scene>`:
-* **World Tracking & Image Targets**: [`xrweb`](/engine/api/aframe/xrweb/)
-* **Face Effects**: [`xrface`](/engine/api/aframe/xrface/)
-* **Sky Effects**: [`xrlayers`](/engine/api/aframe/xrlayers/)
+* **World Tracking & Image Targets**: [`xrweb`](/docs/engine/api/aframe/xrweb/)
+* **Face Effects**: [`xrface`](/docs/engine/api/aframe/xrface/)
+* **Sky Effects**: [`xrlayers`](/docs/engine/api/aframe/xrlayers/)
 
 :::note
-See documentation on [A-Frame Components](/engine/api/aframe/), [A-Frame Events](/engine/api/aframeevents/) and [A-Frame Event Listeners](/engine/api/aframeeventlisenters/) provided by the 8th Wall Engine.
+See documentation on [A-Frame Components](/docs/engine/api/aframe/), [A-Frame Events](/docs/engine/api/aframeevents/) and [A-Frame Event Listeners](/docs/engine/api/aframeeventlisenters/) provided by the 8th Wall Engine.
 :::
 
 ## Integrating 8th Wall with three.js {#threejs}

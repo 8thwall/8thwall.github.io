@@ -13,7 +13,7 @@ Returns extra details about the reasons why the device and browser are incompati
 
 Parameter | Description
 --------- | -----------
-allowedDevices [Optional] | Supported device classes, a value in [`XR8.XrConfig.device()`](/api/xrconfig/device).
+allowedDevices [Optional] | Supported device classes, a value in [`XR8.XrConfig.device()`](/docs/engine/api/xrconfig/device).
 
 ## Returns {#returns}
 

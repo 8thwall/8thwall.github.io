@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted by [`xrweb`](/api/aframe/#world-tracking-image-targets) when all detection images have been loaded and scanning has begun.
+This event is emitted by [`xrweb`](/docs/engine/api/aframe/xrweb) when all detection images have been loaded and scanning has begun.
 
 `imagescanning.detail : { imageTargets: {name, type, metadata, geometry} }`
 

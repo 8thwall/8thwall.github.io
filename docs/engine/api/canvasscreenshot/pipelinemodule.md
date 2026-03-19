@@ -15,7 +15,7 @@ None
 
 ## Returns {#returns}
 
-A CanvasScreenshot pipeline module that can be added via [XR8.addCameraPipelineModule()](/api/xr8/addcamerapipelinemodule).
+A CanvasScreenshot pipeline module that can be added via [XR8.addCameraPipelineModule()](/docs/engine/api/xr8/addcamerapipelinemodule).
 
 ## Example {#example}
 

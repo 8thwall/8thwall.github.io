@@ -19,7 +19,7 @@ videoWidth | The width of the camera feed, in pixels.
 videoHeight | The height of the camera feed, in pixels.
 canvasWidth | The width of the `GLctx` canvas, in pixels.
 canvasHeight | The height of the `GLctx` canvas, in pixels.
-config | The configuration parameters that were passed to [`XR8.run()`](/api/xr8/run).
+config | The configuration parameters that were passed to [`XR8.run()`](/docs/engine/api/xr8/run).
 
 ## Example {#example}
 

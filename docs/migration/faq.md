@@ -45,7 +45,7 @@ Hosted projects will remain live through **February 28, 2027**, but they will be
 ## Exporting Your Projects
 
 ### Can I download my projects and assets?
-Yes. You can export your projects **before February 28, 2026**. [Documentation on how to export your 8th Wall-hosted projects](/migration/8thwall-hosted) has been provided to help you archive or migrate your work.
+Yes. You can export your projects **before February 28, 2026**. [Documentation on how to export your 8th Wall-hosted projects](/docs/migration/8thwall-hosted) has been provided to help you archive or migrate your work.
 
 ### What’s the difference between Code Export and Buildable Code Export?
 **Code Export** provides a snapshot of your project code and assets for reference and backup.
@@ -85,7 +85,7 @@ Projects that are live on that date will continue to run as-is until February 28
 ### Do I need to export with Buildable Code Export if I have a self-hosted project?
 No. Existing self-hosted projects will continue to work without changes until February 28, 2027.
 
-If your project is not cloud-dependent (does not use VPS, Maps, Hand Tracking, or Modules) and you want to migrate to the open-source engine to keep your project live beyond February 28, 2027, follow the [self-hosted project migration guide](/migration/self-hosted).
+If your project is not cloud-dependent (does not use VPS, Maps, Hand Tracking, or Modules) and you want to migrate to the open-source engine to keep your project live beyond February 28, 2027, follow the [self-hosted project migration guide](/docs/migration/self-hosted).
 
 ### If I use the 8th Wall Desktop App, do I still need to export my project?
 You still must export your project before February 28, 2026 in order to continue developing or self-hosting it. You can export your project directly from the Desktop App or from 8thwall.com.

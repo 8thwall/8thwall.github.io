@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted by [`xrweb`](/api/aframe/#world-tracking-image-targets) when an image target changes position, rotation or scale.
+This event is emitted by [`xrweb`](/docs/engine/api/aframe/xrweb) when an image target changes position, rotation or scale.
 
 `imageupdated.detail : { name, type, position, rotation, scale, scaledWidth, scaledHeight, height, radiusTop, radiusBottom, arcStartRadians, arcLengthRadians }`
 

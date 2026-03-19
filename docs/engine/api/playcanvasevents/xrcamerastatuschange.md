@@ -6,8 +6,8 @@ sidebar_position: 1
 ## Description {#description}
 
 This event is fired when the status of the camera changes. See
-[`onCameraStatusChange`](/api/camerapipelinemodule/oncamerastatuschange) from
-[`XR8.addCameraPipelineModule()`](/api/camerapipelinemodule) for more information on the possible status.
+[`onCameraStatusChange`](/docs/engine/api/camerapipelinemodule/oncamerastatuschange) from
+[`XR8.addCameraPipelineModule()`](/docs/engine/api/camerapipelinemodule) for more information on the possible status.
 
 ## Example {#example}
 

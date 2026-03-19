@@ -5,8 +5,8 @@
 ## Description {#description}
 
 Emits a request to the engine to capture a screenshot of the AFrame canvas. The engine will emit a
-[`screenshotready`](/api/aframeevents/screenshotready) event with the JPEG compressed image or
-[`screenshoterror`](/api/aframeevents/screenshoterror) if an error has occured.
+[`screenshotready`](/docs/engine/api/aframeevents/screenshotready) event with the JPEG compressed image or
+[`screenshoterror`](/docs/engine/api/aframeevents/screenshoterror) if an error has occured.
 
 ## Parameters {#parameters}
 

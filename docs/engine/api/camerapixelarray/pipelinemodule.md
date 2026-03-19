@@ -21,8 +21,8 @@ height [Optional] | The height of the camera feed texture. | Height of the outpu
 
 ## Returns {#returns}
 
-Return value is an object made available to [`onProcessCpu`](/api/camerapipelinemodule/onprocesscpu) and
-[`onUpdate`](/api/camerapipelinemodule/onupdate) as:
+Return value is an object made available to [`onProcessCpu`](/docs/engine/api/camerapipelinemodule/onprocesscpu) and
+[`onUpdate`](/docs/engine/api/camerapipelinemodule/onupdate) as:
 
 processGpuResult.camerapixelarray: {rows, cols, rowBytes, pixels}
 

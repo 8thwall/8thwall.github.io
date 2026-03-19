@@ -7,15 +7,15 @@ sidebar_position: 3
 
 Asset Lab currently supports rigging and animating **humanoid bipedal** 3D character models.
 
-To generate a rigged and animated character model, you must first generate a 3D character model in an T-pose, from multiple images, to use as input. 
+To generate a rigged and animated character model, you must first generate a 3D character model in an T-pose, from multiple images, to use as input.
 
 ## Step 1: Generate Image Inputs
 
-It is required to use GPT-Image-1 for generating image inputs for Animated characters.  See [Generate Images](/studio/asset-lab/generate-models) for more details.
+It is required to use GPT-Image-1 for generating image inputs for Animated characters.  See [Generate Images](/docs/studio/asset-lab/generate-models) for more details.
 
 Use **GPT-Image-1** to generate multi-view character images in a T-pose:
-1. Front view  
-2. Right, left, and back views  
+1. Front view
+2. Right, left, and back views
 
 Then click **Send to 3D Model**.
 
@@ -23,9 +23,9 @@ Then click **Send to 3D Model**.
 
 ## Step 2: Generate 3D Model
 
-Select a supported 3D generation model. See [Generate 3D Models](/studio/asset-lab/generate-models) for more details.
+Select a supported 3D generation model. See [Generate 3D Models](/docs/studio/asset-lab/generate-models) for more details.
 
-Select the Generate button to process the request. 
+Select the Generate button to process the request.
 
 ![](/images/studio/asset-lab/character-generation.png)
 
@@ -36,14 +36,14 @@ Once complete, click **Send to Animation**.
 Currently supports rigging via **Meshy**. Input must be a bipedal humanoid with clearly defined limbs.
 
 Returns the following animation clips:
-- Walk  
-- Run  
-- Idle  
-- Jump  
-- Attack  
-- Death  
-- Zombie Walk  
-- Dance  
+- Walk
+- Run
+- Idle
+- Jump
+- Attack
+- Death
+- Zombie Walk
+- Dance
 
 Click **Rig + Animate** to process (may take up to 2 minutes).
 
@@ -51,7 +51,7 @@ Click **Rig + Animate** to process (may take up to 2 minutes).
 
 ## Step 4: Import into Project
 
-Use the import or download buttons to save your rigged model.  
+Use the import or download buttons to save your rigged model.
 
 ![](/images/studio/asset-lab/character-import.png)
 

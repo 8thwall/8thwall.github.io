@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted by [`xrweb`](/api/aframe/#world-tracking-image-targets) when [`XR8.XrController`](/api/xrcontroller) is loaded and any time tracking status or reason changes.
+This event is emitted by [`xrweb`](/docs/engine/api/aframe/xrweb) when [`XR8.XrController`](/docs/engine/api/xrcontroller) is loaded and any time tracking status or reason changes.
 
 `xrtrackingstatus : { status, reason }`
 

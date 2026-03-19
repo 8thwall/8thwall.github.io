@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted by [`xrface`](/api/aframe/#face-effects) when all face AR resources have been loaded and scanning has begun.
+This event is emitted by [`xrface`](/docs/engine/api/aframe/xrface) when all face AR resources have been loaded and scanning has begun.
 
 `xrfacescanning.detail : {maxDetections, pointsPerDetection, indices, uvs}`
 

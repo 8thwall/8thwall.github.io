@@ -7,10 +7,6 @@ description: This section explains how to export an HTML5 bundle.
 
 ## Exporting an HTML5 Bundle {#exporting-an-html5-bundle}
 
-:::warning
-If you are looking for publishing from the offline desktop app, see [Offline Publishing](/studio/app/offline-publishing/)
-:::
-
 :::info[Important]
 At the moment, AR experiences are not yet provided via HTML5 export.
 Your project must use 3D cameras in order to function properly.

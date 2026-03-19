@@ -5,7 +5,7 @@ sidebar_position: 1
 
 ## Description {#description}
 
-This event is emitted in response to the [`xr:screenshotrequest`](/api/playcanvaseventlisteners/xrscreenshotrequest) event being being completed successfully. The JPEG compressed image of the PlayCanvas canvas will be provided.
+This event is emitted in response to the [`xr:screenshotrequest`](/docs/engine/api/playcanvaseventlisteners/xrscreenshotrequest) event being being completed successfully. The JPEG compressed image of the PlayCanvas canvas will be provided.
 
 ## Example {#example}
 

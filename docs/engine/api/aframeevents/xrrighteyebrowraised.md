@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted by [`xrface`](/api/aframe/#face-effects) when a tracked face's right eyebrow is raised from its position when the face was found.
+This event is emitted by [`xrface`](/docs/engine/api/aframe/xrface) when a tracked face's right eyebrow is raised from its position when the face was found.
 
 `xrrighteyebrowraised.detail : {id}`
 

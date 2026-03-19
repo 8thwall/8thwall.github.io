@@ -201,7 +201,7 @@ GamePix does not allow games with external links. Make sure your project does NO
 As a starting point to use the Discord Embedded SDK with your project, you can try out our sample project.
 
 1. Navigate to https://www.8thwall.com/8thwall/discord-activity-example and clone the project to your workspace.
-2. Follow the steps in [Exporting an HTML5 Bundle](#exporting-an-html5-bundle)
+2. Follow the steps in [Exporting an HTML5 Bundle](#creating-production-build)
 3. Download the `.zip` to a location of your choosing.
 
 #### Discord Developer Set Up

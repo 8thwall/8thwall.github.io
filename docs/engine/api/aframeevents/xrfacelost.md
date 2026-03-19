@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted by [`xrface`](/api/aframe/#face-effects) when a face is no longer being tracked.
+This event is emitted by [`xrface`](/docs/engine/api/aframe/xrface) when a face is no longer being tracked.
 
 `xrfacelost.detail : {id}`
 

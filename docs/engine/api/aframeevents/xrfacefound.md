@@ -2,7 +2,7 @@
 
 ## Description {#description}
 
-This event is emitted by [`xrface`](/api/aframe/#face-effects) when a face is first found.
+This event is emitted by [`xrface`](/docs/engine/api/aframe/xrface) when a face is first found.
 
 `xrfacefound.detail : {id, transform, vertices, normals, attachmentPoints}`
 
@@ -12,7 +12,7 @@ id | A numerical id of the located face.
 transform: `{position, rotation, scale, scaledWidth, scaledHeight, scaledDepth}` | Transform information of the located face.
 vertices: [{x, y, z}] | Position of face points, relative to transform.
 normals: [{x, y, z}] | Normal direction of vertices, relative to transform.
-attachmentPoints: `{ name, position: {x,y,z} }` | See [`XR8.FaceController.AttachmentPoints`](/api/facecontroller/attachmentpoints) for list of available attachment points. `position` is relative to the transform.
+attachmentPoints: `{ name, position: {x,y,z} }` | See [`XR8.FaceController.AttachmentPoints`](/docs/engine/api/facecontroller/attachmentpoints) for list of available attachment points. `position` is relative to the transform.
 uvsInCameraFrame `[{u, v}]` | The list of uv positions in the camera frame corresponding to the returned vertex points.
 
 `transform` is an object with the following properties:

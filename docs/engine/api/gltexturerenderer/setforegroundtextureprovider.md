@@ -7,7 +7,7 @@ sidebar_label: setForegroundTextureProvider()
 
 ## Description {#description}
 
-Sets a provider that passes a list of foreground textures to draw. This should be a function that take the same inputs as [`cameraPipelineModule.onUpdate`](/api/camerapipelinemodule/onupdate).
+Sets a provider that passes a list of foreground textures to draw. This should be a function that take the same inputs as [`cameraPipelineModule.onUpdate`](/docs/engine/api/camerapipelinemodule/onupdate).
 
 ## Parameters {#parameters}
 
@@ -16,8 +16,8 @@ Sets a provider that passes a list of foreground textures to draw. This should b
 Parameter | Type | Description
 --------- | ---- | -----------
 frameStartResult | `Object` | The data that was provided at the beginning of a frame.
-processGpuResult | `Object` | Data returned by all installed modules during [`onProcessGpu`](/api/camerapipelinemodule/onprocessgpu).
-processCpuResult | `Object` | Data returned by all installed modules during [`onProcessCpu`](/api/camerapipelinemodule/onprocesscpu).
+processGpuResult | `Object` | Data returned by all installed modules during [`onProcessGpu`](/docs/engine/api/camerapipelinemodule/onprocessgpu).
+processCpuResult | `Object` | Data returned by all installed modules during [`onProcessCpu`](/docs/engine/api/camerapipelinemodule/onprocesscpu).
 
 The function should return an array of objects which each contain the following properties:
 

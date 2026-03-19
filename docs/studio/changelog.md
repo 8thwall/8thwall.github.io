@@ -26,14 +26,14 @@ October 24, 2025
 
 ### New Features
 Runtime 2.2.0 adds physics collider rotational offsets, and other fixes/enhancements. Read the
-full release notes [here](/studio/api/changelog/#2.2.0).
+full release notes [here](/docs/studio/api/changelog/#2.2.0).
 
 ## October 2025 [Update 2] {#version-2025-october-16}
 October 16, 2025
 
 ### New Features
 Runtime 2.1.0 introduces an API for skybox and fog, and other fixes/enhancements. Read the
-full release notes [here](/studio/api/changelog/#2.1.0).
+full release notes [here](/docs/studio/api/changelog/#2.1.0).
 
 ## October 2025 [Update 1] {#version-2025-october-10}
 October 10, 2025
@@ -341,7 +341,7 @@ June 2, 2025
 
 Prefabs
 * We've added support for Prefabs in Studio for creating reusable, customizable game templates that streamline and scale your development, and optimize performance.
-* See our [Prefabs Guide](/studio/guides/prefabs) to get Started.
+* See our [Prefabs Guide](/docs/studio/guides/prefabs) to get Started.
 
 General
 * Videos are now supported as material texture maps. Note: New VideoMaterial override will override all glTF materials, like HiderMaterial and VideoMaterial.
@@ -566,7 +566,7 @@ Events
 * Added `ecs.events.SPLAT_MODEL_LOADED` event.
 
 Physics
-* Added [getLinearVelocity()](/studio/api/ecs/physics/#getlinearvelocity) function.
+* Added [getLinearVelocity()](/docs/studio/api/ecs/physics/#getlinearvelocity) function.
 
 Primitives
 * Added polyhedron primitive, replacing tetrahedron.
@@ -603,7 +603,7 @@ September 11, 2024
 ### Fixes and Enhancements
 
 State Machine
-* Improved capabilities and expanded API for working with State Machines and Events. Check out the [State Machine](/studio/essentials/state-machines/) documentation to learn more.
+* Improved capabilities and expanded API for working with State Machines and Events. Check out the [State Machine](/docs/studio/essentials/state-machines/) documentation to learn more.
 
 ## August 2024 [Update 5] {#version-2024-august-29}
 August 29, 2024
@@ -650,7 +650,7 @@ UI
 * Fixed performance issues with loading and rendering UI elements.
 
 Docs
-* Added information on common issues and best practices to follow when scripting [Custom Components](/studio/essentials/best-practices/)
+* Added information on common issues and best practices to follow when scripting [Custom Components](/docs/studio/essentials/best-practices/)
 
 ## August 2024 [Update 2] {#version-2024-august-08}
 August 8, 2024
@@ -676,17 +676,17 @@ August 1, 2024
 ### New Features
 
 Animation
-* Added events and configuration controls to support GLTF models with pre-baked animations - see [3D Model guide](/studio/guides/models/)
+* Added events and configuration controls to support GLTF models with pre-baked animations - see [3D Model guide](/docs/studio/guides/models/)
 
 Hierarchy
 * Added ability to multi-select and move objects using Command/Ctrl keys.
 * Added ability to range-select objects using Shift key.
 
 Physics
-* Added a gravity factor for physics and colliders to support more configurable physics effects - see [Physics guide](/studio/guides/physics/).
+* Added a gravity factor for physics and colliders to support more configurable physics effects - see [Physics guide](/docs/studio/guides/physics/).
 
 Primitives
-* Added RingGeometry primitive type - see [Primitives guide](/studio/guides/models#primitives)
+* Added RingGeometry primitive type - see [Primitives guide](/docs/studio/guides/models#primitives)
 
 Viewport
 * Added Right Click context menu for selected objects.

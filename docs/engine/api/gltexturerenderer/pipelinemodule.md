@@ -21,8 +21,8 @@ flipY [Optional] | `Boolean` | `false` | If true, flip the rendering upside-down
 ## Returns {#returns}
 
 Return value is an object `{viewport, shader}` made available to
-[`onProcessCpu`](/api/camerapipelinemodule/onprocesscpu) and
-[`onUpdate`](/api/camerapipelinemodule/onupdate) as:
+[`onProcessCpu`](/docs/engine/api/camerapipelinemodule/onprocesscpu) and
+[`onUpdate`](/docs/engine/api/camerapipelinemodule/onupdate) as:
 
 `processGpuResult.gltexturerenderer` with the following properties:
 

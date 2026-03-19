@@ -9,8 +9,8 @@ None
 ## Description {#description}
 
 Emits a request to the engine to capture a screenshot of the PlayCanvas canvas. The engine will emit
-a [`xr:screenshotready`](/api/playcanvasevents/xrscreenshotready) event with the JPEG compressed image or
-[`xr:screenshoterror`](/api/playcanvasevents/xrscreenshoterror) if an error has occured.
+a [`xr:screenshotready`](/docs/engine/api/playcanvasevents/xrscreenshotready) event with the JPEG compressed image or
+[`xr:screenshoterror`](/docs/engine/api/playcanvasevents/xrscreenshoterror) if an error has occured.
 
 ## Example {#example}
 

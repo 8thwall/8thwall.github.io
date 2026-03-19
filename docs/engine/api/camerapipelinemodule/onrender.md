@@ -4,7 +4,7 @@
 
 ## Description {#description}
 
-`onRender()` is called after [`onUpdate`](onupdate.md). This is the time for the rendering engine to issue any WebGL drawing commands. If an application is providing its own run loop and is relying on [`XR8.runPreRender()`](/api/xr8/runprerender) and [`XR8.runPostRender()`](/api/xr8/runprerender), this method is not called and all rendering must be coordinated by the external run loop.
+`onRender()` is called after [`onUpdate`](onupdate.md). This is the time for the rendering engine to issue any WebGL drawing commands. If an application is providing its own run loop and is relying on [`XR8.runPreRender()`](/docs/engine/api/xr8/runprerender) and [`XR8.runPostRender()`](/docs/engine/api/xr8/runprerender), this method is not called and all rendering must be coordinated by the external run loop.
 
 ## Parameters {#parameters}
 

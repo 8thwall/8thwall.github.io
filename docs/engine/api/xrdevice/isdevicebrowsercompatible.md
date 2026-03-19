@@ -13,7 +13,7 @@ Returns an estimate of whether the user's device and browser is compatible with 
 
 Parameter | Description
 --------- | -----------
-allowedDevices [Optional] | Supported device classes, a value in [`XR8.XrConfig.device()`](/api/xrconfig/device).
+allowedDevices [Optional] | Supported device classes, a value in [`XR8.XrConfig.device()`](/docs/engine/api/xrconfig/device).
 
 ## Returns {#returns}
 

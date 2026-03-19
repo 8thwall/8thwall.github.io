@@ -16,7 +16,7 @@ None
 
 ## Returns {#returns}
 
-Return value is an object made available to [`onUpdate`](/api/camerapipelinemodule/onupdate) as:
+Return value is an object made available to [`onUpdate`](/docs/engine/api/camerapipelinemodule/onupdate) as:
 
 `processCpuResult.facecontroller: { rotation, position, intrinsics, cameraFeedTexture }`
 

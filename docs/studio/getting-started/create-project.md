@@ -34,5 +34,5 @@ The folder created for your project will include certain files and folders by de
 ![](/images/studio/app/project-directories.jpg)
 
 :::warning
-Do not attempt to copy these files to another server. To publish and share your experience, see [documentation on publishing your project](/studio/getting-started/publish).
+Do not attempt to copy these files to another server. To publish and share your experience, see [documentation on publishing your project](/docs/studio/getting-started/publishing).
 :::

@@ -4,7 +4,7 @@
 
 ## Description {#description}
 
-`onPaused()` is called when [`XR8.pause()`](/api/xr8/pause) is called.
+`onPaused()` is called when [`XR8.pause()`](/docs/engine/api/xr8/pause) is called.
 
 ## Parameters {#parameters}
 

@@ -7,21 +7,21 @@ experiences for the web.
 ## Components
 Component | Description
 --------- | -----------
-[xrconfig](xrconfig) | Used to configure the camera feed
-[xrface](xrface) | Used to configure face effects
-[xrlayers](xrlayers) | Used to configure sky effects
-[xrlayerscene](xrlayers) | Used to configure sky effects
-[xrweb](xrweb) | Used to configure world tracking
+[xrconfig](/docs/engine/api/aframe/xrconfig) | Used to configure the camera feed
+[xrweb](/docs/engine/api/aframe/xrweb) | Used to configure world tracking
+[xrface](/docs/engine/api/aframe/xrface) | Used to configure face effects
+[xrlayers](/docs/engine/api/aframe/xrlayers) | Used to configure sky effects
+[xrlayerscene](/docs/engine/api/aframe/xrlayers) | Used to configure sky effects
 
 ## Functions
 
 Function | Description
 -------- | -----------
-[xrconfigComponent](xrconfigcomponent.md) | Creates an A-Frame component for configuring the camera which can be registered with `AFRAME.registerComponent()`. Generally won't need to be called directly.
-[xrwebComponent](xrwebcomponent.md) | Creates an A-Frame component for World Tracking and/or Image Target tracking which can be registered with `AFRAME.registerComponent()`. Generally won't need to be called directly.
-[xrlayersComponent](xrlayerscomponent.md) | Creates an A-Frame component for Layers tracking which can be registered with `AFRAME.registerComponent()`. Generally won't need to be called directly.
-[xrfaceComponent](xrfacecomponent.md) | Creates an A-Frame component for Face Effects tracking which can be registered with `AFRAME.registerComponent()`. Generally won't need to be called directly.
-[xrlayersceneComponent](xrlayerscenecomponent.md) | Creates an A-Frame component for a Layer scene which can be registered with `AFRAME.registerComponent()`. Generally won't need to be called directly.
+[xrconfigComponent](/docs/engine/api/aframe/xrconfig#xrconfigcomponent) | Creates an A-Frame component for configuring the camera which can be registered with `AFRAME.registerComponent()`. Generally won't need to be called directly.
+[xrwebComponent](/docs/engine/api/aframe/xrweb#xrwebcomponent) | Creates an A-Frame component for World Tracking and/or Image Target tracking which can be registered with `AFRAME.registerComponent()`. Generally won't need to be called directly.
+[xrfaceComponent](/docs/engine/api/aframe/xrface#xrfacecomponent) | Creates an A-Frame component for Face Effects tracking which can be registered with `AFRAME.registerComponent()`. Generally won't need to be called directly.
+[xrlayersComponent](/docs/engine/api/aframe/xrlayers#xrlayerscomponent) | Creates an A-Frame component for Layers tracking which can be registered with `AFRAME.registerComponent()`. Generally won't need to be called directly.
+[xrlayersceneComponent](/docs/engine/api/aframe/xrlayers#xrlayerscenecomponent) | Creates an A-Frame component for a Layer scene which can be registered with `AFRAME.registerComponent()`. Generally won't need to be called directly.
 
 ## Examples
 

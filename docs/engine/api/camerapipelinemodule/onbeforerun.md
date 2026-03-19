@@ -4,10 +4,10 @@
 
 ## Description {#description}
 
-`onBeforeRun` is called immediately after [XR8.run()](/api/xr8/run). If any promises are returned, XR will wait on all promises before continuing.
+`onBeforeRun` is called immediately after [XR8.run()](/docs/engine/api/xr8/run). If any promises are returned, XR will wait on all promises before continuing.
 
 ## Parameters {#parameters}
 
 Parameter | Description
 --------- | -----------
-config | The configuration parameters that were passed to [XR8.run()](/api/xr8/run).
+config | The configuration parameters that were passed to [XR8.run()](/docs/engine/api/xr8/run).
