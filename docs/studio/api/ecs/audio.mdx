@@ -1,0 +1,37 @@
+---
+id: audio
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import AudioTable from "../../../../gen/tables/Audio.md"
+
+# Audio
+
+## Description
+
+This component allows entities to play sounds.
+
+## Properties
+
+<AudioTable />
+
+## Functions
+
+<ComponentFunctions
+    name="Audio"
+    properties={{
+        url: "",
+        volume: 1,
+        loop: false,
+        paused: false,
+        pitch: 1,
+        positional: false,
+        refDistance: 1,
+        distanceModel: 'inverse',
+        rolloffFactor: 1,
+        maxDistance: 10000
+    }}
+    mutate={`cursor.volume = 0.5;
+    cursor.loop = true;
+    return false;`}
+/>

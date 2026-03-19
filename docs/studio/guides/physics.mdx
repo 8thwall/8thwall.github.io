@@ -1,0 +1,99 @@
+---
+id: physics
+description: Studio has a built-in physics system intended for handling robust and dynamic interactions in your scene.
+---
+
+# Physics
+
+## Introduction
+{frontMatter.description}
+
+## Adding Colliders
+:::note
+* Colliders can be nested in some configurations, but not others. For example, a static collider inside a dynamic collider, or two nested dynamic colliders, could misbehave.
+* Unless you have a Geometry component that is also a valid Collider Shape, you’ll need to specify a shape manually. For example there isn’t a supported matching collider for the tetrahedron primitive.
+* GLTF model collider generation for complex models might affect performance.
+:::
+
+### Example
+The following example shows how to add a collider to an entity at runtime.
+
+``` ts
+ecs.Collider.set(world, component.eid, {
+    shape: ecs.ColliderShape.Sphere,
+    type: ecs.ColliderType.Dynamic,
+    radius: 1,
+    mass: 1,
+    eventOnly: false,
+    lockXAxis: false,
+    lockYAxis: false,
+    lockZAxis: false,
+    friction: 0.5,
+    restitution: 0.5,
+    linearDamping: 0,
+    angularDamping: 0,
+})
+```
+
+## Static vs Dynamic vs Kinematic Collider Types
+In physics simulation, colliders define the physical shape of an object for collision detection. These can be Static, Dynamic, or Kinematic depending on how they interact with forces and the environment.
+
+* **Static:** A collider that does not respond to external forces or physics simulations. It remains fixed in place, making it ideal for immovable objects like walls, floors, or terrain.
+* **Dynamic:** A collider that does respond to external forces such as gravity, collisions, or impulses. It’s suitable for moving objects like players, enemies, or debris.
+* **Kinematic:** A collider whose motion is not affected by forces but is entirely controlled programmatically by the user. Unlike static bodies, kinematic bodies can move and can affect other dynamic bodies through collisions.
+
+### Event Only
+The `eventOnly` setting converts a collider into a trigger area—it no longer blocks or reacts to physical objects but instead emits enter and exit events when other physics bodies interact with it.
+
+## Functions
+You can directly apply forces (linear and angular) to any entity with a physics collider. These forces are applied in the next physics simulation update, which takes place at regular intervals. The function accepts a 3D vector to define the force direction and magnitude.
+
+### Velocity
+
+#### Linear
+
+``` ts
+ecs.physics.setLinearVelocity(world, component.eid, forceX, forceY, forceZ)
+```
+
+#### Angular
+
+``` ts
+ecs.physics.setAngularVelocity(world, component.eid, forceX, forceY, forceZ)
+```
+
+### Force & Torque
+
+#### Force
+
+``` ts
+ecs.physics.applyForce(world, component.eid, forceX, forceY, forceZ)
+```
+
+#### Torque
+
+``` ts
+ecs.physics.applyTorque(world, component.eid, torqueX, torqueY, torqueZ)
+```
+
+### Impulse
+
+:::tip
+This function is used to apply a one-time impulse force to a physics collider, altering its velocity based on the given impulse vector.
+This method is useful for events that require a quick, single action response, such as jumping, punching, or a sudden push.
+:::
+
+``` ts
+ecs.physics.applyImpulse(world, component.eid, impulseX, impulseY, impulseZ)
+```
+
+### Gravity
+
+#### Gravity Factor
+In each scene, gravity acts as a constant force known as “World Gravity.” This force affects every collider in the scene that is set to dynamic. To customize how World Gravity impacts an individual collider, we provide an attribute called “Gravity Factor.”
+
+#### Set World Gravity
+
+``` ts
+ecs.physics.setWorldGravity(world, gravity)
+```

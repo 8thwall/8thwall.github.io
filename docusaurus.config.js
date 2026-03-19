@@ -16,7 +16,11 @@ const config = {
     [
       'classic',
       {
-        docs: false,
+        docs: {
+          routeBasePath: '/docs',
+          path: 'docs',
+          sidebarPath: require.resolve('./sidebars.js'),
+        },
         blog: {
           path: 'blog',
           routeBasePath: 'blog',
@@ -56,7 +60,7 @@ const config = {
         { href: 'https://www.youtube.com/@8thwall', label: 'Tutorials', position: 'left' },
         { href: 'https://8th.io/blog', label: 'Blog', position: 'left' },
         { href: 'https://8th.io/discord', label: 'Discord', position: 'left' },
-        { href: 'https://www.8thwall.com/docs', label: 'Docs', position: 'left' },
+        { href: '/docs', label: 'Docs', position: 'left' },
         {
           type: 'html',
           position: 'right',

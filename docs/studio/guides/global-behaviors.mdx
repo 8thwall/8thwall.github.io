@@ -1,0 +1,77 @@
+---
+id: global-behaviors
+description: A behavior is a function that runs on the World every tick.
+---
+
+# Global Behaviors
+
+## Introduction
+
+{frontMatter.description} Compared to Components, which only operate on a single Entity at a time, a behavior can use queries to enumerate matching entities and operate on them as a group.
+
+## Defining a Behavior
+The following code is an example of how to define a custom Behavior:
+
+``` ts 
+const behavior = (world) => {
+  if (world.time.elapsed % 5000 - world.time.delta < 0) {
+     const eid = world.createEntity()
+     Enemy.set(world, eid, {health: 100})
+  }
+}
+```
+
+## Registering a Behavior
+
+The following code is an example of how to register a custom Behavior:
+
+``` ts
+ecs.registerBehavior(behavior)
+```
+
+## Deactivating a Behavior
+
+The following code is an example of how to deactivate a custom Behavior:
+
+``` ts
+ecs.unregisterBehavior(behavior)
+```
+
+## Behavior Query
+
+Behaviors can run queries, which return lists of entity IDs.
+
+``` ts
+const query = ecs.defineQuery([Enemy, Health])
+
+const enemyDieBehavior = (world) => {
+  const enemies = query(world)
+
+  for (const enemyId of enemies) {
+    if (Health.get(world, enemyId).hp <= 0) {
+      world.destroyEntity(enemyId)
+    }
+  }
+}
+
+ecs.registerBehavior(enemyDieBehavior)
+```
+
+## Systems
+
+Behaviors can also be structured as Systems, which run on entities that match specific queries and allow for efficient data access.
+
+:::tip
+This approach improves performance because data like “enemy” and “health” are pre-fetched, making iteration faster.
+:::
+``` ts
+const enemyDieSystem = ecs.defineSystem([Enemy, Health], 
+  (world, eid, [enemy, health]) => {
+    if (health.hp <= 0) {
+      world.destroyEntity(eid)
+    }
+  }
+)
+
+ecs.registerBehavior(enemyDieSystem)
+```

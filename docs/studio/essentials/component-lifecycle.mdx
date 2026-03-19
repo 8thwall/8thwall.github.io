@@ -1,0 +1,59 @@
+---
+id: component-lifecycle
+description: Lifecyle events can be used to trigger Component behavior on add, tick, or remove.
+sidebar_position: 55
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+
+# Component Lifecycle
+
+## Introduction
+
+{frontMatter.description}
+
+## Example
+
+```ts
+const MyComponent = ecs.registerComponent({
+  name: 'My Component',
+  add: (world, component) => {
+    console.log('My component was added to', component.eid)
+  },
+  tick: (world, component) => {
+    console.log('My tick function is running on', component.eid)
+  },
+  remove: (world, component) => {
+    console.log('My component was removed from', component.eid)
+  },
+})
+```
+
+## Methods
+
+| Method | Description                                                                                                                                                |
+|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| add    | Called once when the Component is initialized. Used to set up initial state and instantiate variables                                                      |
+| remove | Called when the Component is removed from the entity or when the entity is detached from the scene. Used to undo all previous modifications to the entity. |
+| tick   | Called on each render loop or tick of the scene. Used for continuous changes or checks.                                                                    |
+
+### Parameters
+
+| Property  | Type                                | Description                         |
+|-----------|-------------------------------------|-------------------------------------|
+| world     | [World](/studio/api/world)            | Reference to the World.             |
+| component | [ComponentObject](#componentobject) | Reference to the current Component. |
+
+### ComponentObject
+
+:::warning
+Use schemaAttribute or dataAttribute instead of eid, schema, or data properties in asynchronous contexts like timers or event handlers.
+:::
+
+| Property        | Type            | Description                                                 |
+|-----------------|-----------------|-------------------------------------------------------------|
+| eid             | eid             | The Entity ID of the current Component                      |
+| schema          | Cursor          | Reference to the current Entity's schema                    |
+| schemaAttribute | ComponentObject | Reference to the current Component's schema in World Scope. |
+| data            | Cursor          | Reference to the current Entity's data                      |
+| dataAttribute   | ComponentObject | Reference to the current Component's data in World Scope.   |

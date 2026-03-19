@@ -1,0 +1,27 @@
+---
+id: face-attachment
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import FaceAttachmentTable from "../../../../gen/tables/FaceAttachment.md"
+
+# FaceAttachment
+
+## Description
+
+This component causes the entity's transform to follow the specified face attachment tracked in XR. It will show and hide the entity as the face is found or lost
+
+## Properties
+
+<FaceAttachmentTable />
+
+## Functions
+
+<ComponentFunctions
+    name="FaceAttachment"
+    properties={{
+        point: 'forehead',
+    }}
+    mutate={`cursor.point = 'rightEyebrowInner';
+    return false;`}
+/>

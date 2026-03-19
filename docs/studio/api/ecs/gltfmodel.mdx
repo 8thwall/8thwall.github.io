@@ -1,0 +1,36 @@
+---
+id: gltf-model
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import GltfModelTable from "../../../../gen/tables/GltfModel.md"
+
+# GltfModel
+
+## Description
+
+This component establishes custom geometry on an entity.
+
+## Properties
+
+<GltfModelTable />
+
+## Functions
+
+<ComponentFunctions
+    name="GltfModel"
+    properties={{
+        url: './assets/doty.glb',
+        animationClip: 'idle',
+        loop: false,
+        paused: false,
+        time: 0,
+        timeScale: 1,
+        reverse: false,
+        repetitions: -1,
+        crossFadeDuration: 0
+    }}
+    mutate={`cursor.timeScale = 0.5;
+    cursor.loop = true;
+    return false;`}
+/>

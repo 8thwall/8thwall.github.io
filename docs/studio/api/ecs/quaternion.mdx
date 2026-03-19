@@ -1,0 +1,33 @@
+---
+id: quaternion
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import QuaternionTable from "../../../../gen/tables/Quaternion.md"
+
+# Quaternion
+
+## Description
+
+This component controls how the entity is rotated.
+
+## Properties
+
+<QuaternionTable />
+
+## Functions
+
+<ComponentFunctions
+    name="Quaternion"
+    properties={{
+        x: 0,
+        y: 0,
+        z: 0,
+        w: 0
+    }}
+    mutate={`cursor.x = 1;
+    cursor.y = 1;
+    cursor.z = 1;
+    cursor.w = 1;
+    return false;`}
+/>

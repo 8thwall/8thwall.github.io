@@ -1,0 +1,27 @@
+---
+id: plane-geometry
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import PlaneGeometryTable from "../../../../../gen/tables/PlaneGeometry.md"
+
+# PlaneGeometry
+
+## Description
+
+This component establishes geometry on an entity.
+
+## Properties
+
+<PlaneGeometryTable />
+
+
+## Functions
+
+<ComponentFunctions
+    name="PlaneGeometry"
+    properties={{ width: 1, height: 1 }}
+    mutate={`cursor.width += 1;
+    cursor.height *= 2;
+    return false;`}
+/>

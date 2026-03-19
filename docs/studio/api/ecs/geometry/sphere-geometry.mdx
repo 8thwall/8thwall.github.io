@@ -1,0 +1,25 @@
+---
+id: sphere-geometry
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import SphereGeometryTable from "../../../../../gen/tables/SphereGeometry.md"
+
+# SphereGeometry
+
+## Description
+
+This component establishes geometry on an entity.
+
+## Properties
+
+<SphereGeometryTable />
+
+## Functions
+
+<ComponentFunctions
+    name="SphereGeometry"
+    properties={{ radius: 1 }}
+    mutate={`cursor.radius += 1;
+    return false;`}
+/>

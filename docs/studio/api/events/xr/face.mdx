@@ -1,0 +1,401 @@
+---
+id: face
+sidebar_position: 1
+---
+
+import {EventExample} from '@site/src/components/event-example'
+
+# Face Effects Events
+
+## Types
+
+### TransformObject {#TransformObject}
+| Property     | Type           | Description                                                             |
+|--------------|----------------|-------------------------------------------------------------------------|
+| position     | `{x, y, z}`    | The 3d position of the located face.                                    |
+| rotation     | `{w, x, y, z}` | The 3d local orientation of the located face.                           |
+| scale        | `Number`       | A scale factor that should be applied to objects attached to this face. |
+| scaledWidth  | `Number`       | Approximate width of the head in the scene when multiplied by scale.    |
+| scaledHeight | `Number`       | Approximate height of the head in the scene when multiplied by scale.   |
+| scaledDepth  | `Number`       | Approximate depth of the head in the scene when multiplied by scale.    |
+
+## Events
+
+### FACE_LOADING
+This event is emitted by Face Effects when loading begins for additional face AR resources.
+
+#### Properties
+| Property           | Type          | Description                                                                                                                 |
+|--------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------|
+| maxDetections      | `Number`      | The maximum number of faces that can be simultaneously processed.                                                           |
+| pointsPerDetection | `Number`      | Number of vertices that will be extracted per face.                                                                         |
+| indices            | `[{a, b, c}]` | Indexes into the vertices array that form the triangles of the requested mesh, as specified with meshGeometry on configure. |
+| uvs                | `[{u, v}]`    | uv positions into a texture map corresponding to the returned vertex points.                                                |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_LOADING'
+  target='world.events.globalId'
+  callbackBody={`console.log('Face loading')`}
+/>
+
+### FACE_SCANNING
+This event is emitted by Face Effects when all face AR resources have been loaded and scanning has begun.
+
+#### Properties
+| Property           | Type          | Description                                                                                                                 |
+|--------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------|
+| maxDetections      | `Number`      | The maximum number of faces that can be simultaneously processed.                                                           |
+| pointsPerDetection | `Number`      | Number of vertices that will be extracted per face.                                                                         |
+| indices            | `[{a, b, c}]` | Indexes into the vertices array that form the triangles of the requested mesh, as specified with meshGeometry on configure. |
+| uvs                | `[{u, v}]`    | uv positions into a texture map corresponding to the returned vertex points.                                                |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_SCANNING'
+  target='world.events.globalId'
+  callbackBody={`console.log('Face scanning')`}
+/>
+
+### FACE_FOUND
+This event is emitted by Face Effects when a face is first found.
+
+#### Properties
+| Property         | Type                                  | Description                                                                                                                                                                                      |
+|------------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id               | `Number`                              | A numerical id of the located face                                                                                                                                                               |
+| transform        | [`TransformObject`](#TransformObject) | Transform information of the located face.                                                                                                                                                       |
+| vertices         | `[{x, y, z}]`                         | Position of face points, relative to transform.                                                                                                                                                  |
+| normals          | `[{x, y, z}]`                         | Normal direction of vertices, relative to transform.                                                                                                                                             |
+| attachmentPoints | `{ name, position: {x,y,z} }`         | See [`XR8.FaceController.AttachmentPoints`](https://www.8thwall.com/docs/api/facecontroller/attachmentpoints/) for list of available attachment points. `position` is relative to the transform. |
+| uvsInCameraFrame | `[{u, v}]`                            | The list of uv positions in the camera frame corresponding to the returned vertex points.                                                                                                        |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_FOUND'
+  target='world.events.globalId'
+  callbackBody={`console.log('Face found')`}
+/>
+
+### FACE_UPDATED
+This event is emitted by Face Effects when faces are subsequently found.
+
+#### Properties
+| Property         | Type                                  | Description                                                                                                                                                                                      |
+|------------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id               | `Number`                              | A numerical id of the located face                                                                                                                                                               |
+| transform        | [`TransformObject`](#TransformObject) | Transform information of the located face.                                                                                                                                                       |
+| vertices         | `[{x, y, z}]`                         | Position of face points, relative to transform.                                                                                                                                                  |
+| normals          | `[{x, y, z}]`                         | Normal direction of vertices, relative to transform.                                                                                                                                             |
+| attachmentPoints | `{ name, position: {x,y,z} }`         | See [`XR8.FaceController.AttachmentPoints`](https://www.8thwall.com/docs/api/facecontroller/attachmentpoints/) for list of available attachment points. `position` is relative to the transform. |
+| uvsInCameraFrame | `[{u, v}]`                            | The list of uv positions in the camera frame corresponding to the returned vertex points.                                                                                                        |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_UPDATED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Face updated: ', event.data.transform)`}
+/>
+
+### FACE_LOST
+This event is emitted by Face Effects when a face is no longer being tracked.
+
+#### Properties
+| Property | Type     | Description                               |
+|----------|----------|-------------------------------------------|
+| id       | `Number` | A numerical id of the face that was lost. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_LOST'
+  target='world.events.globalId'
+  callbackBody={`console.log('Face lost')`}
+/>
+
+### FACE_BLINKED
+This event is emitted by Face Effects when a tracked face's eyes blink.
+
+#### Properties
+| Property | Type     | Description                        |
+|----------|----------|------------------------------------|
+| id       | `Number` | A numerical id of the located face |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_BLINKED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Blinked')`}
+/>
+
+### FACE_INTERPUPILLARY_DISTANCE
+This event is emitted by Face Effects when a tracked face's distance in millimeters between the centers of each pupil is first detected.
+
+#### Properties
+| Property               | Type     | Description                                                            |
+|------------------------|----------|------------------------------------------------------------------------|
+| id                     | `Number` | A numerical id of the located face.                                    |
+| interpupillaryDistance | `Number` | Approximate distance in millimeters between the centers of each pupil. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_INTERPUPILLARY_DISTANCE'
+  target='world.events.globalId'
+  callbackBody={`console.log('Interpupillary distance: ', event.data.interpupillaryDistance)`}
+/>
+
+### FACE_LEFT_EYEBROW_LOWERED
+This event is emitted by Face Effects when a tracked face's distance in millimeters between the centers of each pupil is first detected.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_LEFT_EYEBROW_LOWERED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Left eyebrow lowered')`}
+/>
+
+### FACE_LEFT_EYEBROW_RAISED
+This event is emitted by Face Effects when a tracked face's left eyebrow is raised from its initial position when the face was found.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_LEFT_EYEBROW_RAISED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Left eyebrow raised')`}
+/>
+
+### FACE_LEFT_EYE_CLOSED
+This event is emitted by Face Effects when a tracked face's left eye closes.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_LEFT_EYE_CLOSED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Left eye closed')`}
+/>
+
+### FACE_LEFT_EYE_OPENED
+This event is emitted by Face Effects when a tracked face's left eye opens.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_LEFT_EYE_OPENED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Left eye opened')`}
+/>
+
+### FACE_LEFT_EYE_WINKED
+This event is emitted by Face Effects when a tracked face's left eye closes and opens within 750ms while the right eye remains open.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_LEFT_EYE_WINKED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Left eye winked')`}
+/>
+
+### FACE_MOUTH_CLOSED
+This event is emitted by Face Effects when a tracked face's mouth closes.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_MOUTH_CLOSED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Mouth closed')`}
+/>
+
+### FACE_MOUTH_OPENED
+This event is emitted by Face Effects when a tracked face's mouth opens.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_MOUTH_OPENED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Mouth opened')`}
+/>
+
+### FACE_RIGHT_EYEBROW_LOWERED
+This event is emitted by Face Effects when a tracked face's right eyebrow is lowered to its initial position when the face was found.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_RIGHT_EYEBROW_LOWERED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Right eyebrow lowered')`}
+/>
+
+### FACE_RIGHT_EYEBROW_RAISED
+This event is emitted by Face Effects when a tracked face's right eyebrow is raised from its initial position when the face was found.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_RIGHT_EYEBROW_RAISED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Right eyebrow raised')`}
+/>
+
+
+### FACE_RIGHT_EYE_CLOSED
+This event is emitted by Face Effects when a tracked face's right eye closes.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_RIGHT_EYE_CLOSED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Right eye closed')`}
+/>
+
+### FACE_RIGHT_EYE_OPENED
+This event is emitted by Face Effects when a tracked face's right eye opens.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_RIGHT_EYE_OPENED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Right eye opened')`}
+/>
+
+### FACE_RIGHT_EYE_WINKED
+This event is emitted by Face Effects when a tracked face's right eye closes and opens within 750ms while the left eye remains open.
+
+#### Properties
+| Property | Type     | Description                         |
+|----------|----------|-------------------------------------|
+| id       | `Number` | A numerical id of the located face. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_RIGHT_EYE_WINKED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Right eye winked')`}
+/>
+
+### FACE_EAR_POINT_FOUND
+This event is emitted by Face Effects when an ear point is found.
+
+#### Properties
+
+| Property | Type     | Description                                                                                                         |
+|----------|----------|---------------------------------------------------------------------------------------------------------------------|
+| id       | `Number` | A numerical id of the located face                                                                                  |
+| point    | `String` | Ear point name. One of the following: `leftLobe`, `leftCanal`, `leftHelix`, `rightLobe`, `rightCanal`, `rightHelix` |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_EAR_POINT_FOUND'
+  target='world.events.globalId'
+  callbackBody={`console.log('Ear point found: ', event.data.point)`}
+/>
+
+### FACE_EAR_POINT_LOST
+This event is emitted by Face Effects when an ear point is lost.
+
+#### Properties
+
+| Property | Type     | Description                                                                                                         |
+|----------|----------|---------------------------------------------------------------------------------------------------------------------|
+| id       | `Number` | A numerical id of the located face                                                                                  |
+| point    | `String` | Ear point name. One of the following: `leftLobe`, `leftCanal`, `leftHelix`, `rightLobe`, `rightCanal`, `rightHelix` |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='FACE_EAR_POINT_LOST'
+  target='world.events.globalId'
+  callbackBody={`console.log('Ear point lost: ', event.data.point)`}
+/>

@@ -1,0 +1,86 @@
+---
+id: camera
+---
+
+import {EventExample} from '@site/src/components/event-example'
+
+# Camera Events
+
+Camera events are emitted on the [world.events.globalId](/studio/api/world/events/#properties).
+
+## Events
+
+### ACTIVE_CAMERA_CHANGE
+
+Emitted when the active camera changes.
+
+#### Properties
+
+| Property | Type   | Description       |
+|----------|--------|-------------------|
+| camera   | Camera | The active camera |
+
+#### Example
+
+<EventExample
+  ns='ecs.CameraEvents'
+  event='ACTIVE_CAMERA_CHANGE'
+  target='world.events.globalId'
+  callbackBody={`console.log('Active camera changed to: ', event.data.camera)`}
+/>
+
+### ACTIVE_CAMERA_EID_CHANGE
+
+Emitted when the active camera eid changes.
+
+#### Properties
+
+| Property | Type   | Description              |
+|----------|--------|--------------------------|
+| eid      | eid    | eid of the active camera |
+
+#### Example
+
+<EventExample
+  ns='ecs.CameraEvents'
+  event='ACTIVE_CAMERA_EID_CHANGE'
+  target='world.events.globalId'
+  callbackBody={`console.log('Active camera eid changed to: ', event.data.eid)`}
+/>
+
+### XR_CAMERA_EDIT
+
+Emitted when any XR attribute is changed on the active camera.
+
+#### Properties
+
+| Property | Type   | Description       |
+|----------|--------|-------------------|
+| camera   | Camera | The active camera |
+
+#### Example
+
+<EventExample
+  ns='ecs.CameraEvents'
+  event='XR_CAMERA_EDIT'
+  target='world.events.globalId'
+  callbackBody={`console.log('XR camera edited: ', event.data.camera)`}
+/>
+
+### XR_CAMERA_STOP
+
+Emitted when the XR camera stops.
+
+#### Properties
+
+None.
+
+#### Example
+
+<EventExample
+  ns='ecs.CameraEvents'
+  event='XR_CAMERA_STOP'
+  target='world.events.globalId'
+  hasPayload={false}
+  callbackBody={`console.log('XR camera stopped')`}
+/>

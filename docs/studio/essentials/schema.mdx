@@ -1,0 +1,179 @@
+---
+id: schema
+description: A Component Schema defines the data contained by a Component.
+toc_max_heading_level: 3
+sidebar_position: 42
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import EcsTypes from '/src/components/_ecs-types.mdx'
+
+# Schema
+
+{frontMatter.description} When you define a schema, you'll provide an object containing key/value pairs where the key is the name of the property, and the value is an [ECS type](/studio/api/ecs/#types) that specifies the kind of data that property will hold.
+
+<EcsTypes/>
+
+## Example
+The following example shows a Custom Component's schema.
+
+``` ts
+schema: {
+  target: ecs.eid,             // Unique entity reference for the NPC (Entity ID)
+  speed: ecs.f32,              // Movement speed of the NPC (32-bit float)
+  strength: ecs.f64,           // Strength level for the NPC (64-bit float)
+  level: ecs.i32,              // Character level of the NPC (32-bit integer)
+  armor: ecs.ui8,              // Armor rating of the NPC (0-255, 8-bit unsigned integer)
+  experience: ecs.ui32,        // Experience points of the NPC (32-bit unsigned integer)
+  guildName: ecs.string,       // Name of the Guild NPC belongs to. (String)
+  isHostile: ecs.boolean       // Boolean indicating if the NPC is hostile to the player (Boolean)
+}
+```
+
+Defaults can be provided, but are not required. If defaults are not provided, numbers will default to `0`, booleans will default to `false`, strings will default to `''`, and entity references will default to unset. There is no way to set a default for an entity reference at the component level.
+
+``` ts
+schemaDefaults: {
+  speed: 3.14,
+  strength: 5.8,
+  level: 10,
+  armor: 255,
+  experience: 12,
+  guildName: 'Niantic Crew'
+  isHostile: false
+}
+```
+
+## Custom Editor Fields {#custom-editor-fields}
+Display and functionality of your components in the entity editor can be customized in various ways. This is all done using comments inside the schema where fields are marked `// @`.
+
+### Labels
+Sometimes labels in the editor need to be more descriptive than their names in code.
+
+``` ts
+schema: {
+   // @label Foo
+   bar: ecs.eid,
+},
+```
+
+### Asset References
+If you need to reference an asset in the project.
+
+``` ts
+schema: {
+   // @asset
+   yetiModel: ecs.string,
+}
+```
+
+### Min & Max
+If you need to clamp values from going over a certain amount when changed in the interface.
+*Does not affect changes to the variable at runtime.*
+
+``` ts
+schema: {
+   // @min 0
+   // @max 128
+   goldCoins: ecs.i32,
+}
+```
+
+### Conditions
+Properties can be set to only show depending on the values of other properties.
+
+``` ts
+schema: {
+   // 'from' will only show if autoFrom set false:
+   autoFrom: ecs.boolean,
+   // @condition autoFrom=false
+   from: ecs.f32,
+
+   // 'easingFunction' will show if either easeIn or easeOut set:
+   easeIn: ecs.boolean,
+   easeOut: ecs.boolean,
+   // @condition easeIn=true|easeOut=true
+   easingFunction: ecs.string,
+
+   // 'targetX' only shows if no target set:
+   target: ecs.eid,
+   // @condition target=null
+   targetX: ecs.f32,
+}
+```
+
+### Enumerations
+
+String properties can be limited to a set list:
+
+``` ts
+schema: {
+   // @enum Quadratic, Cubic, Quartic, Quintic, Sinusoidal, Exponential
+   easingFunction: ecs.string,
+}
+```
+
+### Groups
+Certain groups of properties can be instructed to be treated specially in the editor. Groups are configured as follows:
+
+* The start and end of the group is marked with // @group start … and // @group end
+* Conditions can be applied to the whole group with // @group condition
+* Two kinds of group currently supported: vector3 and color
+
+#### Labels
+Custom labels can still be used for individual fields:
+
+``` ts
+schema: {
+   // @group start orient:vector3
+   // @label Pitch
+   orientPitch: ecs.f32,
+   // @label Yaw
+   orientYaw: ecs.f32,
+   // @label Roll
+   orientRoll: ecs.f32,
+   // @group end
+}
+```
+
+#### Vector3
+Groups of properties that represent 3D vectors can be indicated as follows:
+
+``` ts
+schema: {
+ autoFrom: ecs.boolean,
+ // @group start from:vector3
+ // @group condition autoFrom=false
+ fromX: ecs.f32,
+ fromY: ecs.f32,
+ fromZ: ecs.f32,
+ // @group end
+}
+```
+
+#### Color
+Colors can be indicated as in the following example:
+
+``` ts
+schema: {
+ // @group start background:color
+ bgRed: ecs.f32,
+ bgGreen: ecs.f32,
+ bgBlue: ecs.f32,
+ // @group end
+}
+```
+
+## Data
+Data is similar to Schema, however there are two notable differences.
+
+1. Data can **not** be read or written outside the Component it is defined in.
+2. Data does **not** have default values, however they can be set in the 'add' lifecycle method for similar functionality.
+
+## Cursors
+A Cursor is a reference to another Component's schema attached to an entity. You can think of it like a pointer or handle that allows you to read or write properties.
+
+However, keep in mind:
+
+* Cursors can become stale if used asynchronously (e.g., inside setTimeout, or delayed callbacks). Use schemaAttribute and dataAttribute instead in these cases.
+* Cursors provide live access to the data on an entity, which means modifying a cursor directly changes the value in the world.

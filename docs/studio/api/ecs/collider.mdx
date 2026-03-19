@@ -1,0 +1,59 @@
+---
+id: collider
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import ColliderTable from "../../../../gen/tables/Collider.md"
+
+# Collider
+
+## Description
+
+This component establishes a physics collider on an entity.
+
+## ColliderShape
+
+| Type     | Description |
+|----------|-------------|
+| Box      | Box         |
+| Sphere   | Sphere      |
+| Plane    | Plane       |
+| Capsule  | Capsule     |
+| Cone     | Cone        |
+| Cylinder | Cylinder    |
+
+## ColliderType
+
+| Type      | Description |
+|-----------|-------------|
+| Static    | Applies to an object that does not move under simulation and behaves as if it has infinite mass         |
+| Dynamic   | Applies to a fully simulated, real-life object affected by forces, gravity, and collisions.      |
+| Kinematic | Applies to an object whose motion is not affected by forces but is entirely controlled programmatically by the user. Unlike static bodies, kinematic bodies can move and can affect other dynamic bodies through collisions.       |
+
+## Properties
+
+<ColliderTable />
+
+## Functions
+
+<ComponentFunctions
+    name="Collider"
+    properties={{
+        shape: 'ecs.ColliderShape.Sphere',
+        type: 'ecs.ColliderType.Static',
+        radius: 1,
+        mass: 0,
+        eventOnly: false,
+        gravityFactory: 1,
+        lockXAxis: false,
+        lockYAxis: false,
+        lockZAxis: false,
+        friction: 0.5,
+        restitution: 0,
+        linearDamping: 0,
+        angularDamping: 0,
+    }}
+    mutate={`cursor.mass = 5;
+    cursor.friction = 0.8;
+    return false;`}
+/>

@@ -1,0 +1,30 @@
+---
+id: follow-animation
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import FollowAnimationTable from "../../../../../gen/tables/FollowAnimation.md"
+
+# FollowAnimation
+
+## Description
+
+This component creates an animation on an entity.
+
+## Properties
+
+<FollowAnimationTable />
+
+## Functions
+
+<ComponentFunctions
+    name="FollowAnimation"
+    properties={{
+        minDistance: 0,
+        maxDistance: 0,
+        elasticity: 1
+    }}
+    mutate={`cursor.minDistance = 5;
+    cursor.elasticity = 0.5;
+    return false;`}
+/>

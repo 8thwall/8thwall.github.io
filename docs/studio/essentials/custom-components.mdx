@@ -1,0 +1,57 @@
+---
+id: custom-components
+description: Custom Components are used to add custom game logic to your entities.
+sidebar_position: 40
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+
+# Custom Components
+
+## Introduction
+{frontMatter.description}
+
+## Creating a Custom Component
+To create a custom Component, follow these steps:
+
+1. In the File browser, click the plus button (+).
+2. Click "New file" → "New Component file", and give it a name (File extension optional).
+    1. A new Component file will be generated, TypeScript by default, in your project.
+    2. The new Component file will include the boilerplate code required to register the custom Component.
+
+## Registering a Custom Component
+The following code is an example of how a newly created Custom Component will appear in the Code Editor:
+
+### Example
+
+``` ts
+// This is a component file. You can use this file to define a custom component for your project.
+// This component will appear as a custom component in the editor.
+
+import * as ecs from '@8thwall/ecs'  // This is how you access the ecs library.
+
+ecs.registerComponent({
+  name: 'Custom Component',
+  // schema: {
+  // },
+  // schemaDefaults: {
+  // },
+  // data: {
+  // },
+  // add: (world, component) => {
+  // },
+  // tick: (world, component) => {
+  // },
+  // remove: (world, component) => {
+  // },
+  // stateMachine: ({world, eid, schemaAttribute, dataAttribute}) => {
+  //   ecs.defineState('default').initial()
+  // },
+})
+```
+
+From this example, you can add [schema](../schema), [a state machine](../state-machines), or [lifecycle callbacks](../component-lifecycle)
+
+:::warning
+Component names starting with ‘debug-’ are reserved for internal debugging purposes and **will not display in the editor.**
+:::

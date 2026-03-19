@@ -1,0 +1,168 @@
+---
+id: events
+description: Events are how entities can communicate with each other through a flexible listener and dispatch system.
+---
+
+# Events
+
+## Introduction
+{frontMatter.description}
+
+## Event Listeners
+
+##### Listener {#listener}
+
+| Property      | Type   | Description                         |
+|---------------|--------|-------------------------------------|
+| target        | eid    | Entity the event was dispatched on. |
+| currentTarget | eid    | Entity the event was listened on.   |
+| name          | string | Name of the event.                  |
+| data          | any    | Event custom data                   |
+
+### Creating Event Listeners
+
+#### addListener
+
+``` ts
+world.events.addListener(target, name, listener)
+```
+
+##### Parameters
+
+:::tip
+It's possible to create global event listeners by using `world.events.globalId` as the target.
+:::
+
+| Property | Type                  | Description                                          |
+|----------|-----------------------|------------------------------------------------------|
+| target   | eid                   | Reference to the target entity.                      |
+| name     | string                | Name of the event to listen for.                     |
+| listener | [Listener](#listener) | The callback function for when an event is triggered |
+
+### Creating Event Handlers
+When adding event listeners to entities, it’s crucial to set up handlers correctly to ensure they function as intended, especially when components are added to multiple entities. Improper handler creation can lead to stale references and unexpected behavior.
+
+Suppose you’re creating a handler for an NPC entity that listens for a damaged event. The handler should update some schema and data values when the event occurs.
+
+#### Incorrect Example
+
+<div class="code-invalid">
+
+``` ts
+import * as ecs from '@8thwall/ecs'
+import { addCleanup, doCleanup } from './cleanup'
+
+ecs.registerComponent({
+  name: 'npc',
+  schema: {
+    isInjured: ecs.boolean,
+  },
+  data: {
+    bpm: ecs.f32,
+  },
+  add: (world, component) => {
+    // Incorrect handler creation
+    const damagedHandler = (e) => {
+      component.schema.isInjured = true
+      component.data.bpm += 30
+    }
+    world.events.addListener(component.eid, 'damaged', damagedHandler)
+
+    const cleanup = () => {
+      world.events.removeListener(component.eid, 'damaged', damagedHandler)
+    }
+    addCleanup(component, cleanup)
+  },
+  remove: (world, component) => {
+    doCleanup(component)
+  },
+})
+```
+
+</div>
+
+In this example:
+* The handler damagedHandler directly references `component.schema` and `component.data`.
+* If the component is added to multiple entities, the component reference inside the handler becomes stale.
+* This can cause the handler to operate on incorrect data, leading to bugs.
+
+#### Correct Example
+To ensure the handler operates on the correct entity data, pass the component’s `dataAttribute` and `schemaAttribute` to the handler and use them to fetch cursors inside the handler.
+
+<div class="code-valid">
+
+``` ts
+import * as ecs from '@8thwall/ecs'
+import { addCleanup, doCleanup } from './cleanup'
+
+// Function to create the damaged handler
+const createDamagedHandler = (dataAttribute, schemaAttribute) => (e) => {
+  const dataCursor = dataAttribute.cursor(e.target)
+  const schemaCursor = schemaAttribute.cursor(e.target)
+  schemaCursor.isInjured = true
+  dataCursor.bpm += 30
+}
+
+ecs.registerComponent({
+  name: 'npc',
+  schema: {
+    isInjured: ecs.boolean,
+  },
+  data: {
+    bpm: ecs.f32,
+  },
+  add: (world, component) => {
+    // Correct handler creation
+    const damagedHandler = createDamagedHandler(component.dataAttribute, component.schemaAttribute)
+    world.events.addListener(component.eid, 'damaged', damagedHandler)
+
+    const cleanup = () => {
+      world.events.removeListener(component.eid, 'damaged', damagedHandler)
+    }
+    addCleanup(component, cleanup)
+  },
+  remove: (world, component) => {
+    doCleanup(component)
+  },
+})
+```
+
+</div>
+
+### Removing Event Listeners
+
+#### removeListener
+
+``` ts
+world.events.removeListener(target, name, listener)
+```
+
+##### Parameters
+
+| Property | Type                  | Description                                          |
+|----------|-----------------------|------------------------------------------------------|
+| target   | eid                   | Reference to the target entity.                      |
+| name     | string                | Name of the event to listen for.                     |
+| listener | [Listener](#listener) | The callback function for when an event is triggered |
+
+## Event Dispatchers
+
+### Dispatching Custom Events
+
+#### Dispatch
+
+:::info
+When an event happens on an entity, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+:::
+
+``` ts
+world.events.dispatch(eidOfEnemy, "attack", {damage: 10})
+```
+
+## Cleaning Up Listeners
+
+:::danger
+Always ensure listeners are properly removed to avoid memory leaks.
+:::
+
+When a component is deleted, its event listeners are not automatically cleaned up, so you must remove them manually.

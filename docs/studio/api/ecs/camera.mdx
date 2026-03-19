@@ -1,0 +1,36 @@
+---
+id: camera
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import CameraTable from "../../../../gen/tables/Camera.md"
+
+# Camera
+
+## Description
+
+This component allows the user to view the world through the entity.
+
+## Properties
+
+<CameraTable />
+
+## Functions
+
+<ComponentFunctions
+    name="Camera"
+    properties={{
+        scale: "responsive",
+        nearClip: 0.1,
+        farClip: 1000,
+        meshGeometryFace: true,
+        meshGeometryEyes: false,
+        meshGeometryIris: false,
+        meshGeometryMouth: false,
+        maxDetections: 1,
+        enableEars: false
+    }}
+    mutate={`cursor.scale = 'absolute';
+    cursor.nearClip = 0.5;
+    return false;`}
+/>

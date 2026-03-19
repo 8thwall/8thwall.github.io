@@ -1,0 +1,55 @@
+---
+id: time
+description: This section provides everything you need to manage time within the world, from tracking elapsed runtime and frame intervals to setting up single or repeating actions.
+---
+
+# Time
+
+## Introduction
+{frontMatter.description} Learn how to use built-in timing functions to create responsive and well-timed interactions in your experience.
+
+## world.time.elapsed
+The number of milliseconds the world has been running for, excluding time spent while the world was paused.
+
+## world.time.delta
+The number of milliseconds since the previous frame, excluding time jumps due to being paused.
+
+## world.time.absolute
+The number of milliseconds that have elapsed since the world was created.
+
+## world.time.absoluteDelta
+The number of milliseconds since the last frame, including large jumps of time if the world is resuming after being paused.
+
+## Timers
+Executes a function once after a specified delay.
+
+### Starting a Timer
+
+``` ts
+const timeout = world.time.setTimeout(() => {
+    console.log('1000 ms have passed!')
+}, 1000)
+```
+
+### Clearing a Timer
+
+``` ts
+world.time.clearTimeout(timeout)
+```
+
+## Intervals
+Repeatedly executes a function at specified time intervals.
+
+### Setting an Interval
+
+``` ts
+const interval = world.time.setInterval(() => {
+    console.log('Another 1000 ms have passed!')
+}, 1000)
+```
+
+### Clearing an Interval
+
+``` ts
+world.time.clearTimeout(interval)
+```

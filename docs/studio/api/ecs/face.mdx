@@ -1,0 +1,29 @@
+---
+id: face
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import FaceTable from "../../../../gen/tables/Face.md"
+
+# Face
+
+## Description
+
+This component causes the entity's transform to follow a face tracked in XR. It will show and hide the entity as the face is found or lost.
+
+## Properties
+
+<FaceTable />
+
+## Functions
+
+<ComponentFunctions
+    name="Face"
+    properties={{
+        id: 1,
+        addAttachmentState: false
+    }}
+    mutate={`cursor.id = 1;
+    cursor.addAttachmentState = true;
+    return false;`}
+/>

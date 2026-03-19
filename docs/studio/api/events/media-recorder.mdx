@@ -1,0 +1,167 @@
+---
+id: media-recorder
+---
+
+import {EventExample} from '@site/src/components/event-example'
+
+# Media Recorder Events
+
+## Description
+
+This Media Recorder allows you to capure screenshots and record video of your Studio project at runtime.
+
+Media Recorder events are emitted on the [world.events.globalId](/studio/api/world/events/#properties).
+
+## Events
+
+### RECORDER_SCREENSHOT_READY
+
+Emitted when screenshot is ready.
+
+#### Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| blob     | Blob | The JPEG image blob of the screenshot |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='RECORDER_SCREENSHOT_READY'
+  target='world.events.globalId'
+  callbackBody={`console.log('Screenshot blob: ', event.data.blob)`}
+/>
+
+
+### RECORDER_VIDEO_STARTED
+
+Emitted when recording has started.
+
+#### Properties
+
+None.
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='RECORDER_VIDEO_STARTED'
+  target='world.events.globalId'
+  hasPayload={false}
+  callbackBody={`console.log('Recording started')`}
+/>
+
+### RECORDER_VIDEO_STOPPED
+
+Emitted when recording has stopped.
+
+#### Properties
+
+None.
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='RECORDER_VIDEO_STARTED'
+  target='world.events.globalId'
+  hasPayload={false}
+  callbackBody={`console.log('Recording stopped')`}
+/>
+
+### RECORDER_VIDEO_ERROR
+
+Emitted when there is an error.
+
+#### Properties
+
+| Property | Type   | Description           |
+|----------|--------|-----------------------|
+| message  | string | The error message     |
+| name     | string | The error name        |
+| stack    | string | The error stack trace |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='RECORDER_VIDEO_ERROR'
+  target='world.events.globalId'
+  callbackBody={`console.log('Recorder error: ', event.data.message)`}
+/>
+
+### RECORDER_VIDEO_READY
+
+Emitted when recording has completed and video is ready.
+
+#### Properties
+
+| Property  | Type | Description                      |
+|-----------|------|----------------------------------|
+| videoBlob | Blob | The recorded video blob          |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='RECORDER_VIDEO_READY'
+  target='world.events.globalId'
+  callbackBody={`console.log('Video ready: ', event.data.videoBlob)`}
+/>
+
+### RECORDER_PREVIEW_READY
+
+Emitted when a previewable, but not sharing-optimized, video is ready (Android/Desktop only).
+
+#### Properties
+
+| Property  | Type | Description                        |
+|-----------|------|------------------------------------|
+| videoBlob | Blob | The preview video blob             |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='RECORDER_PREVIEW_READY'
+  target='world.events.globalId'
+  callbackBody={`console.log('Preview ready: ', event.data.videoBlob)`}
+/>
+
+### RECORDER_FINALIZE_PROGRESS
+
+Emitted when the media recorder is making progress in the final export (Android/Desktop only).
+
+#### Properties
+
+| Property | Type   | Description                        |
+|----------|--------|------------------------------------|
+| progress | number | Finalization progress (0 to 1)     |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='RECORDER_FINALIZE_PROGRESS'
+  target='world.events.globalId'
+  callbackBody={`console.log('Finalize progress: ', event.data.progress * 100)`}
+/>
+
+### RECORDER_PROCESS_FRAME
+
+#### Properties
+
+| Property  | Type      | Description                         |
+|-----------|-----------|-------------------------------------|
+| frame     | ImageData | The processed video frame           |
+| timestamp | number    | The timestamp of the frame (ms)     |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='RECORDER_PROCESS_FRAME'
+  target='world.events.globalId'
+  callbackBody={`console.log('Process frame: ', event.data.timestamp, event.data.frame)`}
+/>

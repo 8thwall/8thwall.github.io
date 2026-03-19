@@ -1,0 +1,148 @@
+---
+id: load-screen
+---
+# Customizing the Load Screen
+
+8th Wall's [XRExtras](https://github.com/8thwall/web/tree/master/xrextras) library provides modules
+that handle the most common WebAR application needs, including the load screen, social link-out
+flows and error handling.
+
+The `Loading` module displays a loading overlay and camera permissions prompt while libraries are
+loading, and while the camera is starting up. It's the first thing your users see when they enter
+your WebAR experience.
+
+This section describes how to customize the loading screen by providing values that change the
+color, load spinner, and load animation to match the overall design of your experience.
+
+**Note:** All projects must display the [Powered by 8th Wall](https://drive.google.com/drive/folders/1c9d23c5hS_HspHTUD7VceV6ocqdbPN7J?usp=sharing) 
+badge on the loading page. It's included by default in the `Loading Module` and cannot be removed.
+
+## ID's / Classes to override {#ids--classes-to-override}
+
+````mdx-code-block
+<table width="100%">
+  <thead>
+    <th style={{textAlign: 'center'}}>Loading Screen</th>
+    <th style={{textAlign: 'center'}}>iOS (13+) Motion Sensor Prompt</th>
+  </thead>
+  <tbody>
+    {/* Images */}
+    <tr>
+      <td width="50%">
+        <img src={require('/images/load-screen-css.jpg').default} style={{display: 'block', maxWidth: '360px', margin: 'auto', height: 'auto'}}/>
+      </td>
+      <td width="50%">
+        <img src={require('/images/motion-prompt-css.jpg').default} style={{display: 'block', maxWidth: '360px', margin: 'auto', height: 'auto'}}/>
+      </td>
+    </tr>
+    {/* Key */}
+    <tr>
+      <td width="50%">
+        <ol>
+          <li>#requestingCameraPermissions</li>
+          <li>#requestingCameraIcon</li>
+          <li>#loadBackground</li>
+          <li>#loadImage</li>
+        </ol>
+      </td>
+      <td width="50%">
+        <ol>
+          <li>.prompt-box-8w</li>
+          <li>.prompt-button-8w</li>
+          <li>.button-primary-8w</li>
+        </ol>
+        <p>To customize the text, you can use a MutationObserver. Please refer to code example below.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+````
+
+## A-Frame component parameters {#a-frame-component-parameters}
+
+If you are using XRExtras with an A-Frame project, the `xrextras-loading` module makes it easy to customize the load screen via the following parameters:
+
+Parameter | Type | Description
+--------- | ---- | -----------
+cameraBackgroundColor | Hex Color | Background color of the loading screen's top section behind the camera icon and text (See above. Loading Screen #1)
+loadBackgroundColor | Hex Color | Background color of the loading screen's lower section behind the `loadImage`  (See above. Loading Screen #3)
+loadImage | ID | The ID of an image.  The image needs to be an `<a-asset>` (See above. Loading Screen #4)
+loadAnimation | `String` | Animation style of `loadImage`.  Choose from `spin` (default), `pulse`, `scale`, or `none`
+
+#### A-Frame Component Example {#a-frame-component-example}
+
+```jsx
+<a-scene
+  tap-place
+  xrextras-almost-there
+  xrextras-loading="
+    loadBackgroundColor: #007AFF;
+    cameraBackgroundColor: #5AC8FA;
+    loadImage: #myCustomImage;
+    loadAnimation: pulse"
+  xrextras-runtime-error
+  xrweb>
+
+<a-assets>
+  <img id="myCustomImage" src="assets/my-custom-image.png">
+</a-assets>
+```
+
+#### Javascript/CSS method {#javascriptcss-method}
+
+```javascript
+const load = () => {
+  XRExtras.Loading.showLoading()
+  console.log('customizing loading spinner')
+  const loadImage = document.getElementById("loadImage")
+  if (loadImage) {
+    loadImage.src = require("./assets/my-custom-image.png")
+  }
+}
+window.XRExtras ? load() : window.addEventListener('xrextrasloaded', load)
+```
+
+#### CSS example {#css-example}
+
+```css
+#requestingCameraPermissions {
+  color: black !important;
+  background-color: white !important;
+}
+#requestingCameraIcon {
+  /* This changes the image from white to black */
+  filter: invert(1) !important;
+}
+
+.prompt-box-8w {
+  background-color: white !important;
+  color: #00FF00 !important;
+}
+.prompt-button-8w {
+  background-color: #0000FF !important;
+}
+
+.button-primary-8w {
+  background-color: #7611B7 !important;
+}
+```
+
+#### iOS (13+) Motion Sensor Prompt Text Customization {#ios-13-motion-sensor-prompt-text-customization}
+
+```javascript
+let inDom = false
+const observer = new MutationObserver(() => {
+  if (document.querySelector('.prompt-box-8w')) {
+    if (!inDom) {
+      document.querySelector('.prompt-box-8w p').innerHTML = '<strong>My new text goes here</strong><br/><br/>Press Approve to continue.'
+      document.querySelector('.prompt-button-8w').innerHTML = 'Deny'
+      document.querySelector('.button-primary-8w').innerHTML = 'Approve'
+    }
+    inDom = true
+  } else if (inDom) {
+    inDom = false
+    observer.disconnect()
+  }
+})
+observer.observe(document.body, {childList: true})
+```
