@@ -25,7 +25,7 @@ export default function SiteFooter() {
               <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Video Tutorials</a>
               <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
               <a href="https://8th.io/examples" target="_blank" rel="noopener">Example Projects</a>
-              <a href="https://8th.io/blog" target="_blank" rel="noopener">Blog</a>
+              <a href="/blog">Blog</a>
             </div>
             <div className="footer-column">
               <h2 className="footer-heading">Get Involved</h2>

@@ -1832,3 +1832,49 @@ body.nav-open .nav-drawer {
 .navbar-sidebar__backdrop {
   transition: none !important;
 }
+
+/* Hide announcement bar on blog pages */
+.blog-post-page div[class*="announcementBar"],
+.blog-list-page div[class*="announcementBar"] {
+  display: none !important;
+}
+
+/* Blog post body — improve readability for long-form content.
+   Switch from monospace to sans-serif, soften contrast, increase line spacing.
+   Applied to both the post page and the list page excerpt. */
+.blog-post-page .markdown,
+.blog-list-page .markdown,
+.blog-tags-post-list-page .markdown {
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #c8c8c8;
+}
+
+.blog-post-page .markdown h1,
+.blog-post-page .markdown h2,
+.blog-post-page .markdown h3,
+.blog-post-page .markdown h4 {
+  color: #ffffff;
+  font-family: var(--ifm-heading-font-family);
+}
+
+.blog-post-page .markdown a {
+  color: var(--ifm-color-primary-light);
+}
+
+.blog-post-page .markdown a:hover {
+  color: #ffffff;
+}
+
+/* Scroll offset for TOC anchor links — keep headings below the sticky navbar */
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3,
+.theme-doc-markdown h4,
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  scroll-margin-top: 88px;
+}

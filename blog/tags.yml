@@ -1,0 +1,19 @@
+# Canonical tag definitions for blog posts.
+# Posts can use any tag string, but tags listed here get a custom
+# display label and permalink.
+
+announcement:
+  label: Announcement
+  permalink: /announcement
+
+release:
+  label: Release
+  permalink: /release
+
+tutorial:
+  label: Tutorial
+  permalink: /tutorial
+
+open-source:
+  label: Open Source
+  permalink: /open-source
