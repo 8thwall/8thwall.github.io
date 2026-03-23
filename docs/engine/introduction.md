@@ -34,6 +34,8 @@ See documentation on [A-Frame Components](/docs/api/engine/aframe/), [A-Frame Ev
 
 ## Integrating 8th Wall with three.js {#threejs}
 
+To integrate the 8th Wall engine into a three.js project, use the [Camera Pipeline Module API](/docs/api/engine/camerapipelinemodule).
+
 ```
 // app.js
 const onxrloaded = () => {
