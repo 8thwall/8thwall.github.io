@@ -1,0 +1,28 @@
+---
+id: splat
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import SplatTable from "/gen/tables/Splat.md"
+
+# Splat
+
+## Description
+
+This component establishes a Gaussian Splat on an entity.
+
+## Properties
+
+<SplatTable />
+
+
+## Functions
+
+<ComponentFunctions
+    name="Splat"
+    properties={{
+        url: "./assets/splat.spz"
+    }}
+    mutate={`cursor.url = './assets/new_splat.spz';
+    return false;`}
+/>

@@ -1,0 +1,48 @@
+---
+id: lighting
+description: Whether you’re aiming for a highly realistic look or a stylized one, lighting can make a significant difference in how your scene feels and interacts with users.
+---
+
+# Lighting
+
+## Introduction
+Lighting plays a crucial role in enhancing the visual appeal of any scene. It adds depth, realism, and atmosphere, making experiences more immersive, engaging, and visually compelling. {frontMatter.description}
+
+## Adding a Light
+Lights and shadows can be added to an entity through the Studio interface or via code. In Studio, you can do this by clicking the (+) button in the Hierarchy or by selecting “New Component” in the Inspector for a chosen entity. Both Light and Shadow components offer various settings for customization.
+
+#### Types of Lights
+**Directional:**
+A light that gets emitted in a specific direction. This light will behave as though it is infinitely far away and the rays produced from it are all parallel. The common use case for this is to simulate daylight; the sun is far enough away that its position can be considered to be infinite, and all light rays coming from it are parallel.
+
+**Point:**
+A light that radiates in all directions from a single point. A common example is replicating light from a bare lightbulb.
+
+**Ambient:**
+This light uniformly illuminates all objects in the scene, creating global illumination.
+
+![light-component.png](/images/studio/light-component.png)
+
+### Example
+The following example demonstrates how to assign a Light to an entity at runtime:
+
+``` ts
+ecs.Light.set(world, component.eid, {
+    type: 'point'
+})
+```
+
+## Adding Shadows
+**Objects in the scene won’t cast or receive shadows by default.** To enable shadows, add the Shadow component to the object and configure its properties accordingly.
+
+![shadow-component.png](/images/studio/shadow-component.png)
+
+### Example
+The following example shows how to set a Shadow on an entity at runtime.
+
+``` ts
+ecs.Shadow.set(world, component.eid, {
+  castShadow: true,
+  receiveShadow: true
+})
+```

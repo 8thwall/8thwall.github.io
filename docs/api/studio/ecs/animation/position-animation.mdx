@@ -1,0 +1,41 @@
+---
+id: position-animation
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import PositionAnimationTable from "/gen/tables/PositionAnimation.md"
+
+# PositionAnimation
+
+## Description
+
+This component creates an animation on an entity.
+
+## Properties
+
+<PositionAnimationTable />
+
+## Functions
+
+<ComponentFunctions
+    name="PositionAnimation"
+    properties={{
+        fromX: 0,
+        fromY: 0,
+        fromZ: 0,
+        toX: 0,
+        toY: 0,
+        toZ: 0,
+        autoFrom: false,
+        duration: 1000,
+        loop: true,
+        reverse: false,
+        easeIn: false,
+        easeOut: false,
+        easingFunction: "Quadratic"
+    }}
+    mutate={`cursor.toX = 10;
+    cursor.toY = 5;
+    cursor.duration = 2000;
+    return false;`}
+/>

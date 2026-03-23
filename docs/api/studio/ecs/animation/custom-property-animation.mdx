@@ -1,0 +1,38 @@
+---
+id: custom-property-animation
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import CustomPropertyAnimationTable from "/gen/tables/CustomPropertyAnimation.md"
+
+# CustomPropertyAnimation
+
+## Description
+
+This component creates an animation on an entity.
+
+## Properties
+
+<CustomPropertyAnimationTable />
+
+## Functions
+
+<ComponentFunctions
+    name="CustomPropertyAnimation"
+    properties={{
+        attribute: "attribute",
+        property: "property",
+        from: 0,
+        to: 0,
+        autoFrom: false,
+        duration: 1000,
+        loop: false,
+        reverse: false,
+        easeIn: false,
+        easeOut: false,
+        easingFunction: "Cubic"
+    }}
+    mutate={`cursor.duration = 1000;
+    cursor.loop = true;
+    return false;`}
+/>

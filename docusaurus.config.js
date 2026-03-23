@@ -16,7 +16,11 @@ const config = {
     [
       'classic',
       {
-        docs: false,
+        docs: {
+          routeBasePath: '/docs',
+          path: 'docs',
+          sidebarPath: require.resolve('./sidebars.js'),
+        },
         blog: {
           path: 'blog',
           routeBasePath: 'blog',

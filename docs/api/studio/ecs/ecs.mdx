@@ -1,0 +1,184 @@
+---
+id: ecs
+---
+
+import EcsTypes from '/src/components/_ecs-types.mdx'
+
+# ecs
+
+## Properties
+
+### Types {#types}
+
+<EcsTypes/>
+
+## Functions
+
+### registerComponent
+
+Registers a component with the ECS.
+
+``` ts
+ecs.registerComponent({
+    name: string,
+    schema: Schema,
+    data: Schema,
+    schemaDefaults: Object,
+    add: function
+    remove: function,
+    tick: function
+}) // -> Component Handle
+```
+
+#### State
+
+| Parameter           | Type                        | Description                                                                          |
+|---------------------|-----------------------------|--------------------------------------------------------------------------------------|
+| triggers (Required) | `Record<String, Trigger[]>` | Name of the next states that this state and transition to and the triggers to do so. |
+| onEnter             | function                    | Function called before the state is entered.                                         |
+| onExit              | function                    | Function called before the state is entered.                                         |
+
+#### Trigger
+
+##### EventTrigger
+
+| Parameter        | Type               | Description                                                                                                                         |
+|------------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| type (Required)  | constant: 'event'  | A constant to indicate the type of the trigger                                                                                      |
+| event (Required) | string             | The event type that triggers this                                                                                                   |
+| target           | eid                | The entity you want this trigger to change state for                                                                                |
+| beforeTransition | (event) => boolean | A function that run before the transition, if the result is truthy then the transition will terminate and the state will not change |
+
+##### TimeoutTrigger
+
+| Parameter          | Type                | Description                                      |
+|--------------------|---------------------|--------------------------------------------------|
+| type (Required)    | constant: 'timeout' | A constant to indicate the type of the trigger   |
+| timeout (Required) | number              | The number of milliseconds before the transition |
+
+### createStateMachine
+
+Create a state machine.
+
+``` ts
+ecs.createStateMachine(world, owner, {initialState: string, states: Record<string, State>}) // -> State Machine ID
+```
+
+### deleteStateMachine
+
+Delete a state machine.
+
+``` ts
+ecs.deleteStateMachine(world, machineId) // -> void
+```
+
+### defineState
+
+Define a state.
+
+``` ts
+ecs.defineState(name: string) // -> State
+```
+
+#### initial
+
+Mark this state as the initial state of the state machine
+
+``` ts
+ecs.defineState(name).initial() // -> void
+```
+
+#### onEnter
+
+Set a callback to run when entering this state.
+
+``` ts
+ecs.defineState(name).onEnter(callback) // -> void
+```
+
+#### onEvent
+
+##### Event
+
+| Parameter        | Type               | Description                                                                                                                       |
+|------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| target           | eid                | the entity you want this trigger to change state for                                                                              |
+| beforeTransition | (event) => boolean | Function that run before the transition, if the result is truthy then the transition will terminate and the state will not change |
+
+Trigger a transition to the next state when an event is received.
+
+``` ts
+ecs.defineState(name).onEvent(event: string, nextState: string | State, args: EventObject) // -> void
+```
+
+#### onExit
+
+Set a callback to run when exiting this state.
+
+``` ts
+ecs.defineState(name).onExit(callback) // -> void
+```
+
+#### wait
+
+Wait before transitioning state.
+
+``` ts
+ecs.defineState(name).wait(waitTime: number, nextState: string | State) // -> void
+```
+
+### defineSystem
+
+Define a system.
+
+``` ts
+ecs.defineSystem([terms]: string[], behavior: function) // -> System
+```
+
+### defineQuery
+
+Define a query.
+
+``` ts
+ecs.defineQuery([terms: string]) // -> callback
+```
+
+### getAttribute
+
+Built-in components are also exposed as a property of ecs.
+
+``` ts
+ecs.getAttribute(attributeName: string) // -> the attribute that has been registered with that name.
+```
+
+### listAttributes
+
+Returns a list of attributes.
+
+``` ts
+ecs.listAttributes() // -> string[]
+```
+
+### getBehaviors
+
+Returns a list of registered behaviors.
+
+``` ts
+ecs.getBehaviors() // -> function[]
+```
+
+### registerBehavior
+
+Register a function that runs on the world every tick.
+
+``` ts
+ecs.registerBehavior(behavior: function) // -> void
+```
+
+### unregisterBehavior
+
+Deactivate a behavior.
+
+``` ts
+ecs.unregisterBehavior(behavior: function) // -> void
+```

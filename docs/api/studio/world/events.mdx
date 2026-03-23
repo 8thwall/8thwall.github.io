@@ -1,0 +1,41 @@
+---
+id: events
+description: This library includes functions that handle event management.
+---
+
+# events
+
+## Description
+{frontMatter.description}
+
+## Properties {#properties}
+
+| Property | Description                                  |
+|----------|----------------------------------------------|
+| globalId | Used to dispatch/listen for events globally. |
+
+## Functions {#functions}
+
+### addListener
+
+Registers a component to listen to an event.
+
+``` ts
+world.events.addListener(target: eid, name: string, listener: function) -> void
+```
+
+### removeListener
+
+Un-registers an existing listener
+
+``` ts
+world.events.removeListener(target: eid, name: string, listener: function) -> void
+```
+
+### dispatch
+
+Used to emit events that the listeners can listen to.
+
+``` ts
+world.events.dispatch(target: eid, name: string, data: object /* (optional) */) -> void
+```

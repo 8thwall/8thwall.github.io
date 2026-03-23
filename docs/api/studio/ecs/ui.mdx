@@ -1,0 +1,30 @@
+---
+id: ui
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import UiTable from "/gen/tables/Ui.md"
+
+# Ui
+
+## Description
+
+This component establishes a User Interface in relation to the entity.
+
+## Properties
+
+<UiTable />
+
+## Functions
+
+<ComponentFunctions
+    name="Ui"
+    properties={{
+        type: "overlay",
+        background: "#FFFFFF",
+    }}
+    mutate={`cursor.opacity = 0.5;
+    cursor.text = 'Hello World!';
+    cursor.width = 150;
+    return false;`}
+/>

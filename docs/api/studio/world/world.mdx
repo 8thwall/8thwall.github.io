@@ -1,0 +1,124 @@
+---
+id: world
+description: This library includes properties and functions related to the World.
+---
+
+# world
+
+## Description
+{frontMatter.description}
+
+## Properties
+
+| Property    | Type | Description                |
+|-------------|------|----------------------------|
+| allEntities | Set  | Set of all scene entities. |
+
+## Functions
+
+### createEntity
+Create a new entity. Optionally specify a prefab entity or prefab name to spawn a instance of that prefab.
+
+``` ts
+world.createEntity(prefabOrPrefabName?: Eid | string) // -> eid
+```
+
+### deleteEntity
+Delete an existing entity.
+
+``` ts
+world.deleteEntity(eid) // -> void
+```
+
+### getChildren
+Get children of an entity.
+
+``` ts
+world.getChildren(eid) // -> Generator<Eid>
+```
+
+### getParent
+Get the parent of an entity.
+
+``` ts
+world.getParent(eid) // -> eid
+```
+
+### setParent
+Set the parent of an entity.
+
+``` ts
+world.setParent(eid, parent: eid) // -> void
+```
+
+### getWorldTransform
+Get the world transform of an entity. **Copies the worldTransform of the target into the second parameter.**
+
+``` ts
+world.getWorldTransform(eid, transform: Mat4) // -> void
+```
+
+### setTransform
+Set transform of an entity.
+
+``` ts
+world.setTransform(eid, transform: Mat4) // -> void
+```
+
+### setPosition
+Set position of an entity.
+
+``` ts
+world.setPosition(eid, x: number, y: number, z: number) // -> void
+```
+
+### setQuaternion
+Set rotation of an entity.
+
+``` ts
+world.setQuaternion(eid, x: number, y: number, z: number, w: number) // -> void
+```
+
+### setScale
+Set scale of an entity.
+
+``` ts
+world.setScale(eid, x: number, y: number, z: number) // -> void
+```
+
+### normalizeQuaternion
+Normalizes an entity's quaternion.
+
+``` ts
+world.normalizeQuaternion(eid) // -> void
+```
+
+### getInstanceEntity
+Get the corresponding instance entity from a prefab instance hierarchy given the root instance, and a source prefab or prefab child entity.
+
+``` ts
+world.getInstanceEntity(prefabInstance: Eid, prefabSourceEntity: Eid) // -> Eid
+```
+
+### raycast
+Perform a Raycast from a position and direction.
+
+``` ts
+world.raycast(origin: Vec3, direction: Vec3, near: number = 0, far: number = Infinity) // -> IntersectionResult[]
+```
+
+### raycastFrom
+Perform a Raycast from an entity's position and forward direction.
+
+``` ts
+world.raycastFrom(eid: Eid, near: number = 0, far: number = Infinity) // -> IntersectionResult[]
+```
+
+## IntersectionResult
+
+| Property  | Type         | Description                                                      |
+|-----------|--------------|------------------------------------------------------------------|
+| eid?      | Eid          | The eid of the object that was hit.                              |
+| point     | Vec3         | The location in World Space where the intersection occurred.     |
+| distance  | number       | The distance between the starting location and the hit location. |
+| threeData | Intersection | The three.js intersection data.                                  |

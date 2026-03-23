@@ -1,0 +1,178 @@
+---
+id: input
+description: This library includes functions that handle input management.
+---
+
+# input
+
+## Description
+{frontMatter.description}
+
+## Functions
+
+### disablePointerLockRequest
+Disables the pointer lock request on click.
+
+``` ts
+world.input.disablePointerLockRequest() // -> void
+```
+
+### enablePointerLockRequest
+Request a pointer lock from the user when the screen is clicked.
+
+``` ts
+world.input.enablePointerLockRequest() // -> void
+```
+
+### getAction
+Returns > 0 if the action was triggered. Value is usually from 0 to 1. The exception is mouse velocity and scroll which is uncapped.
+
+``` ts
+world.input.getAction(actionName: string) // -> number
+```
+
+### getActiveMap
+Get the active action map.
+
+``` ts
+world.input.getActiveMap() // -> string (Name of the active action map)
+```
+
+### setActiveMap
+Sets the active action map. The default action map's name is 'default'.
+
+``` ts
+world.input.setActiveMap(mapName: string) // -> void
+```
+
+### getAxis
+Returns the value of the axis of the gamepadIdx.
+
+``` ts
+world.input.getAxis(gamepadIdx?: number) // -> number[]
+```
+
+### getButton
+Returns true while the virtual button identified by buttonName is held down.
+
+``` ts
+world.input.getAxis(input: number, gamepadIdx?: number) // -> boolean
+```
+
+### getButtonDown
+Returns true during the frame the user pressed down the button mapped to the index.
+
+``` ts
+world.input.getAxis(input: number, gamepadIdx?: number) // -> boolean
+```
+
+### getButtonUp
+Returns true the first frame the user releases the button.
+
+``` ts
+world.input.getAxis(input: number, gamepadIdx?: number) // -> boolean
+```
+
+### getGamepads
+Returns all gamepads connected to the device.
+
+``` ts
+world.input.getGamepads() // -> Gamepad[]
+```
+
+### getKey
+Returns true while the user holds down the key identified by name.
+
+``` ts
+world.input.getKey(code: string) // -> boolean
+```
+
+### getKeyDown
+Returns true during the frame the user starts pressing down the key identified by name.
+
+``` ts
+world.input.getKeyDown(code: string) // -> boolean
+```
+
+### getKeyUp
+Returns true during the frame the user releases the key identified by name.
+
+``` ts
+world.input.getKeyUp(code: string) // -> boolean
+```
+
+### getMouseButton
+Returns true while the user holds down the mouse button identified by button number.
+
+| Number | Mouse Button |
+|--------|--------------|
+| 0      | Left Click   |
+| 1      | Right Click  |
+| 2      | Middle Click |
+
+``` ts
+world.input.getMouseButton(index: number) // -> boolean
+```
+
+### getMouseDown
+Returns true during the frame the user starts pressing down on the mouse button.
+
+``` ts
+world.input.getMouseDown(index: number) // -> boolean
+```
+
+### getMouseUp
+Returns true during the frame the user releases the mouse button.
+
+``` ts
+world.input.getMouseUp(index: number) // -> boolean
+```
+
+### getMousePosition
+Returns the clientX and clientY coordinates of the mouse.
+
+``` ts
+world.input.getMousePosition() // -> [number, number]
+```
+
+### getMouseVelocity
+Returns the x and y velocity of the mouse.
+
+``` ts
+world.input.getMouseVelocity() // -> [number, number]
+```
+
+### getMouseScroll
+Return the x and y velocity of mouse scroll.
+
+``` ts
+world.input.getMouseScroll() // -> [number, number]
+```
+
+### getTouch
+Returns true while the screen is being touched. If an identifier is provided, returns true only if that specific touch is active.
+
+``` ts
+world.input.getTouch(identifier?: number) // -> boolean
+```
+
+### getTouchDown
+Returns true during the frame a touch begins. If an identifier is provided, returns true only when that specific touch begins.
+
+``` ts
+world.input.getTouchDown(identifier?: number) // -> boolean
+```
+
+### getTouchUp
+Returns true during the frame a touch ends. If an identifier is provided, returns true only when that specific touch ends.
+
+``` ts
+world.input.getTouchUp(identifier?: number) // -> boolean
+```
+
+### getTouchIds
+Returns an array of active touch identifiers. Each identifier represents a distinct touch point currently on the screen.
+
+``` ts
+world.input.getTouchIds() // -> number[]
+```

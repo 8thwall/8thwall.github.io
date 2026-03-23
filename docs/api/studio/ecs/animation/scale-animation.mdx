@@ -1,0 +1,43 @@
+---
+id: scale-animation
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import ScaleAnimationTable from "/gen/tables/ScaleAnimation.md"
+
+
+# ScaleAnimation
+
+## Description
+
+This component creates an animation on an entity.
+
+## Properties
+
+<ScaleAnimationTable />
+
+## Functions
+
+<ComponentFunctions
+    name="ScaleAnimation"
+    properties={{
+        fromX: 0,
+        fromY: 0,
+        fromZ: 0,
+        toX: 0,
+        toY: 0,
+        toZ: 0,
+        autoFrom: false,
+        duration: 1000,
+        loop: true,
+        reverse: false,
+        easeIn: false,
+        easeOut: false,
+        easingFunction: "Quadratic"
+    }}
+    mutate={`cursor.toX = 2;
+    cursor.toY = 2;
+    cursor.toZ = 2;
+    cursor.duration = 2000;
+    return false;`}
+/>

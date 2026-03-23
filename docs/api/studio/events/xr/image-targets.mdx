@@ -1,0 +1,175 @@
+---
+id: image-targets
+sidebar_position: 2
+---
+
+import {EventExample} from '@site/src/components/event-example'
+
+# Image Target Events
+
+## Types {#types}
+
+### ImagePropertiesObject {#ImagePropertiesObject}
+`ImagePropertiesObject` is an object with the following properties:
+
+| Property       | Type      | Description                                |
+|----------------|-----------|--------------------------------------------|
+| width          | `Number`  | Width of the image target.                 |
+| height         | `Number`  | Height of the image target.                |
+| originalWidth  | `Number`  | Width of the uploaded image.               |
+| originalHeight | `Number`  | Height of the uploaded image.              |
+| isRotated      | `boolean` | Whether the image target has been rotated. |
+
+### ImageLoadingObject {#ImageLoadingObject}
+`ImageLoadingObject` is an object with the following properties:
+
+| Property | Type           | Description                              |
+|----------|----------------|------------------------------------------|
+| name     | `String`       | The image's name.                        |
+| type     | `String`       | One of `FLAT`, `CYLINDRICAL`, `CONICAL`. |
+| metadata | `Object`       | User metadata.                           |
+
+### ImageScanningObject {#ImageScanningObject}
+`ImageScanningObject` is an object with the following properties:
+
+| Property | Type           | Description                              |
+|----------|----------------|------------------------------------------|
+| name     | `String`       | The image's name.                        |
+| type     | `String`       | One of `FLAT`, `CYLINDRICAL`, `CONICAL`. |
+| metadata | `Object`       | User metadata.                           |
+| geometry | `Object`       | Object containing geometry data. If type=FLAT: `{scaledWidth, scaledHeight}`, else if type=CYLINDRICAL or type=CONICAL: `{height, radiusTop, radiusBottom, arcStartRadians, arcLengthRadians}` |
+
+## Events
+
+### REALITY_IMAGE_FOUND
+
+This event is emitted when an image target is first found.
+
+#### Properties
+| Property     | Type           | Description                                                              |
+|--------------|----------------|--------------------------------------------------------------------------|
+| name         | `String`       | The image's name.                                                        |
+| type         | `String`       | One of `FLAT`, `CYLINDRICAL`, `CONICAL`.                          |
+| position     | `{x, y, z}`    | The 3d position of the located image.                                    |
+| rotation     | `{w, x, y, z}` | The 3d local orientation of the located image.                           |
+| scale        | `Number`       | A scale factor that should be applied to object attached to this image.  |
+| properties   | [`ImagePropertiesObject`](#ImagePropertiesObject) | Additional image target properties.   |
+| scaledWidth  | `Number` | **Only applicable to `FLAT`**. The width of the image in the scene, when multiplied by scale. |
+| scaledHeight | `Number` | **Only applicable to `FLAT`**. The height of the image in the scene, when multiplied by scale. |
+| height  | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Height of the curved target. |
+| radiusTop | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Radius of the curved target at the top. |
+| radiusBottom | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Radius of the curved target at the bottom. |
+| arcStartRadians | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Starting angle in radians. |
+| arcLengthRadians | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Central angle in radians. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='REALITY_IMAGE_FOUND'
+  target='world.events.globalId'
+  callbackBody={`console.log('Image found: ', event.data.name)`}
+/>
+
+### REALITY_IMAGE_LOADING
+
+This event is emitted when detection image loading begins.
+
+#### Properties
+
+| Property     | Type                        | Description                              |
+|--------------|---------------------------- |------------------------------------------|
+| imageTargets | `Array<ImageLoadingObject>` | The list of image targets.               |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='REALITY_IMAGE_LOADING'
+  target='world.events.globalId'
+  callbackBody={[
+    `event.data.imageTargets.forEach(({name, type, metadata, geometry}) => {`,
+    `  console.log('Loading: ', name)`,
+    `})`,
+  ]}
+/>
+
+### REALITY_IMAGE_LOST
+This event is emitted when an image target is no longer being tracked.
+
+#### Properties
+| Property   | Type           | Description                                                              |
+|------------|----------------|--------------------------------------------------------------------------|
+| name       | `String`       | The image's name.                                                        |
+| type         | `String`       | One of `FLAT`, `CYLINDRICAL`, `CONICAL`.                          |
+| position   | `{x, y, z}`    | The 3d position of the located image.                                    |
+| rotation   | `{w, x, y, z}` | The 3d local orientation of the located image.                           |
+| scale      | `Number`       | A scale factor that should be applied to object attached to this image.  |
+| properties | [`ImagePropertiesObject`](#ImagePropertiesObject) | Additional image target properties.   |
+| scaledWidth  | `Number` | **Only applicable to `FLAT`**. The width of the image in the scene, when multiplied by scale. |
+| scaledHeight | `Number` | **Only applicable to `FLAT`**. The height of the image in the scene, when multiplied by scale. |
+| height  | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Height of the curved target. |
+| radiusTop | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Radius of the curved target at the top. |
+| radiusBottom | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Radius of the curved target at the bottom. |
+| arcStartRadians | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Starting angle in radians. |
+| arcLengthRadians | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Central angle in radians. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='REALITY_IMAGE_LOST'
+  target='world.events.globalId'
+  callbackBody={`console.log('Image lost: ', event.data.name)`}
+/>
+
+### REALITY_IMAGE_SCANNING
+This event is emitted when all detection images have been loaded and scanning has begun.
+
+#### Properties
+
+| Property     | Type                         | Description                              |
+|--------------|------------------------------|------------------------------------------|
+| imageTargets | `Array<ImageScanningObject>` | The list of image targets.               |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='REALITY_IMAGE_SCANNING'
+  target='world.events.globalId'
+  callbackBody={[
+    `event.data.imageTargets.forEach(({name, type, metadata, geometry}) => {`,
+    `  console.log('Scanning: ', name)`,
+    `})`,
+  ]}
+/>
+
+### REALITY_IMAGE_UPDATED
+This event is emitted when an image target changes position, rotation or scale.
+
+#### Properties
+| Property   | Type           | Description                                                              |
+|------------|----------------|--------------------------------------------------------------------------|
+| name       | `String`       | The image's name.                                                        |
+| type         | `String`       | One of `FLAT`, `CYLINDRICAL`, `CONICAL`.                          |
+| position   | `{x, y, z}`    | The 3d position of the located image.                                    |
+| rotation   | `{w, x, y, z}` | The 3d local orientation of the located image.                           |
+| scale      | `Number`       | A scale factor that should be applied to object attached to this image.  |
+| properties | [`ImagePropertiesObject`](#ImagePropertiesObject) | Additional image target properties.   |
+| scaledWidth  | `Number` | **Only applicable to `FLAT`**. The width of the image in the scene, when multiplied by scale. |
+| scaledHeight | `Number` | **Only applicable to `FLAT`**. The height of the image in the scene, when multiplied by scale. |
+| height  | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Height of the curved target. |
+| radiusTop | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Radius of the curved target at the top. |
+| radiusBottom | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Radius of the curved target at the bottom. |
+| arcStartRadians | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Starting angle in radians. |
+| arcLengthRadians | `Number` | **Only applicable to `CYLINDRICAL` or `CONICAL`**. Central angle in radians. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='REALITY_IMAGE_UPDATED'
+  target='world.events.globalId'
+  callbackBody={`console.log('Image updated: ', event.data.position, event.data.rotation)`}
+/>
