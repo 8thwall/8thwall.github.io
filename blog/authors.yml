@@ -1,0 +1,15 @@
+# Blog author profiles.
+# Reference these keys in post front matter: authors: [8thwall]
+# Multiple authors: authors: [8thwall, jane]
+
+8thwall:
+  name: 8th Wall
+  image_url: /img/authors/team_blog_avatar.png
+
+# Add individual authors below. Avatar images go in static/img/authors/.
+# Example:
+# jane:
+#   name: Jane Smith
+#   title: Developer Advocate
+#   url: https://github.com/janesmith
+#   image_url: /img/authors/jane.jpg

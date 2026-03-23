@@ -38,7 +38,7 @@ export default function SiteNav() {
       <a href="https://8thwall.com/docs/" target="_blank" rel="noopener">Docs</a>
       <a href="https://8th.io/examples" target="_blank" rel="noopener">Samples</a>
       <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Tutorials</a>
-      <a href="https://8th.io/blog" target="_blank" rel="noopener">Blog</a>
+      <Link to="/blog">Blog</Link>
       <a href="https://8th.io/discord" target="_blank" rel="noopener">Discord</a>
     </>
   );
