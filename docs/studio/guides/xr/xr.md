@@ -25,4 +25,4 @@ the face anchor is placed in front of the face camera as seen in the screenshot 
 
 ## XR API Reference {#xr-api-reference}
 
-Please refer to the [Camera](/docs/studio/api/ecs/camera) component APIs that define camera behavior.
+Please refer to the [Camera](/docs/api/studio/ecs/camera) component APIs that define camera behavior.

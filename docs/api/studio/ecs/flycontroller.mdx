@@ -1,0 +1,34 @@
+---
+id: fly-controller
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import FlyControllerTable from "/gen/tables/FlyController.md"
+
+# FlyController
+
+## Description
+
+This component lets you control the object and move freely around the space
+
+## Properties
+
+<FlyControllerTable />
+
+## Functions
+
+<ComponentFunctions
+    name="FlyController"
+    properties={{
+        verticalSensitivity: 1,
+        horizontalSensitivity: 1,
+        moveSpeedX: 10,
+        moveSpeedY: 10,
+        moveSpeedZ: 10,
+        invertedX: false,
+        invertedY: false
+    }}
+    mutate={`cursor.verticalSensitivity = 2;
+    cursor.horizontalSensitivity = 2;
+    return false;`}
+/>

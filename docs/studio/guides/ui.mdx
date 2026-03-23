@@ -32,7 +32,7 @@ For screen-anchored UI, overlay elements offer fixed positioning on top of the c
 
 ## Properties
 
-The UI component comes with many configurable properties. In the viewport inspector, they are grouped by category and are not always visible. To add a section, click the 'Select Property' dropdown at the bottom of the configurator. For the full list of individual properties that can be specified at runtime in code, see the [`Ui` API Documentation](/docs/studio/api/ecs/ui/).
+The UI component comes with many configurable properties. In the viewport inspector, they are grouped by category and are not always visible. To add a section, click the 'Select Property' dropdown at the bottom of the configurator. For the full list of individual properties that can be specified at runtime in code, see the [`Ui` API Documentation](/docs/api/studio/ecs/ui/).
 
 ### Layout
 
@@ -53,7 +53,7 @@ The visual style of a UI element is controlled by the Background section and Bor
 ![ui-background-border](/images/studio/ui-background-border.png)
 
 ## Interaction
-You can create functional buttons using a custom component with an event listener. UI elements support click/tap events as well as hover states. See the [Input Events API Documentation](/docs/studio/api/events/input/) for a comprehensive list of supported events and example code. These work with overlay and 3D UI elements.
+You can create functional buttons using a custom component with an event listener. UI elements support click/tap events as well as hover states. See the [Input Events API Documentation](/docs/api/studio/events/input/) for a comprehensive list of supported events and example code. These work with overlay and 3D UI elements.
 
 A click will only fire on the top-most element at the pointer location. Layering is controlled by hierarchy order, with later siblings appearing on top of earlier ones. For precise control, use the 'Stacking Order' option at the top of the configurator to arrange groups of UI elements in a custom order.
 

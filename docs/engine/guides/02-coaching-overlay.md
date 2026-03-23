@@ -29,7 +29,7 @@ Note: For Self-Hosted projects, you would add the following `<script>` tag to yo
 
 3. Optionally, customize the parameters of your `coaching-overlay` component as defined below. For
 Non-AFrame projects, please refer to the
-[CoachingOverlay.configure()](/docs/engine/api/coachingoverlay/configure) documentation.
+[CoachingOverlay.configure()](/docs/api/engine/coachingoverlay/configure) documentation.
 
 ### A-Frame component parameters (all optional) {#absolute-scale-coaching-overlay-parameters}
 

@@ -41,7 +41,7 @@ Note: For Self-Hosted projects, you would add the following `<script>` tag to yo
 `XRExtras.AlmostThere.pipelineModule()` from your Non-AFrame project. (Landing Pages include
 almost-there logic in addition to the updates to the QR code page.)
 4. Optionally, customize the parameters of your `landing-page` component as defined below. For
-Non-AFrame projects, please refer to the [LandingPage.configure()](/docs/engine/api/landingpage/configure)
+Non-AFrame projects, please refer to the [LandingPage.configure()](/docs/api/engine/landingpage/configure)
 documentation.
 
 ## A-Frame component parameters (All Optional) {#a-frame-component-parameters}

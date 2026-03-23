@@ -15,7 +15,7 @@ description: Documentation
 
 [Studio Manual](/docs/studio)
 
-[Studio API](/docs/studio/api)
+[Studio API](/docs/api/studio)
 
 ## 8th Wall Engine {#engine}
 
@@ -26,4 +26,4 @@ The engine is built-in to Studio projects, and is also easily integrated into mo
 
 [Engine Manual](/docs/engine)
 
-[Engine API](/docs/engine/api)
+[Engine API](/docs/api/engine)

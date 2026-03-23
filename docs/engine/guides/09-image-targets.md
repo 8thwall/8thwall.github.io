@@ -22,7 +22,7 @@ immediately as the page loads. This is useful for apps that use 5 or fewer image
 product packaging, a movie poster or business card.
 
 The set of active image targets can be changed at any time by calling
-[XR8.XrController.configure()](/docs/engine/api/xrcontroller/configure). This lets you manage hundreds of image
+[XR8.XrController.configure()](/docs/api/engine/xrcontroller/configure). This lets you manage hundreds of image
 targets per project making possible use cases like geo-fenced image target hunts, AR books, guided
 art museum tours and much more. If your project utilizes SLAM most of the time but image targets
 some of the time, you can improve performance by only loading image targets when you need them. You
@@ -170,10 +170,10 @@ Conical | ![conical target](/images/edit-conical-image-target-full.jpg)
 ## Changing Active Image Targets {#changing-active-image-targets}
 
 The set of active image targets can be modified at runtime by calling
-[XR8.XrController.configure()](/docs/engine/api/xrcontroller/configure)
+[XR8.XrController.configure()](/docs/api/engine/xrcontroller/configure)
 
 Note: The set of currently active image targets will be **replaced** with the new set passwd to
-[XR8.XrController.configure()](/docs/engine/api/xrcontroller/configure).
+[XR8.XrController.configure()](/docs/api/engine/xrcontroller/configure).
 
 #### Example - Change active image target set {#example---change-active-image-target-set}
 
@@ -213,10 +213,10 @@ Good Markers | Bad Markers
 
 8th Wall Web emits Events / Observables for various events in the image target lifecycle (e.g. imageloading, imagescaning, imagefound, imageupdated, imagelost) Please see the API reference for instructions on handling these events in your Web Application:
 
-* [AFrame Events](/docs/engine/api/aframeevents)
-* [BabylonJS Observables](/docs/engine/api/babylonjs/observables)
-* [PlayCanvas Events](/docs/engine/api/playcanvasevents/playcanvas-image-target-events)
-* [XrController Dispatched Events](/docs/engine/api/xrcontroller/pipelinemodule/#dispatched-events)
+* [AFrame Events](/docs/api/engine/aframeevents)
+* [BabylonJS Observables](/docs/api/engine/babylonjs/observables)
+* [PlayCanvas Events](/docs/api/engine/playcanvasevents/playcanvas-image-target-events)
+* [XrController Dispatched Events](/docs/api/engine/xrcontroller/pipelinemodule/#dispatched-events)
 
 #### Example Projects {#example-projects}
 

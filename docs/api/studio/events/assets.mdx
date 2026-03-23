@@ -1,0 +1,159 @@
+---
+id: assets
+---
+
+import {EventExample} from '@site/src/components/event-example'
+
+# Asset Events
+
+Asset events are emitted on the asset entity and bubble up to the [world.events.globalId](/docs/api/studio/world/events/#properties).
+
+## 3D Model
+
+### GLTF_MODEL_LOADED
+
+Emitted when a model has loaded
+
+#### Properties
+
+| Property | Type                                                    | Description        |
+|----------|---------------------------------------------------------|--------------------|
+| model    | [Group](https://threejs.org/docs/#api/en/objects/Group) | The three.js Group |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='GLTF_MODEL_LOADED'
+  callbackBody={`console.log('Model loaded: ', event.data.model)`}
+/>
+
+### GLTF_ANIMATION_FINISHED
+
+Emitted when all loops of an animation clip have finished.
+
+#### Properties
+
+| Property | Type   | Description               |
+|----------|--------|---------------------------|
+| name     | string | The name of the animation |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='GLTF_ANIMATION_FINISHED'
+  callbackBody={`console.log('Animation finished: ', event.data.name)`}
+/>
+
+### GLTF_ANIMATION_LOOP
+
+Emitted when a single loop of the animation clip has finished.
+
+#### Properties
+
+| Property | Type   | Description               |
+|----------|--------|---------------------------|
+| name     | string | The name of the animation |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='GLTF_ANIMATION_LOOP'
+  callbackBody={`console.log('Animation loop: ', event.data.name)`}
+/>
+
+## Gaussian Splat
+
+### SPLAT_MODEL_LOADED
+
+Emitted when a Splat has loaded
+
+#### Properties
+
+| Property | Type                                                       | Description           |
+|----------|------------------------------------------------------------|-----------------------|
+| model    | [Object3D](https://threejs.org/docs/#api/en/core/Object3D) | The three.js Object3D |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='SPLAT_MODEL_LOADED'
+  callbackBody={`console.log('Splat loaded: ', event.data.model)`}
+/>
+
+## Audio
+
+### AUDIO_CAN_PLAY_THROUGH
+
+Emitted when an entity has the capability to play Audio.
+
+#### Properties
+
+None.
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='AUDIO_CAN_PLAY_THROUGH'
+  hasPayload={false}
+  callbackBody={`console.log('Ready to play audio')`}
+/>
+
+### AUDIO_END
+
+Emitted when audio has finished playing on an entity.
+
+#### Properties
+
+None.
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='AUDIO_END'
+  hasPayload={false}
+  callbackBody={`console.log('Finished playing audio')`}
+/>
+
+## Video
+
+### VIDEO_CAN_PLAY_THROUGH
+
+Emitted when an entity has the capability to play the video.
+
+#### Properties
+
+| Property | Type   | Description               |
+|----------|--------|---------------------------|
+| src      | string | The video source          |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='VIDEO_CAN_PLAY_THROUGH'
+  callbackBody={`console.log('Ready to play video: ', event.data.src)`}
+/>
+
+### VIDEO_END
+
+Emitted when the video has finished playing on an entity.
+
+#### Properties
+
+| Property | Type   | Description               |
+|----------|--------|---------------------------|
+| src      | string | The video source          |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='VIDEO_END'
+  callbackBody={`console.log('Finished playing video: ', event.data.src)`}
+/>

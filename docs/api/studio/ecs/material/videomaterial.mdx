@@ -1,0 +1,35 @@
+---
+id: video-material
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import VideoMaterialTable from "/gen/tables/VideoMaterial.md"
+
+# VideoMaterial
+
+## Description
+
+This component allows the user to add a video texture to the entity.
+
+## Properties
+
+<VideoMaterialTable />
+
+## Functions
+
+<ComponentFunctions
+    name="UnlitMaterial"
+    properties={{
+        r: 0,
+        g: 0,
+        b: 0,
+        textureSrc: '',
+        opacity: 1
+    }}
+    mutate={`cursor.r = 255;
+    cursor.g = 255;
+    cursor.b = 255;
+    cursor.textureSrc = 'assets/my-video.mp4';
+    cursor.opacity = 0.5;
+    return false;`}
+/>

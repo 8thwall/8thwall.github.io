@@ -1,0 +1,33 @@
+---
+id: shadow-material
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import ShadowMaterialTable from "/gen/tables/ShadowMaterial.md"
+
+# ShadowMaterial
+
+## Description
+
+This component creates a material that only renders shadows on an entity with geometry.
+
+## Properties
+
+<ShadowMaterialTable />
+
+## Functions
+
+<ComponentFunctions
+    name="ShadowMaterial"
+    properties={{
+        r: 0,
+        g: 0,
+        b: 0,
+        opacity: 0.5,
+    }}
+    mutate={`cursor.opacity = 0.5;
+    cursor.r = 128;
+    cursor.g = 128;
+    cursor.b = 128;
+    return false;`}
+/>

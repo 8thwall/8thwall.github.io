@@ -1,0 +1,49 @@
+---
+id: light
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import LightTable from "/gen/tables/Light.md"
+
+# Light
+
+## Description
+
+This component makes an entity emit light.
+
+## Properties
+
+<LightTable />
+
+## Functions
+
+<ComponentFunctions
+    name="Light"
+    properties={{
+        type: "directional",
+        castShadow: true,
+        intensity: 0.5,
+        r: 255,
+        g: 255,
+        b: 255,
+        shadowBias: -0.005,
+        shadowNormalBias: 0,
+        shadowRadius: 1,
+        shadowAutoUpdate: true,
+        shadowBlurSamples: 8,
+        shadowMapSizeHeight: 1024,
+        shadowMapSizeWidth: 1024,
+        shadowCameraNear: 0.5,
+        shadowCameraFar: 200,
+        shadowCameraLeft: -50,
+        shadowCameraRight: 50,
+        shadowCameraBottom: -50,
+        shadowCameraTop: 50,
+        targetX: 0,
+        targetY: 0,
+        targetZ: 0
+    }}
+    mutate={`cursor.intensity = 1.0;
+    cursor.castShadow = false;
+    return false;`}
+/>

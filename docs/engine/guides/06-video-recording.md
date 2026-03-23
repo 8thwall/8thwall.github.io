@@ -26,7 +26,7 @@ capture-mode | `String` | `'standard'` | Sets the capture mode behavior. **stand
 Parameter | Type | Default | Description
 --------- | ---- | ------- | -----------
 max-duration-ms | int | `15000` | Total video duration (in miliseconds) that the capture button allows. If the end card is disabled, this corresponds to max user record time. 15000 by default.
-max-dimension | int | `1280` | Maximum dimension (width or height) of captured video.  For photo configuration, please see [`XR8.CanvasScreenshot.configure()`](/docs/engine/api/canvasscreenshot/configure)
+max-dimension | int | `1280` | Maximum dimension (width or height) of captured video.  For photo configuration, please see [`XR8.CanvasScreenshot.configure()`](/docs/api/engine/canvasscreenshot/configure)
 enable-end-card | `Boolean` | `true` | Whether the end card is included in the recorded media.
 cover-image-url | `String` | | Image source for end card cover image. Uses project's cover image by default.
 end-card-call-to-action | `String` | `'Try it at: '` | Sets the text string for call to action on end card.
@@ -57,8 +57,8 @@ Event Emitted | Description | Event Detail
 ------------- | ----------- | ------------
 mediarecorder-photocomplete | Emitted after a photo is taken. | {blob}
 mediarecorder-recordcomplete | Emitted after a video recording is complete. | {videoBlob}
-mediarecorder-previewready | Emitted after a previewable video recording is complete. [(Android/Desktop only)](/docs/engine/api/mediarecorder/recordvideo/#parameters) | {videoBlob}
-mediarecorder-finalizeprogress | Emitted when the media recorder is making progress in the final export. [(Android/Desktop only)](/docs/engine/api/mediarecorder/recordvideo/#parameters) | {progress, total}
+mediarecorder-previewready | Emitted after a previewable video recording is complete. [(Android/Desktop only)](/docs/api/engine/mediarecorder/recordvideo/#parameters) | {videoBlob}
+mediarecorder-finalizeprogress | Emitted when the media recorder is making progress in the final export. [(Android/Desktop only)](/docs/api/engine/mediarecorder/recordvideo/#parameters) | {progress, total}
 mediarecorder-previewopened | Emitted after recording preview is opened. | null
 mediarecorder-previewclosed | Emitted after recording preview is closed. | null
 

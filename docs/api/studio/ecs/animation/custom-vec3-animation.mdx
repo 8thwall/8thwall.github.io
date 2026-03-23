@@ -1,0 +1,39 @@
+---
+id: custom-vec3-animation
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import CustomVec3AnimationTable from "/gen/tables/CustomVec3Animation.md"
+
+# CustomVec3Animation
+
+## Description
+
+This component creates an animation on an entity.
+
+## Properties
+
+<CustomVec3AnimationTable />
+
+<ComponentFunctions
+    name="CustomVec3Animation"
+    properties={{
+        attribute: "position",
+        fromX: 0,
+        fromY: 0,
+        fromZ: 0,
+        toX: 0,
+        toY: 0,
+        toZ: 0,
+        autoFrom: false,
+        duration: 1000,
+        loop: false,
+        reverse: false,
+        easeIn: false,
+        easeOut: false,
+        easingFunction: "Cubic"
+    }}
+    mutate={`cursor.duration = 1000;
+    cursor.loop = true;
+    return false;`}
+/>

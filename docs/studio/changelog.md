@@ -26,14 +26,14 @@ October 24, 2025
 
 ### New Features
 Runtime 2.2.0 adds physics collider rotational offsets, and other fixes/enhancements. Read the
-full release notes [here](/docs/studio/api/changelog/#2.2.0).
+full release notes [here](/docs/api/studio/changelog/#2.2.0).
 
 ## October 2025 [Update 2] {#version-2025-october-16}
 October 16, 2025
 
 ### New Features
 Runtime 2.1.0 introduces an API for skybox and fog, and other fixes/enhancements. Read the
-full release notes [here](/docs/studio/api/changelog/#2.1.0).
+full release notes [here](/docs/api/studio/changelog/#2.1.0).
 
 ## October 2025 [Update 1] {#version-2025-october-10}
 October 10, 2025
@@ -566,7 +566,7 @@ Events
 * Added `ecs.events.SPLAT_MODEL_LOADED` event.
 
 Physics
-* Added [getLinearVelocity()](/docs/studio/api/ecs/physics/#getlinearvelocity) function.
+* Added [getLinearVelocity()](/docs/api/studio/ecs/physics/#getlinearvelocity) function.
 
 Primitives
 * Added polyhedron primitive, replacing tetrahedron.
