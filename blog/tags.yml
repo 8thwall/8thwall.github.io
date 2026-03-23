@@ -5,15 +5,3 @@
 announcement:
   label: Announcement
   permalink: /announcement
-
-release:
-  label: Release
-  permalink: /release
-
-tutorial:
-  label: Tutorial
-  permalink: /tutorial
-
-open-source:
-  label: Open Source
-  permalink: /open-source
