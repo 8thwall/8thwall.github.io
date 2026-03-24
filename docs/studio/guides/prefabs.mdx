@@ -1,0 +1,78 @@
+---
+id: prefabs
+description: Prefabs are reusable collections of entities from which you can create multiple copies.
+---
+
+# Prefabs
+
+## Introduction
+{frontMatter.description} They are stored within the expanse file but can be surfaced however you wish. There’s also a convenient API for working with Prefabs in the ECS. Prefabs in Studio have the following features:
+
+1. Prefab components can be shared across instances
+2. Inherited components can be overridden on a per-instance basis
+3. A prefab instance can contain instances of other prefabs
+4. Prefabs are runtime accessible and modifiable
+
+## Using Prefabs
+In Studio, you can set up and customize Prefabs quickly using the “Make Prefab” right click option on an entity or by dragging it into the Prefab tab of the lower left file directory. Within the Prefabs tab, you can easily edit your Prefab and its components, update its hierarchy, create duplicates–the same way as you would work with objects in the space hierarchy.
+
+Prefab hierarchies are created in the same way as entity hierarchies. If you want to visually inspect and edit your Prefab’s details in an isolated view, just double click it or right click to open the Prefab Editor which lets you make design edits directly to the source. Updates made to the source will automatically be previewable across all instances of the Prefab in the scene.
+
+Ready to work with your new Prefab in your scene? Simply drag and drop the Prefab into your scene viewport or space hierarchy to create a Prefab instance. There are two key concepts to note when working with Prefab and their instances: **Inheritance** and **Overrides**.
+
+### Inheritance
+Entities can inherit components from prefabs. After adding a Prefab instance in your space, any configurations you make later to the Prefab source will be automatically "inherited" by the instance. Changes to the prefab at runtime will also apply to prefab instances. Inherited components are only stored in one place, and shared across instances. This can be useful for static data that's shared across instances, such as material data, textures or meshes.
+
+:::info
+The physics collider component is not inheritable at runtime.
+:::
+
+### Overriding
+When an instance inherits a component from a Prefab, it can be overridden with component values specific to the instance. To override a component (ex. material, animation, custom component script, etc) simply add or change it on the instance. By overriding a component on a Prefab instance it will remain overridden moving forward.  Meaning that future changes you make to the same component in its Prefab source will not be inherited.
+
+#### Resetting Overrides
+If you want to reset an overridden component back to the Prefab’s inherited value, you can right click the component in the Inspector and select "Reset Prefab Overrides". This will remove the override and revert the component back to the Prefab's original value.
+
+## Runtime Instances
+Studio’s game engine lets you direct Prefabs at runtime with minimal code. You can programmatically generate new instances in real time based on existing Prefabs, and you can make Prefab instance changes and edits at runtime. You can also query for all the sub-entities of Prefab instances at runtime in case you need to make changes to different instances that were dynamically generated.
+
+### Instantiate a Prefab
+Create a new instance of prefab using a prefab name or EID. Prefab Instances can be used like any other Entity. A Prefab Instance will have its position set to zero on Instatiation
+
+#### Using Prefab Name
+
+![Prefab Name](/images/studio/guides/prefabs/prefab-name.png)
+
+``` ts
+ecs.registerComponent({
+  name: 'Spawn Prefab by Name',
+  stateMachine: ({world, eid, schemaAttribute, dataAttribute}) => {
+    ecs.defineState('default')
+      .initial()
+      .listen(eid, ecs.input.SCREEN_TOUCH_START, (e) => {
+        const newInstance = world.createEntity("Human")
+      })
+  },
+})
+```
+
+#### Using Prefab EID
+
+``` ts
+ecs.registerComponent({
+  name: 'Spawn Prefab by EID',
+  schema: {
+    prefabToSpawn: ecs.eid,
+  },
+  stateMachine: ({world, eid, schemaAttribute, dataAttribute}) => {
+    ecs.defineState('default')
+      .initial()
+      .listen(eid, ecs.input.SCREEN_TOUCH_START, (e) => {
+        const {prefabToSpawn} = schemaAttribute.get(eid)
+
+        if (prefabToSpawn) {
+          const newInstance = world.createEntity(prefabToSpawn)
+      })
+  },
+})
+```

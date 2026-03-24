@@ -1,0 +1,160 @@
+---
+id: best-practices
+description: Common issues and Best Practices to follow when creating custom Components.
+sidebar_position: 50
+---
+
+# Best Practices
+
+
+<p>{frontMatter.description}</p>
+
+## Stale References
+When your component is passed `(world, component)` to add, tick, or remove callbacks, it is not always safe to reference `component` in a nested function and use it after the callback has returned.
+
+<div class="code-invalid">
+
+### Incorrect Example
+
+``` ts
+ecs.registerComponent({
+    name: 'age-counter',
+    data: {
+    age: ecs.i32,
+    interval: ecs.i32,
+},
+    add: (world, component) => {
+    const interval = world.time.setInterval(() => {
+    // This is not safe because we're accessing data after some amount of time
+    // has passed, it's not guaranteed to still be valid.
+    component.data.age += 1
+}, 1000)
+
+    // This is safe because we're assigning to data within the add function
+    component.data.interval = interval
+},
+    tick: (world, component) => {
+    console.log('I am', component.data.age, 'seconds old')
+},
+    remove: (world, component) => {
+    world.time.clearTimeout(component.data.interval)
+}
+})
+```
+
+</div>
+
+<div class="code-valid">
+
+### Correct Example
+
+``` ts
+ecs.registerComponent({
+  name: 'age-counter',
+  data: {
+    age: ecs.i32,
+    interval: ecs.i32,
+  },
+  add: (world, component) => {
+    const {eid, dataAttribute} = component
+    const interval = world.time.setInterval(() => {
+	  // This is safe because we're re-acquiring a cursor at the time we need it,
+      // instead of using a stale cursor from before.
+	  const data = dataAttribute.cursor(eid)
+      data.age += 1
+    }, 1000)
+
+    component.data.interval = interval
+},
+tick: (world, component) => {
+console.log('I am', component.data.age, 'seconds old')
+},
+remove: (world, component) => {
+// world.time.clearTimeout(component.data.interval)
+}
+})
+```
+
+</div>
+
+In the example above, dataAttribute is used as a stable method to access the component’s data within a nested function. This ensures that data remains valid and up-to-date even when the function is called asynchronously.
+
+Additionally, the eid variable is destructured rather than accessing component.eid directly because component.eid can change depending on which entity is receiving the callback. Using a destructured variable avoids potential stale references.
+
+Of the arguments passed to component callbacks, here is the validity of each:
+
+:::warning
+Always destructure eid before use instead of accessing component.eid, as directly accessing component.eid can lead to stale references.
+:::
+
+| context                         | Changes after callback exits? | Can be used in a nested function? | Lifetime              |
+|---------------------------------|-------------------------------|-----------------------------------|-----------------------|
+| world                           | ❌ No                          | ✅ Yes                             | Experience Lifetime   |
+| eid                             | ✅ Yes                         | ✅ Yes                             | Entity Lifetime       |
+| schema & data                   | ✅ Yes                         | ❌ No                              | Top level of Callback |
+| schemaAttribute & dataAttribute | ❌ No                          | ✅ Yes                             | Entity Lifetime       |
+
+## Invalidated Cursors
+Cursor objects act as interfaces for reading and writing data in the ECS state. Each time a cursor is requested for a component, the same cursor instance is reused, but it points to a different location in memory. As a result, a cursor reference can become invalid, meaning it may no longer point to the expected data.
+
+### Incorrect Example
+
+<div class="code-invalid">
+
+``` ts
+const cursor1 = MyComponent.get(world, entity1)
+console.log(cursor1.name) // 'entity1'
+
+const cursor2 = MyComponent.get(world, entity2)
+console.log(cursor2.name) // 'entity2'
+
+// Unexpected bugs may occur if using cursor1 after another access of the component
+console.log(cursor1.name) // 'entity2'
+console.log(cursor1 === cursor2) // 'true' - it's the same object, just initialized differently each time
+```
+
+</div>
+
+## Dangling Listeners
+Avoid assuming that any object or component will persist indefinitely. As your project evolves or new features are introduced, it’s important to ensure that your component logic is robust, including properly cleaning up event listeners.
+
+State Machines are a great way of managing and cleaning up Event Listeners.
+
+### Correct Example
+
+<div class="code-valid">
+
+``` ts
+ecs.registerComponent({
+  name: 'Game Manager',
+  schema: {
+    // Add data that can be configured on the component.
+    scoreDisplay: ecs.eid,  // how many coins you've collected
+  },
+  schemaDefaults: {
+    // Add defaults for the schema fields.
+  },
+  data: {
+    // Add data that cannot be configured outside of the component.
+    score: ecs.i32,  // The integer value of the score
+  },
+  stateMachine: ({world, eid, schemaAttribute, dataAttribute}) => {
+    // Add score event
+    const coinCollect = () => {
+      const data = dataAttribute.cursor(eid)
+      data.score += 1
+      ecs.Ui.set(world, schemaAttribute.get(eid).scoreDisplay, {
+        text: data.score.toString(),
+      })
+    }
+
+    ecs.defineState('default').initial().onEnter(() => {
+      world.events.addListener(world.events.globalId, 'coinCollect', coinCollect)
+    }).onExit(() => {
+      world.events.removeListener(world.events.globalId, 'coinCollect', coinCollect)
+    })
+  },
+})
+```
+
+</div>

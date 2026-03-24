@@ -1,0 +1,104 @@
+---
+id: image-targets
+description: Image Targets allow you to set a flat, cylindrical or conical shape as a trigger or marker to overlay AR content. 
+---
+
+# Image Targets
+
+## Introduction
+{frontMatter.description}
+<br></br>
+<br></br>
+
+![](/images/studio/image-target-intro.gif)
+
+---
+
+## Enabling Image Targets
+
+To enable image targets in your project, you must use a World camera.
+
+1. Select the **Camera** in your scene  
+2. Set the **Type** to `World`
+
+````mdx-code-block
+<img src={require('/images/studio/image-target-enable.png').default} width="400px"/>
+````
+
+---
+
+## Adding Image Targets
+
+### Upload the Image Target
+
+Locate the **Image Targets** panel at the bottom left of the Studio Interface. Click on the **( + )** to add a flat, cylindrical, or conical image target.
+
+````mdx-code-block
+<img src={require('/images/studio/image-target-upload.png').default} width="400px"/>
+````
+
+### Configuring the Image Target
+
+Customize the image target's tracking region and metadata.
+
+````mdx-code-block
+<img src={require('/images/studio/image-target-config.png').default} width="400px"/>
+````
+
+### Testing the Image Target
+
+Scan the QR code to test the quality and tracking of your uploaded image target.
+
+````mdx-code-block
+<img src={require('/images/studio/image-target-test.png').default} width="400px"/>
+````
+
+### Adding the Image Target Entity
+
+You can add an image target to your scene by creating an **Image Target** entity.  
+To do this, click **( + )** in the Scene Hierarchy and select **Image Target**.
+
+````mdx-code-block
+<img src={require('/images/studio/image-target-add.png').default} width="400px"/>
+````
+
+### Linking the Image Target
+
+Link the image target entity to an uploaded image target.
+
+
+````mdx-code-block
+<img src={require('/images/studio/image-target-link.png').default} width="400px"/>
+````
+
+---
+
+## Using Image Targets
+
+When you add an image target to your project, an image target mesh will appear so that you can align and position other 3D content against the image target.
+
+---
+
+## Simulating Image Targets
+
+Studio’s **Simulator** allows you to test your image target experience remotely by simulating movement using **WASD** controls.
+
+### Using the Simulator with Image Targets
+
+To simulate movement and content placement around an image target added to your scene:
+
+1. Make sure your **Camera Settings** are set to **World**
+2. Press **Play** to open the Simulator
+3. Use the **Simulator environment options** (bottom left selector) to find your desired Image Target
+4. Use the **WASD keyboard shortcuts** to simulate movement. *(You must first click on the Simulator panel before using the keyboard)*
+
+**Movement Keys:**
+
+- `W` = Forward  
+- `A` = Left  
+- `S` = Backward  
+- `D` = Right  
+- `Q` = Up  
+- `E` = Down
+
+Moving around the image target with WASD will trigger the **Image Found** event to simulate successful image target tracking.

@@ -1,0 +1,247 @@
+import {EventExample} from '@site/src/components/event-example'
+
+## Types
+
+### Position
+
+| Property | Type    | Description                                                 |
+| -------- | ------- | ----------------------------------------------------------- |
+| x        | integer | The x-coordinate on the screen, normalized between 0 and 1. |
+| y        | integer | The y-coordinate on the screen, normalized between 0 and 1. |
+
+### UIHoverEvent
+
+| Property | Type    | Description                                                 |
+| -------- | ------- | ----------------------------------------------------------- |
+| x        | integer | The x-coordinate on the screen, normalized between 0 and 1. |
+| y        | integer | The y-coordinate on the screen, normalized between 0 and 1. |
+| targets  | eid[]   | The target UI element(s)                                    |
+
+### TouchEvent
+
+| Property      | Type     | Description                                                                                           |
+| ------------- | -------- | ----------------------------------------------------------------------------------------------------- |
+| pointerId     | integer  | unique ID for the pointer, provided by the browser.                                                   |
+| position      | Position | Touched position coordinates on the screen, normalized between 0 and 1.                               |
+| worldPosition | Vector3  | The position where the touchedEvent hit in the world. _only available on `SCREEN_TOUCH_START`._       |
+| target        | eid      | eid if initially touched object                                                                       |
+| start         | Position | The position coordinates where the touch event started on the screen, normalized between 0 and 1.     |
+| change        | Position | The position coordinates where touch since the last change on the screen, normalized between 0 and 1. |
+
+### GestureEvent
+
+| Property       | Type     | Description                                                                   |
+| -------------- | -------- | ----------------------------------------------------------------------------- |
+| touchCount     | integer  | The number of points contributing to the gesture.                             |
+| position       | Position | Touched position coordinates on the screen, normalized between 0 and 1.       |
+| startPosition  | Position | The position coordinates where the event started, normalized between 0 and 1. |
+| positionChange | Position | The position coordinates since the last change, normalized between 0 and 1.   |
+| spread         | float    | The average position between pointers from the center point.                  |
+| startSpread    | float    | The first spread emitted in start.                                            |
+| spreadChange   | float    | The spread value since the last change.                                       |
+| nextTouchCount | integer  | On end, the number of pointers involved in the following gesture              |
+
+### GamepadEvent
+
+| Property       | Type                                                                  | Description          |
+| -------------- | --------------------------------------------------------------------- | -------------------- |
+| gamepad        | [Gamepad](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad)   | The gamepad object   |
+
+## Events
+
+### UI_CLICK
+
+Emitted when both the press (`UI_PRESSED`) and release (`UI_RELEASED`) occur on the same UI element. This event represents a complete click or tap gesture. It is dispatched on the element where both interactions overlapped and is typically used for confirming user intention, such as activating a button or triggering an action.
+The event will be dispatched on the lowest common ancestor of the start (pressed) and end (released) eids. Mouse movement does not affect click events.
+
+Event payload is type `Position`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="UI_CLICK"
+  callbackBody={`console.log('UI click: ', event.data.x, event.data.y)`}
+/>
+
+### UI_PRESSED
+
+Emitted when the user initiates a touch or pointer-down interaction on a UI element. It is dispatched only on the exact element that was directly pressed and does not bubble to parent elements. This event is useful for triggering immediate visual feedback or interaction states (such as button highlights or animations) at the start of user input.
+
+Event payload is type `TouchEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="UI_PRESSED"
+  callbackBody={`console.log('UI pressed: ', event.data.position)`}
+/>
+
+### UI_RELEASED
+
+Emitted when the pointer is lifted after a `UI_PRESSED`. It is always dispatched on the same UI element that was initially pressed, regardless of where the pointer is released. This allows developers to respond to the completion of a press interaction, even if the pointer moved away from the original target.
+
+Event payload is type `TouchEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="UI_RELEASED"
+  callbackBody={`console.log('UI released: ', event.data.position)`}
+/>
+
+### UI_HOVER_START
+
+Emits when the mouse begins hovering over a UI element.
+
+Event payload is type `HoverEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="UI_HOVER_START"
+  callbackBody={`console.log('UI hover start: ', event.data.x, event.data.y)`}
+/>
+
+### UI_HOVER_END
+
+Emits when the mouse stops hovering over a UI element.
+
+Event payload is type `HoverEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="UI_HOVER_END"
+  callbackBody={`console.log('UI hover end: ', event.data.x, event.data.y)`}
+/>
+
+:::note
+
+- Multiple touch points can be active simultaneously.
+- Only one touch gesture (single or multitouch) will be recognized as active at a time.
+  :::
+
+:::info
+If a touch event has a target, it will be emitted on that target and propagate up to its parent elements and eventually to the global level. This means a touch listener on a parent object will capture events from all its child elements.
+:::
+
+### SCREEN_TOUCH_START
+
+Emits when the user initially touches or clicks the screen or target object.
+
+Event payload is type `TouchEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="SCREEN_TOUCH_START"
+  callbackBody={`console.log('Screen touch start: ', event.data.position)`}
+/>
+
+### SCREEN_TOUCH_MOVE
+
+Event payload is type `TouchEvent`.
+
+Emits when the user clicks and drags or moves their finger on the screen.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="SCREEN_TOUCH_MOVE"
+  callbackBody={`console.log('Screen touch move: ', event.data.position)`}
+/>
+
+### SCREEN_TOUCH_END
+
+Emits when the user stops clicking or lift the finger off the screen.
+
+Event payload is type `TouchEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="SCREEN_TOUCH_END"
+  callbackBody={`console.log('Screen touch end: ', event.data.position)`}
+/>
+
+:::info
+Gesture events are emitted when the user makes a "gesture" on the phone screen. A gesture is any action that requires multiple fingers. If the user starts with a "'zoom" action (2 fingers moving away from each other) then adds another finger to the screen then the "zoom" gesture will end and a new one will start with 3 fingers.
+:::
+
+### GESTURE_START
+
+Emits when the user stops clicking or lift the finger off the screen.
+
+Event payload is type `GestureEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="GESTURE_START"
+  callbackBody={`console.log('Gesture start: ', event.data.touchCount, event.data.position)`}
+/>
+
+### GESTURE_MOVE
+
+Emits when the user moves their finger(s) on the screen.
+
+Event payload is type `GestureEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="GESTURE_MOVE"
+  callbackBody={`console.log('Gesture move: ', event.data.touchCount, event.data.position)`}
+/>
+
+### GESTURE_END
+
+Emits when the number of fingers change from an previous gesture check.
+
+Event payload is type `GestureEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="GESTURE_END"
+  callbackBody={`console.log('Gesture end: ', event.data.touchCount, event.data.position)`}
+/>
+
+### GAMEPAD_CONNECTED
+
+Emits when a gamepad is connected to the device.
+
+Event payload is type `GamepadEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="GAMEPAD_CONNECTED"
+  callbackBody={`console.log('Gamepad connected: ', event.data.gamepad)`}
+/>
+
+### GAMEPAD_DISCONNECTED
+
+Emits when a gamepad is disconnected from the device.
+
+Event payload is type `GamepadEvent`.
+
+#### Example
+
+<EventExample
+  ns="ecs.input"
+  event="GAMEPAD_DISCONNECTED"
+  callbackBody={`console.log('Gamepad disconnected: ', event.data.gamepad)`}
+/>

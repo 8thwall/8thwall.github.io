@@ -1,0 +1,141 @@
+---
+id: entity
+description: This class represents an individual entity in the 8th Wall Studio scene graph, offering component access, state control, and hierarchical operations.
+sidebar_position: 500
+---
+
+# Entity
+
+## Description
+{frontMatter.description}
+
+## Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| eid      | Eid  | Unique identifier for this entity. |
+
+## Component Methods
+
+### get
+Access the current data for a component on this entity.
+
+```ts
+entity.get(component: RootAttribute<Schema>) // -> ReadData<Schema>
+```
+
+### has
+Check if a component exists on this entity.
+
+```ts
+entity.has(component: RootAttribute<Schema>) // -> boolean
+```
+
+### set
+Apply data to a component on this entity.
+
+```ts
+entity.set(component: RootAttribute<Schema>, data: ReadData<Schema>) // -> void
+```
+
+### remove
+Remove a component from this entity.
+
+```ts
+entity.remove(component: RootAttribute<Schema>) // -> void
+```
+
+### reset
+Reset a component on this entity to its default value.
+
+```ts
+entity.reset(component: RootAttribute<Schema>) // -> void
+```
+
+## State Methods
+
+### hide
+Hide this entity.
+
+```ts
+entity.hide() // -> void
+```
+
+### show
+Show this entity if hidden.
+
+```ts
+entity.show() // -> void
+```
+
+### isHidden
+Check if the entity is currently hidden.
+
+```ts
+entity.isHidden() // -> boolean
+```
+
+### disable
+Disable this entity.
+
+```ts
+entity.disable() // -> void
+```
+
+### enable
+Enable this entity.
+
+```ts
+entity.enable() // -> void
+```
+
+### isDisabled
+Check if the entity is currently disabled.
+
+```ts
+entity.isDisabled() // -> boolean
+```
+
+### delete
+Delete this entity from the world.
+
+```ts
+entity.delete() // -> void
+```
+
+### isDeleted
+Check if the entity has been deleted.
+
+```ts
+entity.isDeleted() // -> boolean
+```
+
+## Hierarchy Methods
+
+### setParent
+Set this entity’s parent.
+
+```ts
+entity.setParent(parent: Eid | undefined | null) // -> void
+```
+
+### getChildren
+Get this entity’s children.
+
+```ts
+entity.getChildren() // -> Generator<Eid>
+```
+
+### getParent
+Get this entity’s parent.
+
+```ts
+entity.getParent() // -> Eid | undefined
+```
+
+### addChild
+Make another entity a child of this one.
+
+```ts
+entity.addChild(child: Eid) // -> void
+```

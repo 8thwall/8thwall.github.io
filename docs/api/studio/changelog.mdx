@@ -1,0 +1,73 @@
+---
+id: changelog
+sidebar_position: 1000
+---
+# Changelog
+
+## 2.2.0 (October 24, 2025) {#2.2.0}
+
+### New Features
+- Add physics collider rotational offsets
+
+### Features and Enhancements
+- Fix directional light shadow angle when following camera
+
+## 2.1.0 (October 16, 2025) {#2.1.0}
+
+### New Features
+- Add effect manager API to update sky and fog (`world.effects`)
+
+### Fixes and Enhancements
+- Updated type definition for schema/data in component remove callback
+- Add animation events to event-ids
+- Fix duplicate observer callbacks on `add()` for prefab instances
+- Fixed issue with mouse inputs causing pointer lock
+- Fixed issue where `ScaleAnimation` was incorrectly offsetting colliders
+
+## 2.0.1 (September 25, 2025) {#2.0.1}
+
+### Fixes and Enhancements
+
+- Fixed an issue with physics where dynamic objects wouldn’t come fully to rest
+- Fixed a crash that could occur after repeatedly changing physics collider scale
+- Corrected particle emission directions
+- Made particle effects framerate independent
+- Increased reliability of the desktop app simulator
+- Fixed a UI issue causing incorrect offset placement on elements
+
+## 2.0.0 (September 10, 2025) {#2.0.0}
+
+The all-new Studio Runtime 2.0 comes with a rebuilt physics engine. Some physics behaviors are different as a result. View the [2.0 upgrade guide](http://8th.io/v2upgradeguide) for instructions and tips to ensure a smooth migration.
+
+### Breaking Changes
+
+- Removed properties from `ecs.Collider`:
+    - `rollingFriction`
+    - `spinningFriction`
+- Changed matrix update mode: `manual` by default, which is more optimized. If modifying three.js objects directly, calling `world.three.notifyChanged()` is required on each changed object, or go back to the original behavior with `world.three.setMatrixUpdateMode('auto')`
+- In 2.0, some of the new Physics engine’s underlying calculations differ for properties like friction, restitution, and damping. See the [upgrade guide](http://8th.io/v2upgradeguide) for more details.
+
+### New Features
+- We added a new `type` property (required) to `ecs.Collider` to allow for determining if and how physics simulation should apply to the object. Previously, a mass value above 0 determined if a collider was Dynamic or not (0 mass = Static), and Kinematic colliders were not supported.
+    - Allowed values: `ColliderType.Static`, `ColliderType.Kinematic`, `ColliderType.Dynamic`
+    - Kinematic colliders are not affected by physics forces, but can have motion and can affect other dynamic bodies through collisions
+    - See [Collider API documentation](https://www.8thwall.com/docs/api/studio/ecs/collider/) for details and use cases
+
+### Fixes and Enhancements
+- Enabled stricter typescript checking on by default at build time to improve error reporting
+
+## 1.1.0 (August 29, 2025) {#1.1.0}
+
+- Exported additional constants for XR events
+- Fixed face mesh not being rendered as configured with Face AR camera
+- Fixed behavior for disabled colliders
+- Fixed corrupted shape being applied to auto colliders
+
+## 1.0.1 (August 25, 2025) {#1.0.1}
+
+- Ensured physics boolean types are exposed as `true`/`false`, not `1`/`0`
+- Exported `GpsPointer`
+
+## 1.0.0 (August 6, 2025) {#1.0.0}
+
+- Initial versioned release

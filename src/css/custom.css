@@ -1832,3 +1832,7 @@ body.nav-open .nav-drawer {
 .navbar-sidebar__backdrop {
   transition: none !important;
 }
+
+.hidden {
+  display: none;
+}

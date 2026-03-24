@@ -1,0 +1,27 @@
+---
+id: three
+description: This library provides an interface to the rendering engine.
+---
+
+# three
+
+## Description
+{frontMatter.description}
+
+## Properties
+
+| Property       | Type                 | Description                          |
+|----------------|----------------------|--------------------------------------|
+| scene          | Three                | Entry point for three.js API.        |
+| renderer       | WebGLRenderer        | The three.js renderer.               |
+| activeCamera   | Camera               | Handle to the active camera.         |
+| entityToObject | `Map<eid, Object3D>` | Map of entities to three.js objects. |
+
+## Functions
+
+### entityToObject
+Retrieves the corresponding three.js Object3D for a given entity.
+
+``` ts
+world.three.entityToObject.get(eid: Eid) // -> Object3D
+```
