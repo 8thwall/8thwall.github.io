@@ -35,7 +35,7 @@ Upload your own 3D models, 2D images, audio
 files, custom scripts and more. Create folders and drag files to reorganize their placement. You can
 also drag and drop an asset into the Viewport or the Hierarchy to add the entity into your scene. To
 learn more about using and optimizing 3D Models in GLB/GLTF format please see [Your 3D Models on the
-Web](/docs/engine/guides/your-3d-models-on-the-web/).
+Web](/docs/getting-started/your-3d-models-on-the-web/).
 
 ### Prefabs {#prefabs}
 

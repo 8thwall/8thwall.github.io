@@ -1,5 +1,6 @@
 ---
 id: image-targets
+sidebar_position: 6
 ---
 
 # Image Targets
@@ -32,8 +33,8 @@ scans to enter the experience.
 
 ## Image Target Types {#image-target-types}
 
- | |
--|-|-
+Type | Image | Description
+---- | ----- | -----------
 **Flat**|![FlatTarget](/images/flat.jpg)| Track 2D images like posters, signs, magazines, boxes, etc.
 **Cylindrical**|![CylindricalTarget](/images/cylindrical.jpg)| Track images wrapped around cylindrical items like cans and bottles.
 **Conical**|![ConicalTarget](/images/conical.jpg)| Track images wrapped around objects with different a top vs bottom circumference like coffee cups, etc.

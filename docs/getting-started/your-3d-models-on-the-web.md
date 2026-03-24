@@ -1,5 +1,6 @@
 ---
 id: your-3d-models-on-the-web
+sidebar_position: 9
 ---
 
 # Your 3D Models on the Web

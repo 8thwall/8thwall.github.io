@@ -27,7 +27,7 @@ page with large assets, the scene may not really be "stuck", but rather just tak
 load. Use the browser's Network inspector to see if your page is simply in process of downloading
 assets.
 
-Additionally, try to [optimize scene assets](/docs/engine/guides/your-3d-models-on-the-web/#texture-optimization)
+Additionally, try to [optimize scene assets](/docs/getting-started/your-3d-models-on-the-web/#texture-optimization)
 as much as possible.  This can include techniques such as compressing textures, reducing texture
 and/or video resolution, and reducing the polygon count of 3D models.
 

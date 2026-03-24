@@ -12,7 +12,7 @@ When using high resolution and/or a large number of textures on certain versions
 #### Workarounds {#workarounds}
 
 1. **Reduce the size/resolution of the textures used in your scene** (see
-[texture optimization](/docs/engine/guides/your-3d-models-on-the-web/#texture-optimization))
+[texture optimization](/docs/getting-started/your-3d-models-on-the-web/#texture-optimization))
 
 2. **Disable image bitmaps on iOS devices**:
 

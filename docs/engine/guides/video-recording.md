@@ -1,5 +1,6 @@
 ---
 id: video-recording
+sidebar_position: 4
 ---
 # Customize Video Recording
 

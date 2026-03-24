@@ -1,6 +1,8 @@
 ---
 id: advanced-analytics
+sidebar_position: 5
 ---
+
 # Advanced Analytics
 
 The process for adding analytics to a project is the same as adding them to any non-AR

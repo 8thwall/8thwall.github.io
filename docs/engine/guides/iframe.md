@@ -1,6 +1,8 @@
 ---
 id: ios-8th-wall-web-inside-an-iframe
+sidebar_position: 7
 ---
+
 # Working with iframes
 
 ## iframe Setup for Android and iOS 15+ {#iframe-setup-for-android-and-ios-15}
@@ -29,7 +31,7 @@ below.
 
 In these versions, Safari blocks deviceorientation and devicemotion event access from cross-origin
 iframes. To counter this, you must include two scripts in your project to ensure cross-compatibility
-with iOS when deploying World Tracking projects. 
+with iOS when deploying World Tracking projects.
 
 This is **not required for Face Effects or Image Target projects** (with `disableWorldTracking` set
 to `true`).

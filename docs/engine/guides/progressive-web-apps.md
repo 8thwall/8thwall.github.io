@@ -1,6 +1,8 @@
 ---
 id: progressive-web-apps
+sidebar_position: 8
 ---
+
 # Progressive Web Apps
 
 Progressive Web Apps (PWAs) use modern web capabilities to offer users an experience that's similar

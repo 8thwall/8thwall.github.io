@@ -1,6 +1,8 @@
 ---
 id: landing-pages
+sidebar_position: 1
 ---
+
 # Landing Pages
 
 Landing Pages are an evolution of our popular "Almost There" pages.

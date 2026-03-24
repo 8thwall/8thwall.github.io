@@ -1,9 +1,8 @@
 ---
-id: changelog
+id: release-notes
 sidebar_position: 99999
 ---
-# Changelog
-
+# Release Notes
 
 #### Release 27.4: (2025-July-17 27.4.11.427 / 2025-May-07, v27.4.8.427 / 2025-April-10, v27.4.5.427) {#release-27-2025-May-7-2747}
 * New Features:

@@ -1,5 +1,6 @@
 ---
 id: coaching-overlays
+sidebar_position: 2
 ---
 
 # Coaching Overlay

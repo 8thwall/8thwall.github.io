@@ -34,7 +34,7 @@ See documentation on [A-Frame Components](/docs/api/engine/aframe/), [A-Frame Ev
 
 ## Integrating 8th Wall with three.js {#threejs}
 
-To integrate the 8th Wall engine into a three.js project, use the [Camera Pipeline Module API](/docs/api/engine/camerapipelinemodule).
+To integrate the 8th Wall engine into a three.js project, use the [Camera Pipeline Module API](/docs/api/engine/camerapipelinemodule) to add functionality like drawing the camera feed, creating a three.js scene and enabling world tracking. You should also add a custom camera pipeline module which you use to set up the three.js camera and scene content.
 
 ```
 // app.js
@@ -62,3 +62,7 @@ const onxrloaded = () => {
 
 window.XR8 ? onxrloaded() : window.addEventListener('xrloaded', onxrloaded)
 ```
+
+:::note
+See documentation on the [Camera Pipeline Module API](/docs/api/engine/camerapipelinemodule/) and core Camera Pipeline Modules provided by the 8th Wall Engine, including [GlTextureRenderer](/docs/api/engine/gltexturerenderer/), [Threejs](/docs/api/engine/threejs/), and [XrController](/docs/api/engine/xrcontroller/).
+:::
