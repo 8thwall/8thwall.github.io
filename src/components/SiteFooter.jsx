@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '@docusaurus/Link';
 
 export default function SiteFooter() {
   return (
@@ -6,18 +7,18 @@ export default function SiteFooter() {
       <div className="site-footer-inner">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a href="/" className="logo">
+            <Link to="/" className="logo">
               <img src="/logo.png" alt="8th Wall" width={25} height={25} loading="lazy" />
-            </a>
+            </Link>
             <p className="footer-tagline">Build immersive AR and interactive 3D. Free and open.</p>
           </div>
           <div className="footer-links">
             <div className="footer-column">
               <h2 className="footer-heading">Product</h2>
-              <a href="/#available">Features</a>
-              <a href="/#getting-started">Getting Started</a>
-              <a href="/downloads">Download</a>
-              <a href="/#faq">FAQ</a>
+              <Link to="/#available">Features</Link>
+              <Link to="/#getting-started">Getting Started</Link>
+              <Link to="/downloads">Download</Link>
+              <Link to="/#faq">FAQ</Link>
             </div>
             <div className="footer-column">
               <h2 className="footer-heading">Resources</h2>
@@ -25,7 +26,7 @@ export default function SiteFooter() {
               <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Video Tutorials</a>
               <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
               <a href="https://8th.io/examples" target="_blank" rel="noopener">Example Projects</a>
-              <a href="https://8th.io/blog" target="_blank" rel="noopener">Blog</a>
+              <Link to="/blog">Blog</Link>
             </div>
             <div className="footer-column">
               <h2 className="footer-heading">Get Involved</h2>
@@ -38,7 +39,7 @@ export default function SiteFooter() {
         </div>
         <div className="footer-bottom">
           <p className="copyright">© 2026 Niantic Spatial, Inc. All rights reserved.</p>
-          <a href="/legacy-policies" className="footer-legal-link">Legacy Policies</a>
+          <Link to="/legacy-policies" className="footer-legal-link">Legacy Policies</Link>
         </div>
       </div>
     </footer>

@@ -177,7 +177,7 @@ export default function Home() {
               <ul className="involve-list">
                 <li><a href="https://8th.io/discord" target="_blank" rel="noopener">Join the Discord</a></li>
                 <li><a href="https://github.com/orgs/8thwall/discussions" target="_blank" rel="noopener">GitHub Discussions</a></li>
-                <li><a href="https://8th.io/blog" target="_blank" rel="noopener">Follow the blog</a></li>
+                <li><a href="/blog">Follow the blog</a></li>
               </ul>
             </div>
             <div className="involve-card">

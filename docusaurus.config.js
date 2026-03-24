@@ -25,6 +25,14 @@ const config = {
           path: 'blog',
           routeBasePath: 'blog',
           showReadingTime: false,
+          blogSidebarTitle: 'Recent posts',
+          blogSidebarCount: 10,
+          feedOptions: {
+            type: 'all',
+            title: '8th Wall Blog',
+            description: 'News and updates from 8th Wall',
+            copyright: `Copyright © ${new Date().getFullYear()} 8th Wall`,
+          },
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -40,7 +48,7 @@ const config = {
     },
     announcementBar: {
       id: 'migration',
-      content: '<span class="announcement-text">The hosted 8th Wall platform was retired Feb 28, 2026. Existing published experiences continue to run until Feb 28, 2027.</span><span class="announcement-btns"><a target="_blank" rel="noopener" href="https://8th.io/migration" class="banner-btn">View Migration Guide</a><a target="_blank" rel="noopener" href="https://8th.io/blog" class="banner-btn">View Announcements</a></span>',
+      content: '<span class="announcement-text">The hosted 8th Wall platform was retired Feb 28, 2026. Existing published experiences continue to run until Feb 28, 2027.</span><span class="announcement-btns"><a target="_blank" rel="noopener" href="https://8th.io/migration" class="banner-btn">View Migration Guide</a><a target="_blank" rel="noopener" href="/blog" class="banner-btn">View Announcements</a></span>',
       backgroundColor: '#111',
       textColor: '#a1a1a1',
       isCloseable: false,
@@ -58,7 +66,7 @@ const config = {
         { href: 'https://github.com/8thwall', label: 'GitHub', position: 'left' },
         { href: 'https://8th.io/examples', label: 'Samples', position: 'left' },
         { href: 'https://www.youtube.com/@8thwall', label: 'Tutorials', position: 'left' },
-        { href: 'https://8th.io/blog', label: 'Blog', position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
         { href: 'https://8th.io/discord', label: 'Discord', position: 'left' },
         { href: 'https://www.8thwall.com/docs', label: 'Docs', position: 'left' },
         {
