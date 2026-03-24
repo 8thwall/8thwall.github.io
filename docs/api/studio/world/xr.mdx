@@ -1,0 +1,35 @@
+---
+id: xr
+description: This library includes functions to capture images and videos within your Studio project.
+---
+
+# xr
+
+## Description
+{frontMatter.description} Also see [Media Recorder Events](/docs/api/studio/events/media-recorder/).
+
+## Functions
+
+### startMediaRecorder
+
+Start recording.
+
+``` ts
+world.xr.startMediaRecorder: () => void
+```
+
+### stopMediaRecorder
+
+Stop recording.
+
+``` ts
+world.xr.stopMediaRecorder: () => void
+```
+
+### takeScreenshot
+
+Take a screenshot. Returns a Promise that when resolved, provides a buffer containing the JPEG compressed image. When rejected, an error message is provided.
+
+``` ts
+world.xr.takeScreenshot: () => Promise<Blob>
+```

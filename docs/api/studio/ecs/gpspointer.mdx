@@ -1,0 +1,27 @@
+---
+id: gps-pointer
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import GpsPointerTable from "/gen/tables/GpsPointer.md"
+
+# GpsPointer
+
+## Description
+
+This component controls how the entity is rotated according GPS inputs.
+
+## Properties
+
+<GpsPointerTable />
+
+## Functions
+
+<ComponentFunctions
+    name="GpsPointer"
+    properties={{
+        faceGpsDirection: true,
+    }}
+    mutate={`cursor.faceGpsDirection = false;
+    return false;`}
+/>

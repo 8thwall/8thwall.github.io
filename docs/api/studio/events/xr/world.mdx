@@ -1,0 +1,28 @@
+---
+id: world
+sidebar_position: 4
+---
+
+import {EventExample} from '@site/src/components/event-example'
+
+# World Effects Events
+
+## Events {#events}
+
+### REALITY_TRACKING_STATUS
+This event is emitted by World Effects when the engine starts and tracking status or reason changes.
+
+#### Properties {#properties}
+| Property | Type     | Description                           |
+|----------|----------|---------------------------------------|
+| status   | `String` | One of `LIMITED` or `NORMAL`.         |
+| reason   | `String` | One of `INITIALIZING` or `UNDEFINED`. |
+
+#### Example
+
+<EventExample
+  ns='ecs.events'
+  event='REALITY_TRACKING_STATUS'
+  target='world.events.globalId'
+  callbackBody={`console.log('Tracking status: ', event.data.status)`}
+/>

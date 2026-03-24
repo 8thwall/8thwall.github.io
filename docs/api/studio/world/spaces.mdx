@@ -1,0 +1,39 @@
+---
+id: spaces
+description: This library includes functions to work with Spaces.
+---
+
+# spaces
+
+## Description
+{frontMatter.description}
+
+## Functions
+
+### loadSpace
+Loads a Space specified by an ID or a name. The newly loaded Space will replace the old Space as the active Space. The old Space’s (and any included Spaces) objects will be despawned, and the new Spaces (and any included Spaces) will be spawned. Will throw an error if there is no match or multiple matches with the given ID or name.
+
+``` ts
+world.spaces.loadSpace(idOrName: string) // -> void
+```
+
+### listSpaces
+Returns all Space’s SpaceData.
+
+``` ts
+world.spaces.listSpaces() // -> SpaceData[] | undefined
+```
+
+### getActiveSpace
+Returns the active Space’s SpaceData.
+
+``` ts
+world.spaces.getActiveSpace() // -> SpaceData | undefined
+```
+
+## SpaceData
+| Property | Type    | Description                                  |
+|----------|---------|----------------------------------------------|
+| name     | string  | The space name. Must be unique               |
+| id       | string  | The space id                                 |
+| spawned  | boolean | Indicates if the space is currently spawned  |

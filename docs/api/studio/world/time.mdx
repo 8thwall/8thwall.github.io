@@ -1,0 +1,46 @@
+---
+id: time
+description: This library includes properties and functions that handle time management.
+---
+
+# time
+
+## Description
+{frontMatter.description}
+
+## Properties
+
+### world.time.elapsed
+The number of milliseconds the world has been running for, excluding time spent while the world was paused.
+
+### world.time.delta
+The number of milliseconds since the previous frame, excluding time jumps due to being paused.
+
+### world.time.absolute
+The number of milliseconds that have elapsed since the world was created.
+
+### world.time.absoluteDelta
+The number of milliseconds since the last frame, including large jumps of time if the world is resuming after being paused.
+
+## Functions
+
+### setTimeout
+Executes a function once after a specified delay.
+
+``` ts
+world.time.setTimeout(callback: function, delay: number) // -> Timeout
+```
+
+### clearTimeout
+Stops a previously set timeout or interval, preventing the specified function from executing if the delay hasn’t yet passed.
+
+``` ts
+world.time.clearTimeout(timeout: Timeout) // -> void
+```
+
+### setInterval
+Executes a function repeatedly at specified time intervals.
+
+``` ts
+world.time.setInterval(callback: function, interval: number) // -> Interval
+```

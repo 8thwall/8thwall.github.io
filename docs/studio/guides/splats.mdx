@@ -1,0 +1,65 @@
+---
+id: splats
+description: Gaussian splatting allows you to capture the essence of a real-world scene using just your smartphone and render it as a fully immersive 3D model, viewable in WebAR.
+---
+
+# Splats
+
+## Introduction
+{frontMatter.description} This technique revolutionizes how we bring real-world objects and places into digital experiences by using splats instead of traditional meshes.
+
+:::info How is it different from a mesh?
+Unlike meshes that rely on connected polygons and textures, Gaussian splats are composed of millions of tiny, independent “splats” or blobs. These splats combine to create a vibrant, 360-degree immersive 3D model, capturing intricate real-world details and textures.
+:::
+
+![gaussian-splats.gif](/images/studio/gaussian-splats.gif)
+
+## Creating Splats using Scaniverse
+Capturing Gaussian splats is effortless with the Niantic Scaniverse™ app. Simply use your phone to capture a scene, review the splat, and edit it on any of your devices. This accessibility allows anyone to create highly detailed 3D models without needing specialized equipment or powerful computers.
+
+![creating-splats.jpg](/images/studio/creating-splats.jpg)
+
+## Exporting Splats from Scaniverse
+Once you’ve captured and edited your splat, exporting it as a .SPZ file is quick and easy through Niantic Scaniverse™. After capturing and editing:
+
+1.	Select Share.
+2.	Choose Export Model.
+3.	Select .SPZ format.
+4.	Save the file to your device.
+
+:::note
+Currently, only .SPZ splats are supported.
+:::
+
+![exporting-splats.png](/images/studio/exporting-splats.png)
+
+## Importing Splats
+8th Wall Studio makes it simple to import .SPZ splats.
+
+* Drag the file into the Files/Assets section of left pane.
+* Alternatively, use the (+) button to upload the file.
+
+Once imported, your splats seamlessly integrate into your projects, allowing you to create hyper-realistic, immersive 3D experiences.
+
+:::note
+Importing a splat may take 1-2 minutes, and files are limited to 100 MB in size.
+:::
+
+:::danger
+Large splats are likely to heavily affect performance.
+:::
+
+![importing-splats-into-studio.jpg](/images/studio/importing-splats-into-studio.jpg)
+
+## Using Splats
+Splats are a powerful tool when combined with other 3D objects, ground planes, and physics colliders, creating dynamic XR experiences that connect deeply to the real world. Whether for virtual tours of popular locations or as backdrops for interactive games, splats help bring your creative visions to life with realism and immersion.
+
+![working-with-splats.gif](/images/studio/working-with-splats.gif)
+
+## Limitations
+While Gaussian splats provide exceptional visual fidelity, they come with some limitations:
+
+* Rendering splats can be demanding on the CPU and GPU. Large file sizes, multiple splats, and uncropped splats can negatively impact performance. Cropping and editing within the Scaniverse app is recommended to optimize splats before importing them into Studio.
+* Editing or cropping splats in 8th Wall Studio is not yet supported. Always finalize edits in Scaniverse™ before importing the .SPZ file into Studio.
+* Currently, splat assets do not interact with lights or cast shadows.
+* Splats are not compatible with the orthographic camera at this time.

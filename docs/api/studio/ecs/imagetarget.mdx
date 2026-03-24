@@ -1,0 +1,27 @@
+---
+id: image-target
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import ImageTargetTable from "/gen/tables/ImageTarget.md"
+
+# ImageTarget
+
+## Description
+
+This component causes an entity's transform to follow an image in XR. It will show and hide itself as the image is found or lost.
+
+## Properties
+
+<ImageTargetTable />
+
+## Functions
+
+<ComponentFunctions
+    name="ImageTarget"
+    properties={{
+        name: '',
+    }}
+    mutate={`cursor.name = 'target';
+    return false;`}
+/>
