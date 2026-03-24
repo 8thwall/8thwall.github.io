@@ -1877,6 +1877,8 @@ body.nav-open .nav-drawer {
 .markdown h3,
 .markdown h4 {
   scroll-margin-top: 88px;
+}
+
 .hidden {
   display: none;
 }
