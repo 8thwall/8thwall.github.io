@@ -8,7 +8,7 @@ Effective Date: November 14, 2023
 
 We at 8th Wall know you care about how your personal information is used and shared, and we take your privacy seriously. Please read the following to learn more about our Privacy Policy ("Privacy Policy"). By using or accessing our Services ("Services") in any manner, you acknowledge that you accept the practices and policies outlined in this Privacy Policy, and you hereby consent that we will collect, use, and share your information in the following ways.
 
-Remember that your use of 8th Wall’s Services is at all times subject to the [Terms and Conditions](https://www.8thwall.com/terms) ("Terms and Conditions"), which references and incorporates this Privacy Policy. Any terms we use in this Privacy Policy without defining them have the definitions given to them in the Terms and Conditions.
+Remember that your use of 8th Wall’s Services is at all times subject to the [Terms and Conditions](https://www.8thwall.org/legacy-policies/terms) ("Terms and Conditions"), which references and incorporates this Privacy Policy. Any terms we use in this Privacy Policy without defining them have the definitions given to them in the Terms and Conditions.
 
 ## What does this Privacy Policy Cover?
 
@@ -41,7 +41,7 @@ You can use our Services in the following ways to manage your Privacy:
 3. Accessing, viewing, cloning and interacting with AR and VR code and content created by 8th Wall using our Services.
 4. Accessing and viewing our websites and receiving and responding to emails and other marketing and communications such as our newsletters.
 
-If you have any questions about this Privacy Policy, you can contact us at support@8thwall.com.
+If you have any questions about this Privacy Policy, you can contact us at support@nianticspatial.com.
 
 
 ## Privacy Policy Key Terms
@@ -103,7 +103,7 @@ To the extent the above data includes Personal Information, we may aggregate or 
 
 If you click on a link to external sites or services from our First-Party Content, a third-party may also transmit cookies to you. This Privacy Policy does not cover the use of cookies by any third parties, and we aren’t responsible for their privacy policies and practices.
 
-If you’ve given us your email address, we may send you 8th Wall marketing and promotional emails. We may receive a confirmation when you open an email from us. This confirmation helps improve our communications with you and makes them more interesting. If you do not want to receive communications from us, please indicate your preference by contacting support@8thwall.com.
+If you’ve given us your email address, we may send you 8th Wall marketing and promotional emails. We may receive a confirmation when you open an email from us. This confirmation helps improve our communications with you and makes them more interesting. If you do not want to receive communications from us, please indicate your preference by contacting support@nianticspatial.com.
 
 
 ### Privacy for Developers
@@ -112,7 +112,7 @@ As a Developer, by registering for an 8th Wall account and creating a Niantic Pr
 
 Certain information may be required to register with us or to take advantage of our Services. If you use 8th Wall Payments, we share some of this information with our payment processing provider, Stripe, in order for them to carry out onboarding and identity verification. Where information is shared with Stripe for these purposes, it will be processed in accordance with Stripe’s Privacy Policy, which can be found at https://stripe.com/privacy.
 
-We may communicate with you if you’ve provided us the means to do so. For example, if you’ve given us your email address, we may send you 8th Wall marketing and promotional emails, or email you about your account and use of our Services. We may receive a confirmation when you open an email from us. This confirmation helps improve our communications with you and makes them more interesting. If you do not want to receive communications from us, please indicate your preference by contacting support@8thwall.com.
+We may communicate with you if you’ve provided us the means to do so. For example, if you’ve given us your email address, we may send you 8th Wall marketing and promotional emails, or email you about your account and use of our Services. We may receive a confirmation when you open an email from us. This confirmation helps improve our communications with you and makes them more interesting. If you do not want to receive communications from us, please indicate your preference by contacting support@nianticspatial.com.
 
 When you use our Services, we may automatically collect or receive certain information about your device and usage of our Services (collectively "Service Usage Data"). In some (but not all) countries, including countries in the European Economic Area ("EEA"), this information is considered Personal Information under applicable data protection laws. We use cookies and other tracking technologies to collect some of this information. For further information, please review the "Our Cookie Policy" section below.
 
@@ -186,14 +186,14 @@ For Developers using our Services, you may access, and, in some cases, edit or d
 If you have saved any information to your Niantic Profile, you can access and delete this information by visiting the Connected Services tab at my.nianticlabs.com.
 You can also access and delete any ‘private scans’ uploaded through the Niantic Wayfarer application at any time through your 8th Wall account.
 
-The information you can view, update, and delete may change as the Services change. If you have any questions about viewing or updating information we have on file about you, please contact us at support@8thwall.com.
+The information you can view, update, and delete may change as the Services change. If you have any questions about viewing or updating information we have on file about you, please contact us at support@nianticspatial.com.
 You can always opt not to disclose information to us, but keep in mind some information may be needed to register with us or to take advantage of some of our Services. For example, some communications are considered transactional and necessary for account management and you cannot opt out of these messages unless you cancel your 8th Wall account.
 
-You may be able to add, update, or delete information as explained above. When you update information, however, we may maintain a copy of the unrevised information in our records. You may request deletion of your account by contacting support@8thwall.com. Some information may remain in our records after you delete your account. We may use any aggregated data derived from or incorporate your Personal Information after you update or delete it, but not in a manner that would identify you personally.
+You may be able to add, update, or delete information as explained above. When you update information, however, we may maintain a copy of the unrevised information in our records. You may request deletion of your account by contacting support@nianticspatial.com. Some information may remain in our records after you delete your account. We may use any aggregated data derived from or incorporate your Personal Information after you update or delete it, but not in a manner that would identify you personally.
 
 For Developers and Visitors, certain State Laws require us to indicate whether we honor "Do Not Track" settings in your browser. 8th Wall adheres to the standards set out in this Privacy Policy and does not monitor or follow any Do Not Track browser requests.
 
-We do not knowingly collect, solicit, or use Personal Information in any manner that would allow us to identify, contact, or profile anyone under the age of 13. If you are under 13, please do not attempt to register for our Services or send any Personal Information about yourself to us. If we learn that we have collected Personal Information from a child under age 13, we will delete that information as quickly as possible. If you believe that a child under 13 may have provided us with this information, please contact us at support@8thwall.com.
+We do not knowingly collect, solicit, or use Personal Information in any manner that would allow us to identify, contact, or profile anyone under the age of 13. If you are under 13, please do not attempt to register for our Services or send any Personal Information about yourself to us. If we learn that we have collected Personal Information from a child under age 13, we will delete that information as quickly as possible. If you believe that a child under 13 may have provided us with this information, please contact us at support@nianticspatial.com.
 
 Parts of the Services may link to third-party services, which are not owned or controlled by 8th Wall. When you interact with these third parties and choose to use their service, you may be providing your information to them. Your use of these services is subject to the privacy policies of those providers.
 
@@ -202,7 +202,7 @@ Parts of the Services may link to third-party services, which are not owned or c
 As a Developer, your account is protected by a password for your privacy and security. You must prevent unauthorized access to your account and Personal Information by selecting and protecting your password and appropriately and limiting access to your computer or device and browser by signing off after you have finished accessing your account.
 
 We strive to protect the privacy of your account and other Personal Information we hold in our records but cannot guarantee complete security. Unauthorized entry or use, hardware or software failure, and other factors, may compromise the security of user information at any time.
-You can read about 8th Wall’s security practices[here](https://www.8thwall.com/toms).
+You can read about 8th Wall’s security practices[here](https://www.8thwall.org/legacy-policies/toms).
 
 ### Retention of Data
 
@@ -230,7 +230,7 @@ If you are a Visitor, whenever you access, visit and/or interact with our First-
 
 We need to collect and use certain Personal Data to provide certain First Party Content to you. For example, to enable experiences which enable you to view and interact with the same virtual objects at the same time in a shared physical space with other Visitors, as well as interact with and place virtual objects at real world locations. Some First Party Content experiences also require your input or feedback in order to work.
 
-Where required by law, we will collect Personal Information only where we have your consent to do so. If you have questions or need further information concerning the legal basis on which we collect and use your Personal Information, please contact us at support@8thwall.com.
+Where required by law, we will collect Personal Information only where we have your consent to do so. If you have questions or need further information concerning the legal basis on which we collect and use your Personal Information, please contact us at support@nianticspatial.com.
 
 ### Your Rights in Relation to Your Personal Information under GDPR
 
@@ -245,14 +245,14 @@ Subject to the applicable provision of the GDPR, you have the following rights w
 7. To object to the processing of your Personal Information, and we will cease processing it if (a) we are relying on a legitimate interest to process your Personal Information, unless we demonstrate compelling legitimate grounds for the processing or (b) we are processing your Personal Information for direct marketing.
 8. To lodge a complaint with your national data protection authority if you have a concern about our privacy practices, including the way we handle your Personal Information.
 
-If you would like to submit a request to us to exercise your rights, please contact us at support@8thwall.com. Please note that you must verify your identity before we will process your request. You may be required to provide email confirmation or other information in order for us to verify your identity.
+If you would like to submit a request to us to exercise your rights, please contact us at support@nianticspatial.com. Please note that you must verify your identity before we will process your request. You may be required to provide email confirmation or other information in order for us to verify your identity.
 
 
 ### International Transfers
 
-8th Wall operates in the United States. Our servers and offices are located in the United States, so your information may be transferred to, stored, or processed in the United States. While the data protection, privacy, and other laws of the United States might not be as comprehensive as those in your country, we take many steps to protect your privacy, including offering our Developers a Data Processing Agreement available [here](https://www.8thwall.com/dpa).
+8th Wall operates in the United States. Our servers and offices are located in the United States, so your information may be transferred to, stored, or processed in the United States. While the data protection, privacy, and other laws of the United States might not be as comprehensive as those in your country, we take many steps to protect your privacy, including offering our Developers a Data Processing Agreement available [here](https://www.8thwall.org/legacy-policies/dpa).
 
-If you have any concerns about your data protection as it relates to the country you are doing business, please contact us at support@8thwall.com.
+If you have any concerns about your data protection as it relates to the country you are doing business, please contact us at support@nianticspatial.com.
 
 ### California Privacy Rights
 
@@ -271,7 +271,7 @@ We do not sell or share your Personal Information as those terms are defined und
 3. to request the correction of any inaccurate Personal Information that we maintain about you.
 4. to exercise the privacy rights conferred to you under the CCPA without receiving discriminatory treatment.
 
-If you would like to submit a request to us to exercise your rights, please contact us at support@8thwall.com. Please note that you must verify your identity before we will process your request. You may be required to provide email confirmation or other information in order for us to verify your identity.
+If you would like to submit a request to us to exercise your rights, please contact us at support@nianticspatial.com. Please note that you must verify your identity before we will process your request. You may be required to provide email confirmation or other information in order for us to verify your identity.
 
 Note that we do not collect or process sensitive Personal Information for the purpose of inferring characteristics about you. We also do not disclose sensitive Personal Information for purposes other than those specified in Section 7027(m) of the California Privacy Rights Act regulations promulgated by the California Privacy Protection Agency. Therefore, we do not offer you the option to limit the use of your sensitive Personal Information.
 Under California law, consumers have the right to opt out of the sale or sharing of their personal information. Because we do not sell or share data for this purpose, we do not offer this opt out.
@@ -279,4 +279,4 @@ Under California law, consumers have the right to opt out of the sale or sharing
 
 ### What if I have questions about this Policy?
 
-If you have any questions or concerns regarding our Privacy Policy, please send us a detailed message to [support@8thwall.com](mailto:support@8thwall.com), and we will try to resolve your concerns.
+If you have any questions or concerns regarding our Privacy Policy, please send us a detailed message to [support@nianticspatial.com](mailto:support@nianticspatial.com), and we will try to resolve your concerns.

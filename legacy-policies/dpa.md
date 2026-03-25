@@ -225,7 +225,7 @@ The competent supervisory authority will be the Belgian Data Protection Authorit
 
 **D. Technical And Organisational Measures Including Technical And Organisational Measures To Ensure The Security Of The Data**
 
-The technical and organizational security measures implemented by the data importer are described at https://www.8thwall.com/toms.
+The technical and organizational security measures implemented by the data importer are described at https://www.8thwall.org/legacy-policies/toms.
 
 **E. List of Subprocessors (Annex III)**
 

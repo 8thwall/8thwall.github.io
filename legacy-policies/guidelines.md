@@ -5,8 +5,7 @@ sidebar_position: 3
 
 ## About these guidelines
 
-8th Wall enables developers with a powerful set of tools to create immersive experiences that inspire movement, exploration, and encourage a deeper connection to the real-world including the people, places and things around us. In order to ensure that these experiences are safe and fun for users, Developers and Visitors (as those terms are defined in the [8th Wall Terms and
-Conditions](https://www.8thwall.com/terms), referred to in these guidelines as the **“Terms”**)  are required to abide by these content guidelines. To support this, we may actively review the content you create with our platform, flagged by another user or automated systems, and take action.
+8th Wall enables developers with a powerful set of tools to create immersive experiences that inspire movement, exploration, and encourage a deeper connection to the real-world including the people, places and things around us. In order to ensure that these experiences are safe and fun for users, Developers and Visitors (as those terms are defined in the [Terms and Conditions](https://www.8thwall.org/legacy-policies/terms), referred to in these guidelines as the **“Terms”**)  are required to abide by these content guidelines. To support this, we may actively review the content you create with our platform, flagged by another user or automated systems, and take action.
 
 Capitalized terms used in these guidelines have the meaning given to them in the Terms.
 
@@ -34,7 +33,7 @@ Prohibited content includes:
 
   10. Content that violates other’s intellectual property rights including copyrights or trademarks.
 
-  11. Any content that promotes violations of our [Terms and Conditions](https://www.8thwall.com/terms), [Privacy Policy](https://www.8thwall.com/privacy), or these guidelines themselves.
+  11. Any content that promotes violations of our [Terms and Conditions](https://www.8thwall.org/legacy-policies/terms), [Privacy Policy](https://www.8thwall.org/legacy-policies/privacy), or these guidelines themselves.
 
 
 ## Never publish sensitive content on 8th Wall
