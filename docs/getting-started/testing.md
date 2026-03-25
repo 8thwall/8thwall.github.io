@@ -7,18 +7,10 @@ sidebar_position: 6
 
 ## Test on Desktop
 
-1. If node/npm are not installed, install using https://github.com/nvm-sh/nvm or https://nodejs.org/en/download
-2. `cd` to the project root and run `npm install`.
+1. Open the Simulator/Preview
+2. Click the browser pop-out button
 
-![](/images/migration/npm-install.png)
-
-3. Run `npm run serve` to run the development server. Once the local server is running, you will see the URL/IP addresses your project is running at.
-
-![](/images/migration/npm-run.png)
-
-4. Open a new browser window and paste in the loopback URL or IP address to test your project in development mode.
-
-![](/images/migration/dev-preview.png)
+![DesktopPopout](/images/getting-started/desktop-pop-out.png)
 
 ## Test on Mobile
 

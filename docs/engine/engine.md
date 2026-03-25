@@ -1,8 +1,12 @@
 ---
-sidebar_label: Introduction
+sidebar_label: Engine Introduction
 ---
 
 # 8th Wall Engine
+
+:::info
+If you are developing an 8th Wall project with [Studio](/docs/studio), the 8th Wall Engine is included in all projects by default and does not require additional setup.
+:::
 
 The 8th Wall AR Engine is a complete implementation of 8th Wall's Simultaneous Localization and Mapping (SLAM) engine, hyper-optimized for real-time WebAR on browsers. AR features include World Tracking, Image Targets, Face Effects, and Sky Segmentation.
 

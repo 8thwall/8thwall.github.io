@@ -39,9 +39,7 @@ Available on:
 
 ## Self-Hosting your project
 
-The HTML5 bundle can be self hosted or deployed in many different ways. For more comprehensive information on self hosting, check out this [guide](https://github.com/mikeroyal/Self-Hosting-Guide).
-
-Below are common hosting options grouped by workflow:
+The HTML5 bundle can be self hosted or deployed in many different ways. Below are common hosting options grouped by workflow:
 
 - **Drag & drop (recommended for beginners)**: upload your `dist/` folder (or a zip) in a web UI.
 - **Git-based CI/CD**: connect a Git repo for automatic deploys when you push changes.
@@ -56,7 +54,7 @@ These hosting solutions are recommended for beginners or if you just want "uploa
 
 Netlify Drop lets you drag and drop your dist folder and get a live URL immediately, great for quick demos and sharing.
 
-1. Build your project: `npm run build`
+1. [Create a production build](#creating-production-build) of your project
 2. Open [Netlify Drop](https://app.netlify.com/drop)
 3. Drag your `dist/` folder into the page
 4. You’ll get a live URL right away
@@ -65,7 +63,7 @@ Netlify Drop lets you drag and drop your dist folder and get a live URL immediat
 
 Cloudflare Pages supports a Direct Upload flow that includes drag & drop of a folder or zip.
 
-1. Build your project: `npm run build`
+1. [Create a production build](#creating-production-build) of your project
 2. Create a Pages project using **Direct Upload**
 3. Drag & drop the `dist/` folder (or upload a zip)
 4. Your site deploys and you get a URL
@@ -74,7 +72,7 @@ Cloudflare Pages supports a Direct Upload flow that includes drag & drop of a fo
 
 Amplify Hosting supports manual deployments where you can drag & drop a zipped build output.
 
-1. Build your project: `npm run build`
+1. [Create a production build](#creating-production-build) of your project
 2. Zip the `dist/` folder
 3. In Amplify Hosting, choose **Deploy without a Git provider**
 4. Drag & drop the zip and deploy
@@ -84,7 +82,7 @@ Amplify Hosting supports manual deployments where you can drag & drop a zipped b
 Neocities is a straightforward platform that works well for simple static sites (especially personal/demo projects).
 
 **Steps**
-1. Build your project: `npm run build`
+1. [Create a production build](#creating-production-build) of your project
 2. Upload the contents of `dist/` via the Neocities editor/uploader
 3. Use the provided site URL
 
@@ -148,7 +146,7 @@ Since 8th Wall HTML5 bundles are fully contained builds, they can be self hosted
 GamePix does not allow games with external links. Make sure your project does NOT make network calls outside of the bundle.
 :::
 
-1. Download the **Full HTML** embed code.\
+1. Download the **Full HTML** embed code.
 2. Sign up for a [GamePix Developer Account](https://partners.gamepix.com/join-us?t=developer) and go to the [GamePix Dashboard](https://my.gamepix.com/dashboard).
 3. Click **Create New Game**.
 4. Enter the game details and click **Create**.

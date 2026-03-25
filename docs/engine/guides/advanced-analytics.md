@@ -64,7 +64,7 @@ experience. These events will be particular to your WebAR project, but some exam
 * etc…
 
 In this example, we’ll create a Tag (with Trigger) and add it to the
-["AFrame: Place Ground"](https://www.8thwall.com/8thwall/placeground-aframe) sample project that
+["AFrame: Place Ground"](https://github.com/8thwall/aframe-world-effects-example) example that
 fires each time a 3D model is spawned.
 
 #### Create Custom Event Trigger {#create-custom-event-trigger}
@@ -95,7 +95,7 @@ In your 8th Wall project, add the following line of javascript to fire this trig
 
 `window.dataLayer.push({event: 'placeModel'})`
 
-##### Example - based on <https://www.8thwall.com/8thwall/placeground-aframe/master/tap-place.js> {#example---based-on-httpswww8thwallcom8thwallplaceground-aframemastertap-placejs}
+##### Example - based on <https://github.com/8thwall/aframe-world-effects-example/blob/main/src/tap-place.js>
 
 ```javascript
 export const tapPlaceComponent = {

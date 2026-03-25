@@ -7,11 +7,11 @@ sidebar_position: 3
 
 1. From the hub view, click **New Project**
 
-![StudioHome](/images/studio/getting-started/studio-home.png)
+![StudioHome](/images/getting-started/studio-home.png)
 
 3. Enter the Project Title.
 
-![StudioCreate](/images/studio/getting-started/studio-create.png)
+![StudioCreate](/images/getting-started/studio-create.png)
 
 4. Click **Create**.
 

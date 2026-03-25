@@ -41,10 +41,10 @@ October 10, 2025
 ### New Features
 
 Desktop App
-- Added support for Windows. Download [here](https://www.8thwall.com/download).
+- Added support for Windows. Download [here](https://www.8thwall.org/downloads).
 
 Native App Export
-- Added iFrame embed options with a copyable code snippet in the Publish flow. Learn more [here](https://www.8thwall.com/blog/post/196857049250/embedding-made-easy-iframe-support-in-8th-walls-publish-flow).
+- Added iFrame embed options with a copyable code snippet in the Publish flow.
 
 ### Fixes and Enhancements
 
@@ -83,7 +83,7 @@ September 17, 2025
 ### New Features
 
 Desktop App
-- [The 8th Wall Desktop App is here](http://8th.io/desktopappblog). Now in Public Beta for macOS, with Windows coming soon, the Desktop App brings the speed of local development together with the collaboration of the cloud. [Learn more](https://www.8thwall.com/docs/studio/app/) and [download now](https://www.8thwall.com/download).
+- [The 8th Wall Desktop App is here](http://8th.io/desktopappblog). Now in Public Beta for macOS, with Windows coming soon, the Desktop App brings the speed of local development together with the collaboration of the cloud.
 
 ![](/images/studio/app/hub.jpg)
 

@@ -219,7 +219,7 @@ sidebar_position: 99999
     * Added Lightship VPS Coaching Overlay module to guide users through a flow to localize at real-world locations.
     * Added XR8.Platform API for unlocking new 8th Wall platform features like Lightship VPS and Niantic Lightship Maps.
   * Niantic Lightship Map module
-    * Add the lightship-maps module to your project on 8thwall.com to make it easy to create a variety of location-based experiences.
+    * Add the lightship-maps module to your project to make it easy to create a variety of location-based experiences.
 
 * Fixes and Enhancements:
   * Improved error handling for VPS network requests (20.1.19.684)
@@ -602,7 +602,7 @@ Release 10 adds a revamped web developer console with streamlined developer-mode
 #### Release 9.2 {#release-92}
 
 * New Features:
-  * Public documentation released: https://docs.8thwall.com/web
+  * Public documentation released
 
 #### Release 9.1 {#release-91}
 

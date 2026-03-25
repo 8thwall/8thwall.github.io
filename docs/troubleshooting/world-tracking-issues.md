@@ -1,6 +1,7 @@
 ---
 id: world-tracking-issues
 description: I'm experiencing issues with World Tracking.
+sidebar_position: 6
 ---
 
 # World Tracking Issues
