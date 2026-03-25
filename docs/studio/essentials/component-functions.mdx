@@ -1,0 +1,60 @@
+---
+id: component-functions
+description: Components can be added, modified, and removed at runtime.
+sidebar_position: 45
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+
+# Component Functions
+
+## Introduction
+{frontMatter.description} Built-in components and custom components use the same interface for managing component data.
+
+## Referencing a Custom Component
+The following example shows how to share a reference to a custom component between different code files.
+
+:::tip
+Make sure you export the Component **before** attempting to import or use it anywhere.
+:::
+
+``` tsx title="/custom-component.ts"
+import * as ecs from '@8thwall/ecs'
+
+const CustomComponent = ecs.registerComponent({
+  ...
+})
+
+export {CustomComponent}
+```
+
+``` tsx title="/another-component.ts"
+import * as ecs from '@8thwall/ecs'
+import {CustomComponent} from './custom-component'
+
+ecs.registerComponent({
+  name: 'Another Custom Component',
+  stateMachine: ({world, eid, schemaAttribute, dataAttribute}) => {
+    ecs.defineState('default')
+      .initial()
+      .onEnter(() => {
+        const entity = world.createEntity()
+
+        CustomComponent.set(world, entity, {
+          displayName: 'Jini'
+        })
+      })
+  },
+})
+```
+
+## Functions
+Component functions allow you to perform different actions on a component and its data in relation to an entity.
+
+<ComponentFunctions
+    name="CylinderGeometry"
+    properties={{ radius: 1, height: 1 }}
+    mutate={`cursor.radius += 1;
+    cursor.height *= 2;
+    return false;`}
+/>

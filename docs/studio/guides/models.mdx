@@ -1,0 +1,138 @@
+---
+id: models
+description: Studio enables you to integrate 3D objects into your projects through the Mesh component, making it easy to build immersive and interactive experiences. You can add basic shapes using built-in primitives or import custom 3D models.
+---
+
+# Models
+
+![models.png](/images/studio/models.png)
+
+## Introduction
+Studio supports multiple 3D model formats for your entities, with each entity using one model type at a time.
+You can work with simple primitives for basic shapes, or import GLB, FBX, and GLTF bundles when you need more detailed, high-end representations. The built-in asset editor lets you modify and fine-tune your models directly in the engine, so you can iterate quickly without switching tools.
+
+:::note
+While Studio UI's mesh component configures primitives, meshes, and Gaussian splats through a unified interface, each type uses a distinct component programmatically.
+:::
+
+
+## Primitives {#primitives}
+Primitives are used to represent volumes, simple objects or used as placeholders for future game assets.
+Studio includes several built-in primitives such as spheres, boxes, and planes that can be quickly customized and positioned within the editor.
+Primitives have materials that can also be modified dynamically at runtime.
+
+![primitives.png](/images/studio/primitives.png)
+
+The following built-in Primitives are available:
+
+| Type               | Attributes                   |
+|--------------------|------------------------------|
+| Sphere     | `{radius}`                   |
+| Box        | `{width, height, depth}`     |
+| Plane      | `{width, height}`            |
+| Capsule    | `{radius, height}`           |
+| Cone       | `{radius, height}`           |
+| Cylinder   | `{radius, height}`           |
+| Polyhedron | `{radius}`                   |
+| Circle     | `{radius}`                   |
+| Ring       | `{innerRadius, outerRadius}` |
+| Torus      | `{radius, tubeRadius}`       |
+
+## Adding a Primitive
+A 3D Model can be added to the entity via the Studio interface via the Mesh component, or in code. Adding them in Studio is done via the (+) button on the Hierarchy or by adding geometry to a Custom Component on the entity.
+
+### Example
+
+``` ts
+ecs.SphereGeometry.set(world, eid, {radius: 5})
+```
+
+## GLTF Component
+
+### Supported Formats
+
+#### GLTF and GLB
+GLTF and GLB models are supported and ideal when working with 3D on the web.
+
+#### Asset Bundle
+While most GLBs can be dragged and dropped into studio, sometimes GLTF files require multiples file uploads.
+To handle this process we use an asset bundle. To upload a new asset into your project, on the lower part of the left panel select the file tab and click the plus icon.
+Choose the new asset option and then drag and drop all your files.
+
+![new-asset-bundle-option.png](/images/studio/new-asset-bundle-option.png)
+
+![new-asset-bundle.png](/images/studio/new-asset-bundle.png)
+
+#### FBX
+FBX upload is supported however, 8th Wall Studio requires models to be converted to GLB after upload.
+**Ensure that textures are embedded in the FBX file before converting to GLB.**
+
+![fbx-to-glb-converter.png](/images/studio/fbx-to-glb-converter.png)
+
+### Setting a Model
+The following example shows how to set a GLTF or GLB on a entity at runtime.
+
+:::info
+This method requires that you select your custom model from the component properties, once the component is applied to your entity
+:::
+
+``` ts
+import * as ecs from '@8thwall/ecs'
+
+ecs.registerComponent({
+    name: 'loaded-model',
+    schema: {
+        // @asset
+        model: ecs.string,
+    },
+    add: (world, component) => {
+        ecs.GltfModel.set(world, eid, {
+            url: component.schema.model,
+        })
+    }
+})
+```
+
+### Setting Model Properties
+
+#### Model Properties
+View properties [here](/docs/api/studio/ecs/gltf-model).
+
+#### Example
+The following example shows how to set a Model on an entity at runtime.
+
+``` ts
+import * as ecs from '@8thwall/ecs'
+
+ecs.registerComponent({
+    name: 'loaded-model',
+    schema: {
+        // @asset
+        model: ecs.string,
+    },
+    add: (world, component) => {
+        ecs.GltfModel.set(world, eid, {
+            url: component.schema.model,
+            animationClip: 'clip1',
+            loop: true,
+            paused: false,
+            time: 0,
+            timeScale: 1,
+        })
+    }
+})
+```
+
+## Models and Physics
+
+### Primitives
+Colliders represent physical entities in the simulation step, with attributes that directly affect their behavior. Most primitives have collider shapes that match their exact volume, making it simple to spawn a primitive like a cube and add physics interactions.
+
+### Models
+You can generate a custom collider from your 3D model that approximates its shape and size. For best results, use the simplest collider shape that meets your needs. Most of the time this can be done using a primitive instead.
+
+:::danger
+Custom collider generation may fail due to variations in model complexity, size, and quality. If this happens, use primitives (one or multiple) to approximate your desired shape, or export a clean .glb file from a 3D modeling tool like Blender.
+:::
+
+For more information visit the physics guide [here](/docs/studio/guides/physics/)

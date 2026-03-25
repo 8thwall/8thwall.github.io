@@ -1,0 +1,89 @@
+---
+id: effects
+description: This library includes functions to update world effects like the skybox and fog.
+---
+
+# effects
+
+## Description
+{frontMatter.description}
+
+## Types
+
+```
+type NoFog = {type: 'none'}
+
+type LinearFog = {
+  type: 'linear'
+  near: number
+  far: number
+  color: string
+}
+
+type ExponentialFog = {
+  type: 'exponential'
+  density: number
+  color: string
+}
+
+type Fog = NoFog | LinearFog | ExponentialFog
+```
+
+```
+type Color = {type: 'color', color?: string}
+
+type GradientStyle = 'linear' | 'radial'
+type Gradient = {
+  type: 'gradient'
+  style?: GradientStyle
+  colors?: string[]
+}
+type Image<T = Resource> = {type: 'image', src?: T}
+type NoSky = {type: 'none'}
+
+type Sky<T = Resource> = Color | Gradient | Image<T> | NoSky
+```
+
+## Functions {#functions}
+
+### setFog
+
+Set the active fog.
+
+``` ts
+world.effects.setFog(fog: Fog) => void
+```
+
+#### Example
+``` ts
+world.effects.setFog({type: 'linear', far: 1000, near: 0.1, color: 'ffffff'})
+```
+
+### getFog
+
+Get the active fog.
+
+``` ts
+world.effects.getFog() => Fog | undefined
+```
+
+### setSky
+
+Set the active sky.
+
+``` ts
+world.effects.setSky(sky: Sky) => void
+```
+
+#### Example
+``` ts
+world.effects.setSky({type: 'color', color: 'ffffff'})
+```
+
+### getSky
+
+Get the active sky.
+
+``` ts
+world.effects.getSky() => Sky | undefined
+```

@@ -1,0 +1,115 @@
+---
+id: particles
+description: Particles are a powerful tool for adding dynamic, eye-catching effects to any scene. They bring life and movement, creating everything from realistic environmental elements like smoke, fire, and rain to stylized effects like magic, sparks, or explosions.
+---
+
+# Particles
+
+## Introduction
+{frontMatter.description} Whether used subtly or dramatically, particles enhance the atmosphere and interactivity of a scene, making experiences more captivating and visually rich.
+
+## Adding Particles
+Particles can be added to the entity via the Studio interface or in code. Adding them in Studio is done via the "New Component" button.
+
+![particle-new-component.jpg](/images/studio/particle-new-component.jpg)
+![particle-component.png](/images/studio/particle-component.png)
+
+### Example
+The following example shows how to add a ParticleEmitter to an entity at runtime.
+``` ts
+ecs.ParticleEmitter.set(world, component.eid, {
+    stopped: false,
+    emitterLife: 10,
+    particlesPerShot: 5,
+    emitDelay: 1,
+    minimumLifespan: 1,
+    maximumLifespan: 3,
+    mass: 1,
+    gravity: 1,
+    scale: 1,
+    forceX: 0,
+    forceY: 60,
+    forceZ: 0,
+    spread: 120,
+    radialVelocity: 0,
+    spawnAreaType: 'point',
+    resourceType: 'model',
+    resourceUrl: 'https://static.8thwall.app/assets/Moon-lowpoly-v3-yg6nmdc1uj.glb',
+})
+```
+
+## Emission
+Emission attributes define the way particles are placed into the world and some of the global attributes that affect every particle equally.
+
+* **Stopped:** If checked, the emitter will not emit.
+* **Emitter Life:** Defines the lifetime of the emitter.
+* **Particles Per Shot:** How many particles are placed every time the emitter fires.
+* **Emit Delay:** Delay between emissions in seconds.
+* **Lifespan:** Sets a range representing the time particles remain in the scene before despawning.
+* **Mass:** The mass of each particle, only relevant when simulating physics.
+* **Gravity:** Adds a force downwards that makes particles fall.
+* **Forces:** Simple forces in the X, Y and Z relative axes that are applied to every particle.
+* **Spread:** Is the angle the particles move in relation to the emitter.
+* **Radial Velocity:** If set above 0, the emitter velocity type will change to radial. Radial Velocity is calculated relative to the observer and vectorial forces are influenced by radial force.
+
+### Spawn Area Type
+Spawn areas change the starting coordinate of the particles.
+
+* **Point:** Spawn is set to the coordinates of the emitter.
+* **Box:** Defines a box using width, height and depth.
+* **Sphere:** Defines a spawn area of a sphere with a defined radius.
+
+:::note
+These spawn areas won't work properly if dimensions are set to 0.
+:::
+
+### Bounding Zone Type
+Bounding boxes dictate the spatial boundaries within which particles are generated.
+
+* **Box:** Defines a box using width, height and depth.
+* **Sphere:** Defines a spawn area of a sphere with a defined radius.
+
+:::note
+These bounding zones won't work properly if dimensions are set to 0 or negative. If using Spawn Area, the bounding zone needs to occupy a bigger volume than the Spawn Area.
+:::
+
+### Resource Type
+This system is able to render glb assets and simple sprites. Choose a model for 3D or sprite for 2D sprites. Use a publicly accessible URL to load the asset to the emitter.
+
+* **Sprites:** They have blending options that work similarly to basic Photoshop layer effects. These are very handy when creating visual effects like fire, stars or smoke.
+* **Model:** 3D models with particle behavior. Useful for creating volumetric effects.
+
+### Simulation
+These parameters will affect the way particles behave on their own after being placed in the world.
+
+* **Color:** If sprites are set as a resource type, then sprites can change color. Input a hex value of the starting and ending color for them to shift gradually.
+* **Random Drift:** Particles will randomly drift in accordance with the random drift range parameter.
+* **Collision:** If particles get near each other, an opposite force will be applied between them.
+
+## Examples
+
+### Starting Particles
+
+``` ts
+ecs.ParticleEmitter.mutate(world, component.eid, (cursor) => {
+    cursor.stopped = false
+})
+```
+
+### Stopping Particles
+
+``` ts
+ecs.ParticleEmitter.mutate(world, component.eid, (cursor) => {
+    cursor.stopped = true
+})
+```
+
+### Emitting Models
+
+``` ts
+ecs.ParticleEmitter.set(world, component.eid, {
+    stopped: false,
+    resourceType: 'model',
+    resourceUrl: 'assets/robot.glb',
+})
+```

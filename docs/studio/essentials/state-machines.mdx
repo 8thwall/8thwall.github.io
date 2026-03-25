@@ -1,0 +1,340 @@
+---
+id: state-machines
+description: State Machines are designed to simplify state management.
+sidebar_position: 50
+toc_max_heading_level: 3
+---
+
+# State Machines
+
+## Introduction
+
+<p>{frontMatter.description}</p>
+
+A state machine is made up of three main components:
+
+* States
+* State Groups
+* Triggers
+
+A state machine is always in exactly one state at a time, and will transition between states when certain conditions (defined by the triggers) are met. State groups are a convenient way to bundle shared logic between multiple states, but the groups are not states themselves.
+
+## Example
+
+```ts
+ecs.registerComponent({
+  name: 'Jump On Touch',
+  stateMachine: ({world, entity, defineState}) => {
+    const idle = defineState('idle').initial().onEnter(() => {
+      console.log('Entering idle state')
+    }).onEvent(ecs.input.SCREEN_TOUCH_START, 'jumping')
+
+    const jumping = defineState('jumping').onEnter(() => {
+      console.log('Entering jumping state')
+      ecs.physics.applyImpulse(world, entity.eid, 0, 5, 0)
+    }).onTick(() => {
+      console.log('In jumping state')
+    }).wait(2000, 'idle')
+  },
+})
+```
+
+## Defining a State Machine
+
+When creating a state machine inside a component, your function is called with the following:
+
+### Properties
+
+| Property         | Type           | Description                                                 |
+|------------------|----------------|-------------------------------------------------------------|
+| world            | World          | Reference to the World.                                     |
+| eid              | eid            | The Entity ID of the current Component                      |
+| entity           | Entity         | The Entity instance of the current Component                |
+| defineState      | function       | A function to define states on the state machine            |
+| defineStateGroup | function       | A function to define groups on the state machine            |
+| schemaAttribute  | WorldAttribute | Reference to the current Component's schema in World Scope. |
+| dataAttribute    | WorldAttribute | Reference to the current Component's data in World Scope.   |
+
+The following code is an example of how to define an empty state machine:
+
+``` ts
+ecs.registerComponent({
+  ...
+  stateMachine: ({world, entity, defineState}) => {
+    // Define states here
+  },
+})
+```
+
+## State
+
+A state is the fundamental atomic unit of a state machine. After defining the possible states of your state machine, you can move between States by defining triggers.
+
+### Defining a State
+
+The following code is an example of how to define a new State inside a state machine within a component.
+
+``` ts
+ecs.registerComponent({
+  ...
+  stateMachine: ({world, entity, defineState}) => {
+    const foo = defineState('foo')
+    ...
+  }
+})
+```
+
+:::tip
+State functions are “fluent,” meaning they return the same instance of the State, allowing you to chain multiple function calls in a single statement.
+:::
+
+### .initial()
+
+Mark this state as the first active state when the state machine is created.
+
+``` ts
+defineState('myCustomState').initial()
+```
+
+### .onEnter()
+
+Set a callback to run when entering this state.
+
+``` ts
+defineState('myCustomState').onEnter(() => {
+  // Do something
+})
+```
+
+### .onTick()
+
+Set a callback to run every frame while this state is active.
+
+``` ts
+defineState('myCustomState').onTick(() => {
+  // Do something
+})
+```
+
+### .onExit()
+
+Set a callback to run when exiting this state.
+
+``` ts
+defineState('myCustomState').onExit(() => {
+  // Do something
+})
+```
+
+### .onEvent()
+
+Transition to a new state when a specific event is received.
+
+| Parameter            | Type            | Description                                       |
+|----------------------|-----------------|---------------------------------------------------|
+| event (Required)     | string          | The name of the event to listen for               |
+| nextState (Required) | string or State | The state to transition to when the event occurs  |
+| options (Optional)   | object          | Additional options                                |
+
+#### Options
+
+| Parameter | Type               | Description                                                                                  |
+|-----------|--------------------|----------------------------------------------------------------------------------------------|
+| target    | eid                | The entity expected to receive the event (defaults to the current entity)                    |
+| where     | (event) => boolean | An optional condition to check before transitioning; if false, the transition will not occur |
+
+``` ts
+defineState('myCustomState').onEvent(
+    ecs.input.SCREEN_TOUCH_START,
+    'other',
+    {
+        target: world.events.globalId,
+        where: (event) => event.data.position.y > 0.5
+    }
+)
+```
+
+### .wait()
+
+Transition to a new state after a set amount of time.
+
+| Parameter | Type            | Description                                       |
+|-----------|-----------------|---------------------------------------------------|
+| timeout   | number          | The duration in milliseconds before transitioning |
+| nextState | string or State | The next state to transition to                   |
+
+``` ts
+defineState('myCustomState').wait(1000, 'myOtherCustomState')
+```
+
+### .onTrigger()
+
+Transition to a new state when a TriggerHandle (defined with `ecs.defineTrigger()`) is triggered.
+
+| Parameter | Type            | Description                                                     |
+|-----------|-----------------|-----------------------------------------------------------------|
+| handle    | TriggerHandle   | The handle that will cause a transition when manually activated |
+| nextState | string or State | The next state to transition to                                 |
+
+``` ts
+const toOther = ecs.defineTrigger()
+defineState('example').onTrigger(toOther, 'other')
+...
+toOther.trigger()
+```
+
+### .listen()
+
+Register an event listener that will be automatically added when the state is entered, and removed on exit.
+
+| Parameter | Type                  | Description                                       |
+|-----------|-----------------------|---------------------------------------------------|
+| target    | eid or () => eid      | The entity that is expected to receive an event   |
+| name      | string                | The event to listen for                           |
+| listener  | (event) => void       | The function to call when the event is dispatched |
+
+``` ts
+const handleCollision = (event) => { 
+  console.log('Collided with', event.data.other)
+}
+defineState('example').listen(eid, ecs.physics.COLLISION_START_EVENT, handleCollision)
+```
+
+## State Groups
+
+A state group is a way to define behavior and triggers that apply to a list of states. State groups are not states themselves, and cannot be transitioned into directly. Instead, when any state in the group is active, the group’s behavior and triggers are also active.
+
+### Defining a State Group
+
+| Parameter            | Type                     | Description                                                                                              |
+|----------------------|--------------------------|----------------------------------------------------------------------------------------------------------|
+| substates (Optional) | Array of string or State | The list of states that make up this group; excluding this parameter is equivalent to listing all states |
+
+``` ts
+const fizz = defineState('fizz')
+const buzz = defineState('buzz')
+
+const fizzBuzz = defineStateGroup([fizz, 'buzz'])
+```
+
+:::tip
+State Group functions are “fluent,” meaning they return the same instance of the State Group, allowing you to chain multiple function calls in a single statement.
+:::
+
+### .onEnter()
+
+Set a callback to run when entering this group.
+
+``` ts
+defineStateGroup(['a', 'b']).onEnter(() => {
+  // Do something
+})
+```
+
+### .onTick()
+
+Set a callback to run every frame while this group is active.
+
+``` ts
+defineStateGroup(['a', 'b']).onTick(() => {
+  // Do something
+})
+```
+
+### .onExit()
+
+Set a callback to run when exiting this group.
+
+``` ts
+defineStateGroup(['a', 'b']).onTick(() => {
+  // Do something
+})
+```
+
+### .onEvent()
+
+Transition to a new state when a specific event is received.
+
+| Parameter            | Type            | Description                                       |
+|----------------------|-----------------|---------------------------------------------------|
+| event (Required)     | string          | The name of the event to listen for               |
+| nextState (Required) | string or State | The state to transition to when the event occurs  |
+| options (Optional)   | object          | Additional options                                |
+
+#### Options
+
+| Parameter | Type               | Description                                                                                  |
+|-----------|--------------------|----------------------------------------------------------------------------------------------|
+| target    | eid                | The entity expected to receive the event (defaults to the current entity)                    |
+| where     | (event) => boolean | An optional condition to check before transitioning; if false, the transition will not occur |
+
+``` ts
+defineStateGroup(['a', 'b']).onEvent(
+    ecs.input.SCREEN_TOUCH_START,
+    'other',
+    {
+        target: world.events.globalId,
+        where: (event) => event.data.position.y > 0.5
+    }
+)
+```
+
+### .wait()
+
+Transition to a new state after a set amount of time.
+
+| Parameter | Type    | Description                                       |
+|-----------|---------|---------------------------------------------------|
+| timeout   | number  | The duration in milliseconds before transitioning |
+| nextState | string or State | The next state to transition to           |
+
+``` ts
+defineStateGroup(['a', 'b']).wait(1000, 'c')
+```
+
+### .onTrigger()
+
+Transition to a new state when a TriggerHandle (defined with `ecs.defineTrigger()`) is triggered.
+
+| Parameter | Type            | Description                                                     |
+|-----------|-----------------|-----------------------------------------------------------------|
+| handle    | TriggerHandle   | The handle that will cause a transition when manually activated |
+| nextState | string or State | The next state to transition to                                 |
+
+``` ts
+const toC = ecs.defineTrigger()
+defineStateGroup(['a', 'b']).onTrigger(toC, 'c')
+...
+toC.trigger()
+```
+
+### .listen()
+
+Register an event listener that will be automatically added when the state group is entered, and removed on exit.
+
+| Parameter | Type                  | Description                                       |
+|-----------|-----------------------|---------------------------------------------------|
+| target    | eid or () => eid      | The entity that is expected to receive an event   |
+| name      | string                | The event to listen for                           |
+| listener  | (event) => void       | The function to call when the event is dispatched |
+
+``` ts
+const handleCollision = (event) => { 
+  console.log('collided with', event.data.other)
+}
+defineStateGroup(['a', 'b']).listen(eid, ecs.physics.COLLISION_START_EVENT, handleCollision)
+```
+
+## Custom Triggers
+
+You can define a custom trigger that can be invoked at any time to cause a transition.
+
+``` ts
+const go = ecs.defineTrigger()
+const stopped = defineState('stopped').onTick(() => {
+  if (world.input.getAction('start-going')) {
+    go.trigger()
+  }
+}).onTrigger(go, 'going')
+const going = defineState('going')
+```

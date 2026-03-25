@@ -1,0 +1,45 @@
+---
+id: orbit-controls
+---
+
+import ComponentFunctions from "@site/src/components/component-functions";
+import OrbitControlsTable from "/gen/tables/OrbitControls.md"
+
+# OrbitControls
+
+## Description
+
+This component lets you orbit around an entity with constraints
+
+## Properties
+
+<OrbitControlsTable />
+
+## Functions
+
+<ComponentFunctions
+    name="OrbitControls"
+    properties={{
+        speed: 5,
+        maxAngularSpeed: 10,
+        maxZoomSpeed: 10,
+        distanceMin: 5,
+        distanceMax: 20,
+        pitchAngleMin: -90,
+        pitchAngleMax: 90,
+        constrainYaw: false,
+        yawAngleMin: 0,
+        yawAngleMax: 0,
+        inertiaFactor: 0.3,
+        invertedX: false,
+        invertedY: false,
+        invertedZoom: false,
+        controllerSupport: false,
+        verticalSensitivity: 1,
+        horizontalSensitivity: 1,
+        focusEntity: undefined
+    }}
+    mutate={`cursor.speed = 2;
+    cursor.maxAngularSpeed = 3;
+    return false;`}
+/>

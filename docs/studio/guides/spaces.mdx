@@ -1,0 +1,60 @@
+---
+id: spaces
+description: A Space is a way to organize Entities and make global configuration.
+---
+
+# Spaces
+
+## Introduction
+{frontMatter.description} Creating immersive WebXR games and experiences often requires multiple environments, transitions, and structured Spaces for different parts of the user journey. Spaces now gives you the ability to build and manage multiple distinct areas within a single project. You can think of Spaces like scenes or environments  in other gaming engines or design tools. Simply put, Spaces are 3D frames where you can place assets, lighting, cameras, and game interactions.
+
+![](/images/studio/spaces-intro.gif)
+
+## Adding a Space
+When you start a new project in 8th Wall Studio, you’ll see a default Space with a Camera and a Light. Adding a new Space is simple—just select the dropdown at the top of the Hierarchy Panel, name your Space, and start designing.
+
+Note: Spaces were introduced in our 2025-February-13 release. Projects created before this release will be spaceless, but you can set up Spaces using the Space dropdown at the top of the Hierarchy. All entities in the project will now be designated to the created Space.
+
+![](/images/studio/spaces-add.png)
+
+## Included Spaces
+You can specify a Space to include other Spaces. Including a Space means all of its objects will be loaded when the Space that includes it is loaded. You can add additional Spaces to your active Space using the Space configurator in the Settings tab of the Inspector.
+
+![](/images/studio/spaces-settings.png)
+
+Notes:
+- Including an additional Space means that all objects from that Space and any Space it includes (and so on).
+- When switching between two Spaces, included Space(s) that are shared between the two will not have their objects despawned and respawned.
+
+## Loading a Space
+A newly loaded Space will replace the old Space as the active Space. world.spaces.loadSpace loads a Space specified by an ID or a name. The old Space’s (and any included Spaces) objects will be despawned, and the new Spaces (and any included Spaces) will be spawned.
+
+Loading a Space will set the object to its initial state. If you reload a previously loaded Space, all previous runtime updates will be cleared.
+
+Ephemeral objects will also remain loaded when switching between Spaces. To unload ephemeral objects on Space changes, parent the ephemeral objects to a graph object.
+
+![](/images/studio/spaces-loading.gif)
+
+## Persistent Objects
+You can easily set up objects to be preserved between Spaces. For example, you may have a main character object that should move between levels. Using the Persistence toggle in the object's Inspector or the Persistent component or use ecs.Persistent to designate that object to remain loaded as a new Space is loaded.
+
+![](/images/studio/spaces-persistent.png)
+
+Note: Persistence should only be set on root level objects. Reparenting persistent objects to other objects in runtime might lead to unexpected behaviors in Live Sync.
+
+## Space Settings
+In the Settings tab of the Inspector, you can configure a particular Space’s Active Camera and Skybox, and you can configure the Entry Space (or default starting Space) in the Project Settings section. 
+
+Active Camera: The active camera of a Space can be any camera object in that Space or in any Space that it includes.
+
+Skybox: Style your Space’s Skybox. Skyboxes are a wrapper around your entire Space that shows what the world looks like beyond your geometry. If your project is configured to use AR on an AR-compatible device, the Skybox will not be rendered.
+
+Entry Space: You can quickly set up an Entry Space  (or default starting Space) in the Project Settings section (right panel).
+
+## Simulating the Active Space in Live Sync Mode
+Live Sync Mode (in the Settings right panel) allows for easily modular testing of the active Space. When Live Sync is enabled, the inline Simulator will load whatever Space is currently active in the Hierarchy.
+
+Notes:
+- Opening a simulator instance in a new window (using the New Tab link) or using the pop-out mode of the Simulator will load the Entry Space regardless of Live Sync being enabled.
+- Switching Spaces in the Hierarchy dropdown will change what Space is loaded in the Simulator in Live Sync mode.
+- If Save Edits is on, any edits in the Viewport will be preserved between Space changes. If Save Edits is off, switching Spaces will reset the edits.

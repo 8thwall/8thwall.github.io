@@ -1,0 +1,91 @@
+---
+id: entities
+description: An entity by itself has no behavior or appearance; it simply acts as a container to which components can be attached.
+---
+
+# Entities
+
+## Introduction
+{frontMatter.description}
+
+## Creating an Entity
+The following code shows how to create a new entity without any components
+
+### Example
+
+``` ts
+import * as ecs from '@8thwall/ecs'
+
+const eid = world.createEntity()
+```
+
+## Deleting an Entity
+The following code shows how to delete an existing entity given its id:
+
+### Example
+
+``` ts
+import * as ecs from '@8thwall/ecs'
+
+world.deleteEntity(eid)
+```
+
+## Adding Components to an Entity
+The following code shows how to add a built-in component to an entity at runtime.
+
+### Example
+
+``` ts
+const box = world.createEntity()
+
+ecs.BoxGeometry.set(world, box, {
+    width: 1,
+    height: 1,
+    depth: 1,
+})
+
+ecs.Material.set(world, box, {
+    r: 255,
+    g: 255,
+    b: 255,
+})
+```
+
+## Create and Modify Relationships
+The following code shows how you can use built-in helper methods to create or change relationships between entities.
+
+### Example
+
+``` ts
+// Entities are automatically a child of World.
+const foo = world.createEntity()
+const bar = world.createEntity()
+
+// Set foo to be a child of bar.
+world.setParent(foo, bar)
+
+// Get the parent of bar. (returns an eid where <= 0 is undefined)
+world.getParent(bar)
+
+// Get the children of foo. (returns a Generator)
+world.getChildren(foo)
+```
+
+## Helper Functions
+There are a number of helper functions for interacting with an entity's transform.
+
+:::tip
+Entities are positioned relative to their parent. The `getWorldTransform()` function retrieves the object’s transform in world space, accounting for all parent transforms.
+:::
+
+``` ts
+world.setScale(eid, 1, 1, 1)
+world.setPosition(eid, 1, 1, 1)
+world.setQuaternion(eid, 0, 0, 0, 1)
+world.normalizeQuaternion(eid)
+
+const tempMatrix = ecs.math.mat4.i()
+world.getWorldTransform(eid1, tempMatrix)
+
+world.setTransform(eid2, tempMatrix)
+```
