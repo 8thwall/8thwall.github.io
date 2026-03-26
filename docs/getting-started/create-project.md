@@ -3,7 +3,13 @@ id: create-project
 sidebar_position: 3
 ---
 
-# Create a project
+# Create or open a project
+
+:::tip
+If this is your first time working with 8th Wall, we strongly recommend downloading and opening an [example project](https://github.com/8thwall/8thwall/tree/main/examples) instead of creating a new project from scratch.
+:::
+
+## Create a project
 
 1. From the hub view, click **New Project**
 
@@ -14,6 +20,14 @@ sidebar_position: 3
 ![StudioCreate](/images/getting-started/studio-create.png)
 
 4. Click **Create**.
+
+## Open a project
+
+You can clone a variety of Studio projects from the examples folder in the 8th Wall GitHub repository: https://github.com/8thwall/8thwall/tree/main/examples
+
+1. From the hub view, click **Open**
+
+2. Select the root folder of a Studio project
 
 ## Project Actions
 
