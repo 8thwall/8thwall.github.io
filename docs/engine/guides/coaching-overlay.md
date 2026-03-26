@@ -15,20 +15,9 @@ customizable by developers, enabling you to focus your time on building your Web
 
 ### Use Absolute Scale Coaching Overlay in Your Project: {#use-absolute-scale-coaching-overlay-in-your-project}
 
-1. Open your Project
-2. Add the following tag to `head.html`
+1. Clone a project that contains the coaching overlay. The coaching overlay is included as a part of the `external` folder.
 
-```jsx
-<meta name="8thwall:package" content="@8thwall.coaching-overlay">
-```
-
-Note: For Self-Hosted projects, you would add the following `<script>` tag to your page instead:
-
-```jsx
-<script src='https://cdn.8thwall.com/web/coaching-overlay/coaching-overlay.js'></script>
-```
-
-3. Optionally, customize the parameters of your `coaching-overlay` component as defined below. For
+2. Optionally, customize the parameters of the `coaching-overlay` component as defined below. For
 Non-AFrame projects, please refer to the
 [CoachingOverlay.configure()](/docs/api/engine/coachingoverlay/configure) documentation.
 
@@ -138,20 +127,9 @@ enabling you to focus your time on building your WebAR experience.
 
 ### Use Sky Effects Coaching Overlay in Your Project {#use-sky-effects-coaching-overlay-in-your-project}
 
-1. Open your Project
-2. Add the following tag to `head.html`
+1. Clone a project that contains the coaching overlay. The coaching overlay is included as a part of the `external` folder.
 
-```jsx
-<meta name="8thwall:package" content="@8thwall.coaching-overlay">
-```
-
-Note: For Self-Hosted projects, you would add the following `<script>` tag to your page instead:
-
-```jsx
-<script src='https://cdn.8thwall.com/web/coaching-overlay/coaching-overlay.js'></script>
-```
-
-3. Optionally, customize the parameters of your `sky-coaching-overlay` component as defined below.
+2. Optionally, customize the parameters of the `sky-coaching-overlay` component as defined below.
 For Non-AFrame projects, please refer to the SkyCoachingOverlay.configure() documentation.
 
 ### A-Frame component parameters (all optional) {#sky-coaching-overlay-parameters}

@@ -30,19 +30,8 @@ time on building your WebAR experience.
 
 ## Use Landing Pages in Your Project {#use-landing-pages-in-your-project}
 
-1. Open your Project
-2. Add the following tag to `head.html`
-
-`<meta name="8thwall:package" content="@8thwall.landing-page">`
-
-Note: For Self-Hosted projects, you would add the following `<script>` tag to your page instead:
-
-`<script src='https://cdn.8thwall.com/web/landing-page/landing-page.js'></script>`
-
-3. **Remove** `xrextras-almost-there` from your A-Frame project, or
-`XRExtras.AlmostThere.pipelineModule()` from your Non-AFrame project. (Landing Pages include
-almost-there logic in addition to the updates to the QR code page.)
-4. Optionally, customize the parameters of your `landing-page` component as defined below. For
+1. Clone a project that contains the landing page script. The landing page script is included as a part of the `external` folder.
+2. Optionally, customize the parameters of the `landing-page` component as defined below. For
 Non-AFrame projects, please refer to the [LandingPage.configure()](/docs/api/engine/landingpage/configure)
 documentation.
 

@@ -11,11 +11,9 @@ that we believe in good faith to be copyrighted material that has been illegally
 and distributed by any of our advertisers, affiliates, content providers, members or
 users and (2) remove and discontinue service to repeat offenders.
 
-Remember that your use of 8th Wall’s Hosting Services is at all times subject to the
-Terms and Conditions [https://www.8thwall.com/terms](https://www.8thwall.com/terms),
+Remember that your use of 8th Wall’s Hosting Services is at all times subject to the [Terms and Conditions](https://www.8thwall.org/legacy-policies/terms),
 which incorporates this Copyright Dispute Policy. Any terms we use in this Policy
-without defining them have the definitions given to them in the Terms and Conditions
-[https://www.8thwall.com/terms](https://www.8thwall.com/terms).
+without defining them have the definitions given to them in the [Terms and Conditions](https://www.8thwall.org/legacy-policies/terms).
 
 ## 1. Procedure for Reporting Copyright Infringements.
 

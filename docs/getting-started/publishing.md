@@ -39,9 +39,7 @@ Available on:
 
 ## Self-Hosting your project
 
-The HTML5 bundle can be self hosted or deployed in many different ways. For more comprehensive information on self hosting, check out this [guide](https://github.com/mikeroyal/Self-Hosting-Guide).
-
-Below are common hosting options grouped by workflow:
+The HTML5 bundle can be self hosted or deployed in many different ways. Below are common hosting options grouped by workflow:
 
 - **Drag & drop (recommended for beginners)**: upload your `dist/` folder (or a zip) in a web UI.
 - **Git-based CI/CD**: connect a Git repo for automatic deploys when you push changes.
@@ -56,7 +54,7 @@ These hosting solutions are recommended for beginners or if you just want "uploa
 
 Netlify Drop lets you drag and drop your dist folder and get a live URL immediately, great for quick demos and sharing.
 
-1. Build your project: `npm run build`
+1. [Create a production build](#creating-production-build) of your project
 2. Open [Netlify Drop](https://app.netlify.com/drop)
 3. Drag your `dist/` folder into the page
 4. You’ll get a live URL right away
@@ -65,7 +63,7 @@ Netlify Drop lets you drag and drop your dist folder and get a live URL immediat
 
 Cloudflare Pages supports a Direct Upload flow that includes drag & drop of a folder or zip.
 
-1. Build your project: `npm run build`
+1. [Create a production build](#creating-production-build) of your project
 2. Create a Pages project using **Direct Upload**
 3. Drag & drop the `dist/` folder (or upload a zip)
 4. Your site deploys and you get a URL
@@ -74,7 +72,7 @@ Cloudflare Pages supports a Direct Upload flow that includes drag & drop of a fo
 
 Amplify Hosting supports manual deployments where you can drag & drop a zipped build output.
 
-1. Build your project: `npm run build`
+1. [Create a production build](#creating-production-build) of your project
 2. Zip the `dist/` folder
 3. In Amplify Hosting, choose **Deploy without a Git provider**
 4. Drag & drop the zip and deploy
@@ -84,7 +82,7 @@ Amplify Hosting supports manual deployments where you can drag & drop a zipped b
 Neocities is a straightforward platform that works well for simple static sites (especially personal/demo projects).
 
 **Steps**
-1. Build your project: `npm run build`
+1. [Create a production build](#creating-production-build) of your project
 2. Upload the contents of `dist/` via the Neocities editor/uploader
 3. Use the provided site URL
 
@@ -115,7 +113,7 @@ Since 8th Wall HTML5 bundles are fully contained builds, they can be self hosted
 2. Log in to [Itch.io](https://itch.io) and [create a new project](https://itch.io/game/new).
 3. Fill in the project details:
     - Under **Kind of project**, select **HTML**.
-    - Under **Uploads**, select **Upload files**. Upload the `.zip` file that you downloaded in Step 1. Check the **This file will be played in the browser** checkbox.
+    - Under **Uploads**, select **Upload files**. Upload the `.zip` file exported from Studio. Check the **This file will be played in the browser** checkbox.
     - Under **Embed options**, choose the appropriate sizing for your project.
 4. Finish configuring your game and publish it.
 
@@ -126,7 +124,7 @@ Since 8th Wall HTML5 bundles are fully contained builds, they can be self hosted
 3. Click **Create New World**.
 4. Enter the **Name** and **Description** for your project, then click **Create**.
 5. Click **Content Versions**.
-6. Under **New Version**, click **Select File**. Upload the `.zip` file that you downloaded in Step 1, then click **Upload**.
+6. Under **New Version**, click **Select File**. Upload the `.zip` file exported from Studio, then click **Upload**.
 7. Under **iframe Support for Preview**, click **Apply iframe Settings** and enable all permissions that your project requires.
     - Note that Viverse will put your project downloaded from 8th Wall in it's own iFrame, and the Viverse iFrame will need to grant a permission which your project requires.
 8. Finish configuring your game and publish it.
@@ -138,7 +136,7 @@ Since 8th Wall HTML5 bundles are fully contained builds, they can be self hosted
 3. Enter the project details and click **Save & Next**.
 4. On your game dashboard, under **Packages**, click **Add Package**.
 5. Under **Edit package**, click **New Release**.
-6. Click **Upload Browser Build**. Upload the `.zip` file that you downloaded in Step 1.
+6. Click **Upload Browser Build**. Upload the `.zip` file exported from Studio.
 7. Configure your game dimensions, or select **Fit to screen?** if you want the game to fit the screen.
 8. Finish configuring your game and publish it.
 
@@ -148,12 +146,12 @@ Since 8th Wall HTML5 bundles are fully contained builds, they can be self hosted
 GamePix does not allow games with external links. Make sure your project does NOT make network calls outside of the bundle.
 :::
 
-1. Download the **Full HTML** embed code.\
+1. Download the **Full HTML** embed code.
 2. Sign up for a [GamePix Developer Account](https://partners.gamepix.com/join-us?t=developer) and go to the [GamePix Dashboard](https://my.gamepix.com/dashboard).
 3. Click **Create New Game**.
 4. Enter the game details and click **Create**.
 5. Under **Info**, select **HTML5-JS** under **Game Engine**.
-6. Under **Build**, click **Browse File**. Upload the `.zip` file you downloaded earlier.
+6. Under **Build**, click **Browse File**. Upload the `.zip` file exported from Studio.
 7. Finish configuring your game and publish it.
 
 ### Newgrounds
@@ -161,7 +159,7 @@ GamePix does not allow games with external links. Make sure your project does NO
 1. Download the **Full HTML** embed code. Make a `.zip` file of this `index.html` file.
 2. Sign up for a [Newgrounds account](https://www.newgrounds.com).
 3. Click the arrow in the top right corner and select **Game (swf, HTML5)**
-4. Under **Submission File(s)**, click **Upload File**. Upload the `.zip` file you downloaded earlier.
+4. Under **Submission File(s)**, click **Upload File**. Upload the `.zip` file exported from Studio.
 5. Configure your game dimensions and check **Touchscreen friendly**
 6. Finish configuring your game and publish it.
 
@@ -171,7 +169,7 @@ GamePix does not allow games with external links. Make sure your project does NO
 2. Log into [Y8](https://www.y8.com/upload).
 3. Make sure you have verified your email, then [create a free Y8 Storage Account](https://account.y8.com/storage_account).
 4. Under **Game**, choose **Zip** and then **HTML5**.
-5. Click **Choose File**. Upload the `.zip` file you downloaded earlier. If you have not created a Storage Account it will fail. If that happens, click **Create Storage Account** to create one, then refresh the **Upload Your Content to Y8** page and try again.
+5. Click **Choose File**. Upload the `.zip` file exported from Studio. If you have not created a Storage Account it will fail. If that happens, click **Create Storage Account** to create one, then refresh the **Upload Your Content to Y8** page and try again.
 6. Finish configuring your game and publish it.
 
 ### Poki

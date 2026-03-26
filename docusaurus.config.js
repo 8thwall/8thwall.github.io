@@ -3,6 +3,7 @@ const config = {
   title: '8th Wall',
   markdown: {
     format: 'detect',
+    mermaid: true,
   },
   tagline: 'Open Source AR & 3D',
   favicon: 'favicon.svg',
@@ -40,6 +41,7 @@ const config = {
       },
     ],
   ],
+  themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
     colorMode: {
       defaultMode: 'dark',

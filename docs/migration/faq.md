@@ -88,7 +88,7 @@ No. Existing self-hosted projects will continue to work without changes until Fe
 If your project is not cloud-dependent (does not use VPS, Maps, Hand Tracking, or Modules) and you want to migrate to the open-source engine to keep your project live beyond February 28, 2027, follow the [self-hosted project migration guide](/docs/migration/self-hosted).
 
 ### If I use the 8th Wall Desktop App, do I still need to export my project?
-You still must export your project before February 28, 2026 in order to continue developing or self-hosting it. You can export your project directly from the Desktop App or from 8thwall.com.
+You still must export your project before February 28, 2026 in order to continue developing or self-hosting it.
 
 ### Should I test my exported project before February 28, 2026?
 Yes. We strongly recommend exporting and running your project locally as soon as possible to validate your workflow and identify any dependencies on cloud-based services.
@@ -271,7 +271,7 @@ All paid accounts will automatically end by February 28, 2026.
 If you prepaid for time beyond that date, you will receive a prorated refund. You’ll retain dashboard and export access until that date.
 
 ### What about enterprise or custom agreements?
-Enterprise and custom customers will be contacted directly to coordinate transitions. For additional questions, contact billing@8thwall.com.
+Enterprise and custom customers will be contacted directly to coordinate transitions. For additional questions, contact support@nianticspatial.com.
 
 ### Will I still be able to access my billing or account history?
 Yes. Billing receipts and account details will remain accessible through February 28, 2026.

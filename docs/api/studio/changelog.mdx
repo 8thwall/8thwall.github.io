@@ -51,7 +51,7 @@ The all-new Studio Runtime 2.0 comes with a rebuilt physics engine. Some physics
 - We added a new `type` property (required) to `ecs.Collider` to allow for determining if and how physics simulation should apply to the object. Previously, a mass value above 0 determined if a collider was Dynamic or not (0 mass = Static), and Kinematic colliders were not supported.
     - Allowed values: `ColliderType.Static`, `ColliderType.Kinematic`, `ColliderType.Dynamic`
     - Kinematic colliders are not affected by physics forces, but can have motion and can affect other dynamic bodies through collisions
-    - See [Collider API documentation](https://www.8thwall.com/docs/api/studio/ecs/collider/) for details and use cases
+    - See [Collider API documentation](/docs/api/studio/ecs/collider/) for details and use cases
 
 ### Fixes and Enhancements
 - Enabled stricter typescript checking on by default at build time to improve error reporting
