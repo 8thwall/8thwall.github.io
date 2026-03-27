@@ -34,8 +34,8 @@ export default function SiteNav() {
 
   const navLinks = (
     <>
-      <a href="https://github.com/8thwall" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://8thwall.com/docs/" target="_blank" rel="noopener">Docs</a>
+      <a href="https://github.com/8thwall/8thwall" target="_blank" rel="noopener">GitHub</a>
+      <Link to="/docs">Docs</Link>
       <a href="https://8th.io/examples" target="_blank" rel="noopener">Samples</a>
       <a href="https://www.youtube.com/@8thwall" target="_blank" rel="noopener">Tutorials</a>
       <Link to="/blog">Blog</Link>

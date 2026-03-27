@@ -65,12 +65,12 @@ const config = {
         style: { height: '24px', width: 'auto' },
       },
       items: [
-        { href: 'https://github.com/8thwall', label: 'GitHub', position: 'left' },
+        { href: 'https://github.com/8thwall/8thwall', label: 'GitHub', position: 'left' },
         { href: 'https://8th.io/examples', label: 'Samples', position: 'left' },
         { href: 'https://www.youtube.com/@8thwall', label: 'Tutorials', position: 'left' },
         { to: '/blog', label: 'Blog', position: 'left' },
         { href: 'https://8th.io/discord', label: 'Discord', position: 'left' },
-        { href: 'https://www.8thwall.com/docs', label: 'Docs', position: 'left' },
+        { to: '/docs', label: 'Docs', position: 'left' },
         {
           type: 'html',
           position: 'right',
