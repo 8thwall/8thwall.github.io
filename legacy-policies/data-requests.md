@@ -11,7 +11,7 @@ The 8th Wall hosted platform was retired on **February 28, 2026**. Self-service 
 
 ## Recover Your Project Data
 
-To request an export of your project files, email [privacy@nianticspatial.com](mailto:privacy@nianticspatial.com) with the subject line **"8th Wall Data Recovery Request"** and include:
+To request an export of your project files, email [privacy@nianticspatial.com](mailto:privacy@nianticspatial.com?subject=8th%20Wall%20Data%20Recovery%20Request&body=Account%20email%3A%20%0AProject%20name(s)%3A%20%0ARequest%20type%3A%20Data%20Recovery) with the subject line **"8th Wall Data Recovery Request"** and include:
 
 - The email address associated with your 8th Wall account
 - The name(s) of the project(s) you want to recover
@@ -23,7 +23,7 @@ You will receive your project files as a **.zip archive**. Allow reasonable time
 
 ## Request Erasure of Your Data
 
-To request deletion of your account data and project files, email [privacy@nianticspatial.com](mailto:privacy@nianticspatial.com) with the subject line **"8th Wall Data Erasure Request"** and include:
+To request deletion of your account data and project files, email [privacy@nianticspatial.com](mailto:privacy@nianticspatial.com?subject=8th%20Wall%20Data%20Erasure%20Request&body=Account%20email%3A%20%0AProject%20name(s)%3A%20%0ARequest%20type%3A%20Data%20Erasure) with the subject line **"8th Wall Data Erasure Request"** and include:
 
 - The email address associated with your 8th Wall account
 - The name(s) of any specific project(s) you want deleted, or indicate that you want all data removed
