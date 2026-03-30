@@ -8,11 +8,24 @@ const REDIRECTS = {
   'tutorials': 'https://youtube.com/@8thwall',
 }
 
+// NOTE(christoph): If a user is linked to a featured project page such as 
+// https://8thwall.com/workspace/project, they will be redirected to 
+// 8thwall.org?site_path=workspace/project. We can then forward that to the published domain:
+// https://workspace.8thwall.app/project
+const PUBLISHED_DOMAIN_REDIRECTS = [
+  'mindoverdevelopment',
+]
+
 const REDIRECT_SCRIPT = `
 const sitePath = new URLSearchParams(window.location.search).get('site_path');
 const redirects = ${JSON.stringify(REDIRECTS)};
 if (sitePath && redirects[sitePath]) {
   window.location.replace(redirects[sitePath]);
+} else {
+  const domainRedirect = ${JSON.stringify(PUBLISHED_DOMAIN_REDIRECTS)}.find(domain => sitePath.startsWith(domain + '/'));
+  if (domainRedirect) {
+    window.location.replace('https://' + domainRedirect + '.8thwall.app/' + sitePath.substring(domainRedirect.length + 1));
+  }
 }
 `
 
