@@ -1462,6 +1462,7 @@ footer.footer .footer-legal-link:hover {
 .download-option:hover {
   border-color: var(--color-primary);
   background-color: rgba(168, 85, 247, 0.05);
+  text-decoration: none;
 }
 
 .download-option-icon {
