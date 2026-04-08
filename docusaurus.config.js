@@ -79,6 +79,8 @@ const config = {
         },
       ],
     },
+
+    /* Algolia keys are managed here https://dashboard.algolia.com/account/api-keys/all?applicationId=4OEBKHRDF1 */
     algolia: {
       appId: '4OEBKHRDF1',
       apiKey: '1b345ffba80eb2203110909c7cd6775b',
