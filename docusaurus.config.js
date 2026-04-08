@@ -71,6 +71,7 @@ const config = {
         { to: '/blog', label: 'Blog', position: 'left' },
         { href: 'https://8th.io/discord', label: 'Discord', position: 'left' },
         { to: '/docs', label: 'Docs', position: 'left' },
+        { type: 'search', position: 'right' },
         {
           type: 'html',
           position: 'right',
@@ -78,8 +79,14 @@ const config = {
         },
       ],
     },
+    algolia: {
+      appId: '4OEBKHRDF1',
+      apiKey: '1b345ffba80eb2203110909c7cd6775b',
+      indexName: 'Documentation',
+    },
     footer: {},
     metadata: [
+      { name: 'algolia-site-verification', content: '9440827CF3D84DC9' },
       { property: 'og:image', content: 'https://8thwall.org/social-cover.png' },
       { property: 'og:type', content: 'website' },
       { name: 'twitter:image', content: 'https://8thwall.org/social-cover.png' },
