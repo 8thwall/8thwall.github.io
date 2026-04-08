@@ -104,41 +104,22 @@ See documentation on the [Camera Pipeline Module API](/docs/api/engine/camerapip
 
 ### Test on Mobile
 
-To test your project on mobile devices, especially for AR experiences that require camera access, you'll need to serve your development server over HTTPS.
+To test your project on mobile devices, especially for AR experiences that require camera access, you'll need to serve your development server over HTTPS. We recommend using [ngrok](https://ngrok.com/) to create a secure tunnel to your local server.
 
-1. If you do not already have `npm` installed, follow the instructions on this [page](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to set it up.
-2. Run `npm install --global http-server` to install the [http-server](https://www.npmjs.com/package/http-server) npm package as a global CLI tool.
-3. Install [openssl](https://github.com/openssl/openssl) and generate key.pem and cert.pem files using this command:
+1. Go to [ngrok.com](https://ngrok.com/) and create an account. Once signed in, follow the steps on the dashboard to install ngrok.
+2. Update (or verify) your project configuration. In the `config` folder, open `webpack.config.js` and look for the `devServer` object. Add (or verify) ngrok as an `allowedHost`:
+```javascript
+devServer: {
+  // ... existing config
+  allowedHosts: ['.ngrok-free.dev']
+}
 ```
-openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
-```
-
-You will be prompted with a few questions after entering the command. Use `127.0.0.1` as value for Common name if you want to be able to install the certificate in your OS's root certificate store or browser so that it is trusted.
-
-This generates a cert-key pair and it will be valid for 3650 days (about 10 years).
-
-Then you can run `http-server` with `-S` for enabling SSL and `-C` for your certificate file:
-```
-npx http-server [project-path] -S -C cert.pem
+3. `cd` to the project root and run `npm install`. Run `npm run serve` to run the local development server.
+4. Open a seperate terminal window and run the following command (in most cases, `[port]` will be `8080`)
+```bash
+ngrok http [port]
 ```
 
-Example:
-```
-npx http-server gettingstarted/aframe/ -S -C cert.pem
-```
+In the output you should see an ngrok URL that uses HTTPS and forwards to your local development server. You can paste this into your browser window and test your project on a mobile device.
 
-There should be some logs that list a series of local URLs like:
-```sh
-Available on:
-  http://127.0.0.1:8080
-  http://192.168.20.43:8080
-  http://172.29.29.159:8080
-```
-
-:::note
-The first IP address listed is `127.0.0.1:8080` (which is the loopback device aka "localhost") and your mobile phone won't be able to connect to that IP address directly. Please use one of the other IP addresses.
-:::
-
-Window users need to run the http-server command using a standard Command Prompt window (cmd.exe). The script may generate errors if run from PowerShell.
-
-Learn more in the [http-server documentation](https://github.com/http-party/http-server#tlsssl).
+![](/images/getting-started/ngrok-terminal.png)

@@ -16,17 +16,24 @@ sidebar_position: 6
 
 To test your project on mobile devices, especially for AR experiences that require camera access, you'll need to serve your development server over HTTPS. We recommend using [ngrok](https://ngrok.com/) to create a secure tunnel to your local server.
 
-If you don't already have Node.js and npm installed, [get it here](https://nodejs.org/en). Go to [ngrok.com](https://ngrok.com/) and create an account. Once signed in, follow the steps on the dashboard to install ngrok.
-
-1. Update (or verify) your project configuration. In the `config` folder, open `webpack.config.js` and look for the `devServer` object. Add (or verify) ngrok as an `allowedHost`:
+1. Go to [ngrok.com](https://ngrok.com/) and create an account. Once signed in, follow the steps on the dashboard to install ngrok.
+2. Update (or verify) your project configuration. In the `config` folder, open `webpack.config.js` and look for the `devServer` object. Add (or verify) ngrok as an `allowedHost`:
 ```javascript
 devServer: {
   // ... existing config
   allowedHosts: ['.ngrok-free.dev']
 }
 ```
-2. `cd` to the project root and run `npm install`. Run `npm run serve` to run the local development server.
-3. Open a seperate terminal window and run the following command (in most cases, `[port]` will be `8080`)
+3. Relaunch the desktop app or exit/reopen the project to refresh the build after updating the webpack configuration
+4. Open the Simulator/Preview and click the browser pop-out button
+
+![DesktopPopout](/images/getting-started/desktop-pop-out.png)
+
+5. From the new browser window, copy the port number appended to the end of the localhost URL
+
+![SimulatorPort](/images/getting-started/simulator-port.png)
+
+4. Open a terminal window and run the following command, replacing [port] with the port obtained from the simulator browser pop-out
 ```bash
 ngrok http [port]
 ```
