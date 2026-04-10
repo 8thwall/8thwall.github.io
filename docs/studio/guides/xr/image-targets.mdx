@@ -5,6 +5,10 @@ description: Image Targets allow you to set a flat, cylindrical or conical shape
 
 # Image Targets
 
+:::tip
+Use the [image target example project](https://github.com/8thwall/studio-image-targets-example) as a reference to get started and confirm your project structure is set up correctly.
+:::
+
 ## Introduction
 {frontMatter.description}
 <br></br>
@@ -21,7 +25,9 @@ To enable image targets in your project, you must use a World camera.
 <img src={require('/images/studio/image-target-enable.png').default} width="400px"/>
 ````
 
-## Generating Image Targets {#generating-image-targets}
+If you do not plan to use World Tracking in your project, you can use the **Disable World Tracking** setting to improve performance.
+
+## Generating Image Target Files {#generating-image-target-files}
 
 To use image targets in your project, you must generate some required assets with a command line interface (CLI). These files contain image target metadata needed by the engine.
 
@@ -34,7 +40,7 @@ See [documentation on Image Target CLI](https://github.com/8thwall/8thwall/blob/
 
 On generation, the following will be outputted:
 
-* Metadata within a json file
+* Metadata within a JSON file
 * Original image
 * Cropped image
 * Thumbnail image (263x350)
@@ -43,19 +49,27 @@ On generation, the following will be outputted:
 
 ## Adding Image Targets
 
-### Upload the Image Target files
+### Upload Image Target Files
 
-Click on `index.html` and then click **Open Externally** in the inspector to open project code in your IDE. Create a folder at the **root** of the project named `image-targets`.
+1. Click the **Open Externally** button in the assets panel to open project code in your IDE
 
-Drag and drop the contents of `.zip` folder you generated using the [image target CLI](#generating-image-targets) into the `image-targets` folder.
+````mdx-code-block
+<img src={require('/images/studio/guides/image-targets/open-externally.png').default} width="400px"/>
+````
 
-![](/images/studio/guides/image-targets/project-structure.png)
+2. Create a folder at the **root** of the project named `image-targets`
+
+3. Drag and drop the assets [generated from the CLI](#generating-image-target-files) into the `image-targets` folder
+
+````mdx-code-block
+<img src={require('/images/studio/guides/image-targets/project-structure.png').default} width="400px"/>
+````
 
 ### Configuring the Image Target
 
-Create a file named `app.js` (if you don't have one already). At the top of the file, configure image targets by providing paths to each image target's metadata JSON file.
+Create a file named `app.js` in the `src` folder (if you don't have one already). At the top of the file, configure image targets by providing paths to each image target's metadata JSON file.
 
-```
+```javascript
 const onxrloaded = () => {
   XR8.XrController.configure({
     imageTargetData: [
@@ -69,13 +83,31 @@ window.XR8 ? onxrloaded() : window.addEventListener('xrloaded', onxrloaded)
 
 ### Adding the Image Target Entity
 
-You can add an image target to your scene by creating an **Image Target** entity.  
-To do this, click **( + )** in the Scene Hierarchy and select **Image Target**.
+To add an image target to your scene:
+1. Click **( + )** in the Scene Hierarchy and select **Image Target**.
 
 ````mdx-code-block
-<img src={require('/images/studio/image-target-add.png').default} width="400px"/>
+<img src={require('/images/studio/guides/image-targets/add-image-target.png').default} width="400px"/>
 ````
+
+2. Select the image target entity from the scene hierarchy and enter the name of the image target in the inspector.
+
+````mdx-code-block
+<img src={require('/images/studio/guides/image-targets/image-target-name.png').default} width="400px"/>
+````
+
+The name of the image target entered in the inspector should match what was entered in the CLI when generating the image target files. You can double check the name of the image target by looking at the prefix of the image target assets and/or in the JSON file associated with the image target.
 
 ## Using Image Targets
 
-When you add an image target to your project, an image target mesh will appear so that you can align and position other 3D content against the image target.
+When you add an image target to your project, an image target mesh will appear so that you can align and position other 3D content against the image target. 
+
+````mdx-code-block
+<img src={require('/images/studio/guides/image-targets/image-target-mesh.png').default} width="400px"/>
+````
+
+Ensure any entities you want to track to the image target are **children** of the image target entity.
+
+````mdx-code-block
+<img src={require('/images/studio/guides/image-targets/image-target-children.png').default} width="400px"/>
+````
