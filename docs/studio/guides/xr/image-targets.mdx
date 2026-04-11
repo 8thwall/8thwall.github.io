@@ -36,9 +36,42 @@ See [documentation on Image Target CLI](https://github.com/8thwall/8thwall/blob/
 :::
 
 1. Open a terminal window and run `npx @8thwall/image-target-cli@latest`
-2. You will be prompted to enter an image path, select crop, and choose a folder/image target name
+2. Answer the prompts, following the examples below:
 
-On generation, the following will be outputted:
+```bash
+Enter the path to the image file: 
+
+~/Downloads/target1.png
+```
+
+```bash
+Select the image type:
+1) flat (default)
+2) cylinder
+3) cone
+
+1
+```
+
+```bash
+Use default crop? [Y/n]:
+
+y
+```
+
+```bash
+Enter the output folder:
+
+~/Documents/8th Wall/my-project/image-targets
+```
+
+```bash
+Enter a name for the image target:
+
+target1
+```
+
+On generation, the following will be outputted to the specified folder:
 
 * Metadata within a JSON file
 * Original image
@@ -47,25 +80,11 @@ On generation, the following will be outputted:
 * Luminance image (grayscale, 480x640)
 * Geometry image (for conical)
 
-## Adding Image Targets
+:::note[Important]
+Make sure the output folder was specified as a folder named `image-targets` at the root of your 8th Wall project. See [Verifying Project Structure](#verifying-project-structure) for more details.
+:::
 
-### Upload Image Target Files
-
-1. Click the **Open Externally** button in the assets panel to open project code in your IDE
-
-````mdx-code-block
-<img src={require('/images/studio/guides/image-targets/open-externally.png').default} width="400px"/>
-````
-
-2. Create a folder at the **root** of the project named `image-targets`
-
-3. Drag and drop the assets [generated from the CLI](#generating-image-target-files) into the `image-targets` folder
-
-````mdx-code-block
-<img src={require('/images/studio/guides/image-targets/project-structure.png').default} width="400px"/>
-````
-
-### Configuring the Image Target
+## Configuring Image Targets
 
 Create a file named `app.js` in the `src` folder (if you don't have one already). At the top of the file, configure image targets by providing paths to each image target's metadata JSON file.
 
@@ -81,7 +100,21 @@ const onxrloaded = () => {
 window.XR8 ? onxrloaded() : window.addEventListener('xrloaded', onxrloaded)
 ```
 
-### Adding the Image Target Entity
+## Verifying Project Structure {#verifying-project-structure}
+
+1. Click the **Open Externally** button in the assets panel to open project code in your IDE
+
+````mdx-code-block
+<img src={require('/images/studio/guides/image-targets/open-externally.png').default} width="400px"/>
+````
+
+2. Verify the `image-targets` folder is at the **root** of the project, and that `app.js` is within the `src` folder
+
+````mdx-code-block
+<img src={require('/images/studio/guides/image-targets/project-structure.png').default} width="400px"/>
+````
+
+## Adding the Image Target Entity
 
 To add an image target to your scene:
 1. Click **( + )** in the Scene Hierarchy and select **Image Target**.
