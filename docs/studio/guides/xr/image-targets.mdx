@@ -5,14 +5,14 @@ description: Image Targets allow you to set a flat, cylindrical or conical shape
 
 # Image Targets
 
+:::tip
+Use the [image target example project](https://github.com/8thwall/studio-image-targets-example) as a reference to get started and confirm your project structure is set up correctly.
+:::
+
 ## Introduction
 {frontMatter.description}
 <br></br>
 <br></br>
-
-![](/images/studio/image-target-intro.gif)
-
----
 
 ## Enabling Image Targets
 
@@ -25,80 +25,122 @@ To enable image targets in your project, you must use a World camera.
 <img src={require('/images/studio/image-target-enable.png').default} width="400px"/>
 ````
 
----
+If you do not plan to use World Tracking in your project, you can use the **Disable World Tracking** setting to improve performance.
 
-## Adding Image Targets
+## Generating Image Target Files {#generating-image-target-files}
 
-### Upload the Image Target
+To use image targets in your project, you must generate some required assets with a command line interface (CLI). These files contain image target metadata needed by the engine.
 
-Locate the **Image Targets** panel at the bottom left of the Studio Interface. Click on the **( + )** to add a flat, cylindrical, or conical image target.
+:::tip
+See [documentation on Image Target CLI](https://github.com/8thwall/8thwall/blob/main/apps/image-target-cli/README.md) for more details on cropping and cylindrical/conical image targets.
+:::
+
+1. Open a terminal window and run `npx @8thwall/image-target-cli@latest`
+2. Answer the prompts, following the examples below:
+
+```bash
+Enter the path to the image file: 
+
+~/Downloads/target1.png
+```
+
+```bash
+Select the image type:
+1) flat (default)
+2) cylinder
+3) cone
+
+1
+```
+
+```bash
+Use default crop? [Y/n]:
+
+y
+```
+
+```bash
+Enter the output folder:
+
+~/Documents/8th Wall/my-project/image-targets
+```
+
+```bash
+Enter a name for the image target:
+
+target1
+```
+
+On generation, the following will be outputted to the specified folder:
+
+* Metadata within a JSON file
+* Original image
+* Cropped image
+* Thumbnail image (263x350)
+* Luminance image (grayscale, 480x640)
+* Geometry image (for conical)
+
+:::note[Important]
+Make sure the output folder was specified as a folder named `image-targets` at the root of your 8th Wall project. See [Verifying Project Structure](#verifying-project-structure) for more details.
+:::
+
+## Configuring Image Targets
+
+Create a file named `app.js` in the `src` folder (if you don't have one already). At the top of the file, configure image targets by providing paths to each image target's metadata JSON file.
+
+```javascript
+const onxrloaded = () => {
+  XR8.XrController.configure({
+    imageTargetData: [
+      require('../image-targets/target1.json'),
+      require('../image-targets/target2.json')
+    ],
+  })
+}
+window.XR8 ? onxrloaded() : window.addEventListener('xrloaded', onxrloaded)
+```
+
+## Verifying Project Structure {#verifying-project-structure}
+
+1. Click the **Open Externally** button in the assets panel to open project code in your IDE
 
 ````mdx-code-block
-<img src={require('/images/studio/image-target-upload.png').default} width="400px"/>
+<img src={require('/images/studio/guides/image-targets/open-externally.png').default} width="400px"/>
 ````
 
-### Configuring the Image Target
-
-Customize the image target's tracking region and metadata.
+2. Verify the `image-targets` folder is at the **root** of the project, and that `app.js` is within the `src` folder
 
 ````mdx-code-block
-<img src={require('/images/studio/image-target-config.png').default} width="400px"/>
+<img src={require('/images/studio/guides/image-targets/project-structure.png').default} width="400px"/>
 ````
 
-### Testing the Image Target
+## Adding the Image Target Entity
 
-Scan the QR code to test the quality and tracking of your uploaded image target.
+To add an image target to your scene:
+1. Click **( + )** in the Scene Hierarchy and select **Image Target**.
 
 ````mdx-code-block
-<img src={require('/images/studio/image-target-test.png').default} width="400px"/>
+<img src={require('/images/studio/guides/image-targets/add-image-target.png').default} width="400px"/>
 ````
 
-### Adding the Image Target Entity
-
-You can add an image target to your scene by creating an **Image Target** entity.  
-To do this, click **( + )** in the Scene Hierarchy and select **Image Target**.
+2. Select the image target entity from the scene hierarchy and enter the name of the image target in the inspector.
 
 ````mdx-code-block
-<img src={require('/images/studio/image-target-add.png').default} width="400px"/>
+<img src={require('/images/studio/guides/image-targets/image-target-name.png').default} width="400px"/>
 ````
 
-### Linking the Image Target
-
-Link the image target entity to an uploaded image target.
-
-
-````mdx-code-block
-<img src={require('/images/studio/image-target-link.png').default} width="400px"/>
-````
-
----
+The name of the image target entered in the inspector should match what was entered in the CLI when generating the image target files. You can double check the name of the image target by looking at the prefix of the image target assets and/or in the JSON file associated with the image target.
 
 ## Using Image Targets
 
-When you add an image target to your project, an image target mesh will appear so that you can align and position other 3D content against the image target.
+When you add an image target to your project, an image target mesh will appear so that you can align and position other 3D content against the image target. 
 
----
+````mdx-code-block
+<img src={require('/images/studio/guides/image-targets/image-target-mesh.png').default} width="400px"/>
+````
 
-## Simulating Image Targets
+Ensure any entities you want to track to the image target are **children** of the image target entity.
 
-Studio’s **Simulator** allows you to test your image target experience remotely by simulating movement using **WASD** controls.
-
-### Using the Simulator with Image Targets
-
-To simulate movement and content placement around an image target added to your scene:
-
-1. Make sure your **Camera Settings** are set to **World**
-2. Press **Play** to open the Simulator
-3. Use the **Simulator environment options** (bottom left selector) to find your desired Image Target
-4. Use the **WASD keyboard shortcuts** to simulate movement. *(You must first click on the Simulator panel before using the keyboard)*
-
-**Movement Keys:**
-
-- `W` = Forward  
-- `A` = Left  
-- `S` = Backward  
-- `D` = Right  
-- `Q` = Up  
-- `E` = Down
-
-Moving around the image target with WASD will trigger the **Image Found** event to simulate successful image target tracking.
+````mdx-code-block
+<img src={require('/images/studio/guides/image-targets/image-target-children.png').default} width="400px"/>
+````
