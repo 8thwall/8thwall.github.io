@@ -132,7 +132,7 @@ ecs.defineState(name).wait(waitTime: number, nextState: string | State) // -> vo
 Define a system.
 
 ``` ts
-ecs.defineSystem([terms]: string[], behavior: function) // -> System
+ecs.defineSystem(terms: RootComponent[], behavior: function) // -> System
 ```
 
 ### defineQuery
@@ -140,7 +140,7 @@ ecs.defineSystem([terms]: string[], behavior: function) // -> System
 Define a query.
 
 ``` ts
-ecs.defineQuery([terms: string]) // -> callback
+ecs.defineQuery(terms: RootComponent[]) // -> callback
 ```
 
 ### getAttribute
