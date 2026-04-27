@@ -49,7 +49,7 @@ See [documentation on Image Target CLI](https://github.com/8thwall/8thwall/blob/
 
 
 :::info
-Another option if a graphical interface is preferred is the [Desktop App](/downloads). Even if you don't intend to use studio, you can create an empty project, and after creating the target, copy the generated files into your project.
+If a graphical interface is preferred, you can also create image targets via the [Desktop App](/downloads). Even if you don't intend to use Studio, you can create an empty project, and after creating the target as desired, copy the generated files into your own project.
 :::
 
 1. Open a terminal window and run `npx @8thwall/image-target-cli@latest`
