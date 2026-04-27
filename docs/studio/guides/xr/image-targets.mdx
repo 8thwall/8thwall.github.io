@@ -5,14 +5,14 @@ description: Image Targets allow you to set a flat, cylindrical or conical shape
 
 # Image Targets
 
-:::tip
-Use the [image target example project](https://github.com/8thwall/studio-image-targets-example) as a reference to get started and confirm your project structure is set up correctly.
-:::
-
 ## Introduction
 {frontMatter.description}
 <br></br>
 <br></br>
+
+![](/images/studio/image-target-intro.gif)
+
+---
 
 ## Enabling Image Targets
 
@@ -25,64 +25,26 @@ To enable image targets in your project, you must use a World camera.
 <img src={require('/images/studio/image-target-enable.png').default} width="400px"/>
 ````
 
-If you do not plan to use World Tracking in your project, you can use the **Disable World Tracking** setting to improve performance.
+---
 
-## Generating Image Target Files {#generating-image-target-files}
+## Adding Image Targets
 
-To use image targets in your project, you must generate some required assets with a command line interface (CLI). These files contain image target metadata needed by the engine.
+### Upload the Image Target
 
-:::tip
-See [documentation on Image Target CLI](https://github.com/8thwall/8thwall/blob/main/apps/image-target-cli/README.md) for more details on cropping and cylindrical/conical image targets.
-:::
+Locate the **Image Targets** panel at the bottom left of the Studio Interface. Click on the **( + )** to add a flat, cylindrical, or conical image target.
 
-1. Open a terminal window and run `npx @8thwall/image-target-cli@latest`
-2. Answer the prompts, following the examples below:
+````mdx-code-block
+<img src={require('/images/studio/image-target-upload.png').default} width="400px"/>
+````
 
-```bash
-Enter the path to the image file: 
+### Configuring the Image Target
 
-~/Downloads/target1.png
-```
+Customize the image target's tracking region and metadata.
 
-```bash
-Select the image type:
-1) flat (default)
-2) cylinder
-3) cone
+````mdx-code-block
+<img src={require('/images/studio/image-target-config.png').default} width="400px"/>
+````
 
-1
-```
-
-```bash
-Use default crop? [Y/n]:
-
-y
-```
-
-```bash
-Enter the output folder:
-
-~/Documents/8th Wall/my-project/image-targets
-```
-
-```bash
-Enter a name for the image target:
-
-target1
-```
-
-On generation, the following will be outputted to the specified folder:
-
-* Metadata within a JSON file
-* Original image
-* Cropped image
-* Thumbnail image (263x350)
-* Luminance image (grayscale, 480x640)
-* Geometry image (for conical)
-
-:::note[Important]
-Make sure the output folder was specified as a folder named `image-targets` at the root of your 8th Wall project. See [Verifying Project Structure](#verifying-project-structure) for more details.
-:::
 
 ## Configuring Image Targets
 
@@ -100,47 +62,26 @@ const onxrloaded = () => {
 window.XR8 ? onxrloaded() : window.addEventListener('xrloaded', onxrloaded)
 ```
 
-## Verifying Project Structure {#verifying-project-structure}
+### Adding the Image Target Entity
 
-1. Click the **Open Externally** button in the assets panel to open project code in your IDE
-
-````mdx-code-block
-<img src={require('/images/studio/guides/image-targets/open-externally.png').default} width="400px"/>
-````
-
-2. Verify the `image-targets` folder is at the **root** of the project, and that `app.js` is within the `src` folder
+You can add an image target to your scene by creating an **Image Target** entity.  
+To do this, click **( + )** in the Scene Hierarchy and select **Image Target**.
 
 ````mdx-code-block
-<img src={require('/images/studio/guides/image-targets/project-structure.png').default} width="400px"/>
+<img src={require('/images/studio/image-target-add.png').default} width="400px"/>
 ````
 
-## Adding the Image Target Entity
+### Linking the Image Target
 
-To add an image target to your scene:
-1. Click **( + )** in the Scene Hierarchy and select **Image Target**.
+Link the image target entity to an uploaded image target.
+
 
 ````mdx-code-block
-<img src={require('/images/studio/guides/image-targets/add-image-target.png').default} width="400px"/>
+<img src={require('/images/studio/image-target-link.png').default} width="400px"/>
 ````
 
-2. Select the image target entity from the scene hierarchy and enter the name of the image target in the inspector.
-
-````mdx-code-block
-<img src={require('/images/studio/guides/image-targets/image-target-name.png').default} width="400px"/>
-````
-
-The name of the image target entered in the inspector should match what was entered in the CLI when generating the image target files. You can double check the name of the image target by looking at the prefix of the image target assets and/or in the JSON file associated with the image target.
+---
 
 ## Using Image Targets
 
-When you add an image target to your project, an image target mesh will appear so that you can align and position other 3D content against the image target. 
-
-````mdx-code-block
-<img src={require('/images/studio/guides/image-targets/image-target-mesh.png').default} width="400px"/>
-````
-
-Ensure any entities you want to track to the image target are **children** of the image target entity.
-
-````mdx-code-block
-<img src={require('/images/studio/guides/image-targets/image-target-children.png').default} width="400px"/>
-````
+When you add an image target to your project, an image target mesh will appear so that you can align and position other 3D content against the image target.
