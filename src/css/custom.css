@@ -2014,7 +2014,7 @@ body.nav-open .nav-drawer {
   font-family: var(--ifm-heading-font-family);
 }
 
-.blog-post-page .markdown a {
+.docs-doc-page .markdown a, .blog-post-page .markdown a {
   color: var(--ifm-color-primary-light);
 }
 
