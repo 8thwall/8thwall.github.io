@@ -41,12 +41,7 @@ Type | Description
 
 ## Generating Image Target Files {#generating-image-target-files}
 
-To use image targets in your project, you must generate some required assets with a command line interface (CLI). These files contain image target metadata needed by the engine.
-
-:::tip
-See [documentation on Image Target CLI](https://github.com/8thwall/8thwall/blob/main/apps/image-target-cli/README.md) for more details on cropping and cylindrical/conical image targets.
-::: 
-
+To use image targets in your project, you can generate the required assets with a command line interface (CLI). These files contain image target metadata needed by the engine.
 
 :::info
 If a graphical interface is preferred, you can also create image targets via the [Desktop App](/downloads). Even if you don't intend to use Studio, you can create an empty project, and after creating the target as desired, copy the generated files into your own project.
@@ -88,6 +83,10 @@ Enter a name for the image target:
 target1
 ```
 
+:::tip
+See [documentation on Image Target CLI](https://github.com/8thwall/8thwall/blob/main/apps/image-target-cli/README.md) for more details on cropping and cylindrical/conical image targets.
+::: 
+
 On generation, the following will be outputted to the specified folder:
 
 * Metadata within a JSON file
@@ -112,3 +111,53 @@ const onxrloaded = () => {
 }
 window.XR8 ? onxrloaded() : window.addEventListener('xrloaded', onxrloaded)
 ```
+
+## Changing Active Image Targets {#changing-active-image-targets}
+
+The set of active image targets can be modified at runtime by calling
+[XR8.XrController.configure()](/docs/api/engine/xrcontroller/configure)
+
+Note: The set of currently active image targets will be **replaced** with the new set passwd to
+[XR8.XrController.configure()](/docs/api/engine/xrcontroller/configure).
+
+## Optimizing Image Target Tracking {#optimizing-image-target-tracking}
+
+To ensure the highest quality image target tracking experience, be sure to follow these guidelines when selecting an image target.
+
+***DO*** have:
+
+* a lot of varied detail
+* high contrast
+
+***DON'T*** have:
+
+* repetitive patterns
+* excessive dead space
+* low resolution images
+
+Color: Image target detection cannot distinguish between colors, so don't rely on it as a key differentiator between targets.
+
+For best results, use images on flat, cylindrical or conical surfaces for image target tracking.
+
+Consider the reflectivity of your image target's physical material. Glossy surfaces and screen reflections can lower tracking quality. Use matte materials in diffuse lighting conditions for optimal tracking quality.
+
+Note: Detection happens fastest in the center of the screen.
+
+Good Markers | Bad Markers
+---------------------- | ------------------------
+![good logo](/images/it-logo-good.jpg) | ![bad logo](/images/it-logo-bad.jpg) |
+![movie poster](/images/it-movie-poster.jpg) | ![bad pattern](/images/it-pattern-bad.jpg)
+
+## Image Target Events {#image-target-events}
+
+8th Wall Web emits Events / Observables for various events in the image target lifecycle (e.g. imageloading, imagescaning, imagefound, imageupdated, imagelost) Please see the API reference for instructions on handling these events in your Web Application:
+
+* [AFrame Events](/docs/api/engine/aframeevents)
+* [BabylonJS Observables](/docs/api/engine/babylonjs/observables)
+* [PlayCanvas Events](/docs/api/engine/playcanvasevents/playcanvas-image-target-events)
+* [XrController Dispatched Events](/docs/api/engine/xrcontroller/pipelinemodule/#dispatched-events)
+
+#### Example Projects {#example-projects}
+
+- https://github.com/8thwall/aframe-image-targets-example
+- https://github.com/8thwall/studio-image-targets-example
