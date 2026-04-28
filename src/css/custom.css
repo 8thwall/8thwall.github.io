@@ -143,9 +143,10 @@ html.plugin-id-legacy-policies .navbar-download-btn {
   }
 }
 
-/* Hide search bar on non-docs pages */
-body .DocSearch-Button { display: none; }
-html.docs-doc-page:not(.plugin-id-legacy-policies) body .DocSearch-Button { display: flex; }
+/* Only show the search box on docs pages and not on the legacy policies section */
+html:not(.plugin-docs) .DocSearch-Button, html.plugin-id-legacy-policies .DocSearch-Button { 
+  display: none; 
+}
 
 /* DocSearch button styling */
 body .DocSearch-Button {
