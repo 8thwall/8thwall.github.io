@@ -6,6 +6,7 @@ import HeroCanvas from '@site/src/components/HeroCanvas';
 
 const REDIRECTS = {
   'tutorials': 'https://youtube.com/@8thwall',
+  'twainxreducation/brandigno': 'https://twainxreducation.8thwall.app/brandigno/',
 }
 
 const REDIRECT_SCRIPT = `
