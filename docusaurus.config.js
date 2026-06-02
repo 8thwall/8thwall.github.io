@@ -113,9 +113,9 @@ const config = {
             from: '/docs/getting-started/requirements',
             to: '/docs/troubleshooting/browser-requirements',
           },
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   ],
 };
 
