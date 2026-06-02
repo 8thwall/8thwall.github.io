@@ -25,7 +25,7 @@ To test your project on mobile devices, especially for AR experiences that requi
 
 ![](/images/getting-started/ngrok-output.png)
 
-1. Take the URL from the output, in the form `https://xxx-xxx-xxx.ngrok-free.dev`, and paste that into the Proxy URL field
+4. Take the URL from the output, in the form `https://xxx-xxx-xxx.ngrok-free.dev`, and paste that into the Proxy URL field.
 
 ![](/images/getting-started/pasted-url.png)
 
