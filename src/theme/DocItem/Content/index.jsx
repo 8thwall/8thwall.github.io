@@ -8,7 +8,7 @@ export default function DocItemContent(props) {
     pathname.startsWith('/legacy-policies/') && pathname !== '/legacy-policies/';
 
   if (pathname.length > 1 && pathname.endsWith('/')) {
-    return <Redirect to={pathname.slice(0,-1)}/>
+    return <Redirect to={pathname.slice(0, -1)}/>
   }
 
   return (
