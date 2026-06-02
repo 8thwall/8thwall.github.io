@@ -17,27 +17,16 @@ sidebar_position: 6
 To test your project on mobile devices, especially for AR experiences that require camera access, you'll need to serve your development server over HTTPS. We recommend using [ngrok](https://ngrok.com/) to create a secure tunnel to your local server.
 
 1. Go to [ngrok.com](https://ngrok.com/) and create an account. Once signed in, follow the steps on the dashboard to install ngrok.
-2. Update (or verify) your project configuration. In the `config` folder, open `webpack.config.js` and look for the `devServer` object. Add (or verify) ngrok as an `allowedHost`:
-```javascript
-devServer: {
-  // ... existing config
-  allowedHosts: ['.ngrok-free.dev']
-}
-```
-3. Relaunch the desktop app or exit/reopen the project to refresh the build after updating the webpack configuration
-4. Open the Simulator/Preview and click the browser pop-out button
+2. Click "Connect Device" in the lower left corner.
 
-![DesktopPopout](/images/getting-started/desktop-pop-out.png)
+![](/images/getting-started/click-connect-device.png)
 
-5. From the new browser window, copy the port number appended to the end of the localhost URL
+3. You will see a command such as `ngrok http <port number>`. Copy that command and execute it in the terminal.
 
-![SimulatorPort](/images/getting-started/simulator-port.png)
+![](/images/getting-started/ngrok-output.png)
 
-4. Open a terminal window and run the following command, replacing [port] with the port obtained from the simulator browser pop-out
-```bash
-ngrok http [port]
-```
+4. Take the URL from the output, in the form `https://xxx-xxx-xxx.ngrok-free.dev`, and paste that into the Proxy URL field.
 
-In the output you should see an ngrok URL that uses HTTPS and forwards to your local development server. You can paste this into your browser window and test your project on a mobile device.
+![](/images/getting-started/pasted-url.png)
 
-![](/images/getting-started/ngrok-terminal.png)
+5. Scan the QR code on your test device.
