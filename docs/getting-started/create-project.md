@@ -33,7 +33,7 @@ You can clone a variety of Studio projects from the examples folder in the 8th W
 
 In the Studio hub view, you can move, delete, and find projects using the Project Actions menu `(...)` button next to each project:
 - **Reveal in finder**: opens your local file browser to project’s location
-- **Remove from disk**: deletes your project’s local files (the project will remain available on web as of its last cloud build)
+- **Remove from list**: remove the project from the list, leaving the files on disk untouched
 - **Change disk location**: opens your file browser to select a new folder location for your project to move to
 
 ## Project Structure
