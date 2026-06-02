@@ -1,11 +1,15 @@
 import React from 'react';
 import Content from '@theme-original/DocItem/Content';
-import { useLocation } from '@docusaurus/router';
+import { Redirect, useLocation } from '@docusaurus/router';
 
 export default function DocItemContent(props) {
   const { pathname } = useLocation();
   const isLegacyDoc =
     pathname.startsWith('/legacy-policies/') && pathname !== '/legacy-policies/';
+
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    return <Redirect to={pathname.slice(0,-1)}/>
+  }
 
   return (
     <>
