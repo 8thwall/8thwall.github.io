@@ -105,6 +105,17 @@ const config = {
         sidebarPath: require.resolve('./sidebars-legacy.js'),
       },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: '/docs/getting-started/requirements',
+            to: '/docs/troubleshooting/browser-requirements',
+          },
+        ],
+      },
+    ],
   ],
 };
 
