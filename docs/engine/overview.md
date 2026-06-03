@@ -9,7 +9,7 @@ sidebar_position: 1
 If this is your first time working with 8th Wall, we strongly recommend starting with or referencing an [example project](https://github.com/8thwall/8thwall/tree/main/examples).
 :::
 
-## Loading the Engine 
+## Loading the Engine
 
 ### Option 1: Script tag
 
