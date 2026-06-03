@@ -9,18 +9,64 @@ sidebar_position: 1
 If this is your first time working with 8th Wall, we strongly recommend starting with or referencing an [example project](https://github.com/8thwall/8thwall/tree/main/examples).
 :::
 
-## Integration
+## Loading the Engine
 
-### Loading the Engine
+### Option 1: Script tag
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@8thwall/engine-binary@1/dist/xr.js" async crossorigin="anonymous" data-preload-chunks="slam"></script>
+```
+
+### Option 2: npm
+
+```bash
+npm install @8thwall/engine-binary
+```
+
+You will need to copy the included artifacts into your dist folder, for example in webpack:
+
+```js
+new CopyWebpackPlugin({
+  patterns: [
+    {
+      from: 'node_modules/@8thwall/engine-binary/dist',
+      to: 'external/xr',
+    }
+  ]
+})
+```
+
+You can then load the SDK by adding the following to index.html:
+
+```html
+<script src="./external/xr/xr.js" async data-preload-chunks="slam"></script>
+```
+
+When importing the package, you will get a simple helper for accessing XR8 once it is loaded. This promise will only resolve if the script tag is included in the HTML.
+
+```js
+import {XR8Promise} from '@8thwall/engine-binary'
+
+XR8Promise.then((XR8) => XR8.XrController.configure({}))
+```
+
+### Option 3: Full Download 
 
 1. Download the [8th Wall Engine Binary](https://8th.io/xrjs) and unzip it into your project folder
-2. Add the 8th Wall Engine as a script tag to the `<head>` of your `index.html`. Add the `data-preload-chunks` attribute to the script tag, and depending on the type of experience you want to develop, set the `data-preload-chunks` to the appropriate value:
-* **World Tracking & Image Targets**: `data-preload-chunks="slam"`
-* **Face Effects**: `data-preload-chunks="face"`
-* **Sky Effects**: no `data-preload-chunks` required
+2. Add the 8th Wall Engine as a script tag to the `<head>` of your `index.html`.
+
 ```html
 <script async src="./path/to/xr.js" data-preload-chunks="slam"></script>
 ```
+
+## Preload Chunks {#preload}
+
+The engine consists of two optional chunks, `slam`, and `face`. Depending on the type of experience you want to develop, you can add the `data-preload-chunks` attribute to the script tag:
+
+* **World Tracking & Image Targets**: `data-preload-chunks="slam"`
+* **Face Effects**: `data-preload-chunks="face"`
+* **Sky Effects**: no `data-preload-chunks` required
+
 
 :::note
 `data-preload-chunks="face, slam"` is also supported for experiences using both world and face effects.
@@ -31,7 +77,7 @@ Alternatively, you can call `await XR8.loadChunk()` **before starting the engine
 await XR8.loadChunk('slam')
 ```
 
-### Integrating 8th Wall with A-Frame {#aframe}
+## A-Frame {#aframe}
 
 8th Wall can be integrated with your A-Frame project in a few easy steps:
 
@@ -50,7 +96,7 @@ await XR8.loadChunk('slam')
 See documentation on [A-Frame Components](/docs/api/engine/aframe/), [A-Frame Events](/docs/api/engine/aframeevents/) and [A-Frame Event Listeners](/docs/api/engine/aframeeventlisenters/) provided by the 8th Wall Engine.
 :::
 
-### Integrating 8th Wall with three.js {#threejs}
+## three.js {#threejs}
 
 To integrate the 8th Wall engine into a three.js project, use the [Camera Pipeline Module API](/docs/api/engine/camerapipelinemodule) to add functionality like drawing the camera feed, creating a three.js scene and enabling world tracking. You should also add a custom camera pipeline module which you use to set up the three.js camera and scene content.
 
