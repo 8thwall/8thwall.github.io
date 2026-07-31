@@ -7,6 +7,10 @@ sidebar_position: 2
 
 Coaching Overlays allow you onboard users and ensure the best experience.
 
+## Installation
+
+If Coaching Overlay isn't already included in the sample project you started from, instructions can be found [here](https://www.npmjs.com/package/@8thwall/coaching-overlay).
+
 ## Absolute Scale Coaching Overlay {#absolute-scale-coaching-overlay}
 
 The Absolute Scale Coaching Overlay onboards users to absolute scale experiences ensuring that they collect the
