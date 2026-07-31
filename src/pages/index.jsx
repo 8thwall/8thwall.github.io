@@ -3,20 +3,7 @@ import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import HeroCanvas from '@site/src/components/HeroCanvas';
-
-const REDIRECTS = {
-  'tutorials': 'https://youtube.com/@8thwall',
-  'twainxreducation/brandigno': 'https://twainxreducation.8thwall.app/brandigno/',
-}
-
-const REDIRECT_SCRIPT = `
-const sitePath = new URLSearchParams(window.location.search).get('site_path');
-const redirects = ${JSON.stringify(REDIRECTS)};
-if (sitePath && redirects[sitePath]) {
-  window.location.replace(redirects[sitePath]);
-}
-`
-
+import {REDIRECT_SCRIPT} from './redirects'
 
 export default function Home() {
   return (
