@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import HeroCanvas from '@site/src/components/HeroCanvas';
-import {REDIRECT_SCRIPT} from './redirects'
+import {REDIRECT_SCRIPT} from './_redirects'
 
 export default function Home() {
   return (
