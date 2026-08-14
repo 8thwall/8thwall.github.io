@@ -1993,12 +1993,6 @@ body.nav-open .nav-drawer {
   transition: none !important;
 }
 
-/* Hide announcement bar on blog pages */
-.blog-post-page div[class*="announcementBar"],
-.blog-list-page div[class*="announcementBar"] {
-  display: none !important;
-}
-
 /* Blog post body — improve readability for long-form content.
    Switch from monospace to sans-serif, soften contrast, increase line spacing.
    Applied to both the post page and the list page excerpt. */
