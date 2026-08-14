@@ -49,11 +49,19 @@ const config = {
       respectPrefersColorScheme: false,
     },
     announcementBar: {
-      id: 'migration',
-      content: '<span class="announcement-text">The hosted 8th Wall platform was retired Feb 28, 2026. Existing published experiences continue to run until Feb 28, 2027.</span><span class="announcement-btns"><a target="_blank" rel="noopener" href="https://8th.io/migration" class="banner-btn">View Migration Guide</a><a target="_blank" rel="noopener" href="/blog" class="banner-btn">View Announcements</a></span>',
+      id: 'community-survey',
+      content: `
+        <span class="announcement-text">
+          The 8th Wall Community Survey is open!
+        </span>
+        <span class="announcement-btns">
+          <a target="_blank" rel="noopener" href="https://docs.google.com/forms/d/e/1FAIpQLSfuH1w59H-041tB-zsHoVDddiymlTv02WR3-OJP44JBRT_nIA/viewform?usp=dialog" class="banner-btn">
+            View survey
+          </a>
+        </span>`,
       backgroundColor: '#111',
       textColor: '#a1a1a1',
-      isCloseable: false,
+      isCloseable: true,
     },
     navbar: {
       title: '',
