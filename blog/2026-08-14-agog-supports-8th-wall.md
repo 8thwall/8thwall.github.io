@@ -20,7 +20,7 @@ Agog’s support will go directly toward maintaining and expanding the features 
 
 Thank you to Agog! We are very grateful to have their support in order to continue the mission of making AR accessible to everyone.
 
-We’ll be mobilizing these resources to move forward on this goal, including offering paid contracts. If you're interested in getting involved, please fill out our [interest survey](https://docs.google.com/forms/d/e/1FAIpQLSfuH1w59H-041tB-zsHoVDddiymlTv02WR3-OJP44JBRT_nIA/viewform?usp=dialog). 
+We’ll be mobilizing these resources to move forward on this goal, including offering paid contracts. If you're interested in getting involved, please fill out our [community survey](https://docs.google.com/forms/d/e/1FAIpQLSfuH1w59H-041tB-zsHoVDddiymlTv02WR3-OJP44JBRT_nIA/viewform?usp=dialog). 
 
 To stay up to date on all things 8th Wall, join our [Discord](https://8th.io/discord) and find us on [GitHub](https://github.com/8thwall/8thwall).
 
