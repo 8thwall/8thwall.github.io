@@ -5,29 +5,36 @@ sidebar_position: 3
 
 # Create or open a project
 
-:::tip
-If this is your first time working with 8th Wall, we strongly recommend downloading and opening an [example project](https://github.com/8thwall/8thwall/tree/main/examples) instead of creating a new project from scratch.
-:::
-
 ## Create a project
-
-1. From the hub view, click **New Project**
 
 ![StudioHome](/images/getting-started/studio-home.png)
 
-3. Enter the Project Title.
+
+1. From the hub view, click **New Project**
+2. Enter the Project Title.
+3. Select a template. Currently available templates are:
+   - Empty: Minimal scene, no AR integration configured
+   - World Effects: Place content in the world, with tap to place behavior
+   - Image Targets: Multiple examples of image target usage
+   - Face Effects: Attach virtual content to faces
+   - Physics Playground: Complex scene with cross-platform input examples
+4. Click **Create**.
 
 ![StudioCreate](/images/getting-started/studio-create.png)
 
-4. Click **Create**.
-
 ## Open a project
 
-You can clone a variety of Studio projects from the examples folder in the 8th Wall GitHub repository: https://github.com/8thwall/8thwall/tree/main/examples
+:::tip
+If you've downloaded a .zip file from the [Github Examples](https://github.com/8thwall/8thwall/tree/main/examples) for example, make sure to unzip it and move the contents to the folder in which you'd like to work.
+:::
+
+
 
 1. From the hub view, click **Open**
+2. Select the root folder of the project
 
-2. Select the root folder of a Studio project
+![Screenshot of folder select dialog with a project selected](/images/getting-started/open-project.png)
+
 
 ## Project Actions
 
