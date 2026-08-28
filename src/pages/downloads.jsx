@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 export default function Downloads() {
   return (
     <Layout title="Downloads" description="Download 8th Wall Desktop for Mac and Windows.">
-      <section className="hero downloads-hero">
+      <section className="hero downloads-hero compact-hero">
         <div className="container">
           <h1 className="hero-title">Downloads</h1>
           <p className="hero-description">

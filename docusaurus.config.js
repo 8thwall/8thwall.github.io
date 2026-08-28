@@ -113,6 +113,7 @@ const config = {
         sidebarPath: require.resolve('./sidebars-legacy.js'),
       },
     ],
+    'docusaurus-plugin-sass',
     [
       '@docusaurus/plugin-client-redirects',
       {

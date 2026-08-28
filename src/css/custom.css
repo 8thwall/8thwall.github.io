@@ -723,13 +723,16 @@ a[target="_blank"]::after {
   position: relative;
   overflow: hidden;
   margin-top: calc(-1 * var(--header-height, 76px));
-  min-height: 85vh;
   padding: 0;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #0a0a0a;
+}
+
+.tall-hero {
+  min-height: 85vh;
 }
 
 .hero-canvas {
@@ -1508,18 +1511,17 @@ footer.footer .footer-legal-link:hover {
   text-decoration: underline;
 }
 
-/* Downloads Page: compact hero so buttons are visible without scrolling */
-.downloads-hero {
+.compact-hero {
   margin-top: 0;
   min-height: 0;
   padding: var(--spacing-2xl) 0 var(--spacing-md);
 }
 
-.downloads-hero + .section {
+.compact-hero + .section {
   padding-top: var(--spacing-lg);
 }
 
-.downloads-hero .hero-title {
+.compact-hero .hero-title {
   font-size: clamp(2rem, 6vw, 3.5rem);
 }
 
@@ -1851,11 +1853,14 @@ body.nav-open .nav-drawer {
   }
 
   .hero {
-    min-height: 80vh;
     padding: 0;
   }
+  
+  .tall-hero {
+    min-height: 80vh;
+  }
 
-  .downloads-hero {
+  .compact-hero {
     margin-top: 0;
     min-height: 0;
     padding: var(--spacing-xl) 0 var(--spacing-2xl);
@@ -2013,7 +2018,7 @@ body.nav-open .nav-drawer {
   font-family: var(--ifm-heading-font-family);
 }
 
-.docs-doc-page .markdown a, .blog-post-page .markdown a {
+.docs-doc-page .markdown a, .blog-post-page .markdown a, a.primary-link {
   color: var(--ifm-color-primary-light);
 }
 

@@ -15,7 +15,7 @@ export default function Home() {
         <meta name="twitter:description" content="Build immersive AR and interactive 3D experiences. Free and open source." />
         <script type="module">{REDIRECT_SCRIPT}</script>
       </Head>
-      <section className="hero" id="hero">
+      <section className="hero tall-hero" id="hero">
         <HeroCanvas />
         <div className="container hero-content">
           <h1 className="hero-title">
