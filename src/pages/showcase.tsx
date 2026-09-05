@@ -3,12 +3,38 @@ import Layout from "@theme/Layout";
 
 import imaginar from "../../static/video/imaginar.mp4";
 import ian from "../../static/video/ian.mp4";
+import mesoMountain from "../../static/video/meso-mountain.mp4";
 
 console.log(imaginar);
 
 import styles from "./showcase.module.scss";
 
 const SHOWCASE_ENTRIES = [
+  {
+    id: "meso-mountain",
+    title: "Meso Mountain",
+    media: {
+      aspect: "1280 / 720",
+      video: { src: mesoMountain },
+    },
+    description: (
+      <>
+        Meso Mountain is a charming and immersive 3D platformer built for WebXR
+        created by{" "}
+        <a className="primary-link" href="https://pixelfishcreative.xyz">
+          Pixel Fish Creative
+        </a>
+        . In this game you play as an adorable parasaur on a mission to find
+        their lost eggs. Run, jump, and explore the cozy Mesozoic island to
+        embark on your quest to save your nest!
+      </>
+    ),
+    cta: {
+      text: "Try it out",
+      url: "https://pixelfishcreative.xyz/#/meso-mountain",
+      mobileRecommended: false,
+    },
+  },
   {
     id: "imaginar",
     title: "ImaginAR",
