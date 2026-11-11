@@ -122,6 +122,14 @@ const config = {
             from: '/docs/getting-started/requirements',
             to: '/docs/troubleshooting/browser-requirements',
           },
+          {
+            from: '/docs/migration/image-targets',
+            to: '/docs/engine/guides/image-targets',
+          },
+          {
+            from: '/docs/open-source',
+            to: '/docs/engine/license',
+          },
         ],
       },
     ],
