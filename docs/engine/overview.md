@@ -150,22 +150,28 @@ See documentation on the [Camera Pipeline Module API](/docs/api/engine/camerapip
 
 ### Test on Mobile
 
-To test your project on mobile devices, especially for AR experiences that require camera access, you'll need to serve your development server over HTTPS. We recommend using [ngrok](https://ngrok.com/) to create a secure tunnel to your local server.
+To test your project on mobile devices, especially for AR experiences that require camera access, you'll need to serve your development server over HTTPS. The example projects already do this: their development server uses HTTPS with a self-signed certificate, so you can open the project from a phone on the same Wi-Fi network as your computer.
 
-1. Go to [ngrok.com](https://ngrok.com/) and create an account. Once signed in, follow the steps on the dashboard to install ngrok.
-2. Update (or verify) your project configuration. In the `config` folder, open `webpack.config.js` and look for the `devServer` object. Add (or verify) ngrok as an `allowedHost`:
+1. Update (or verify) your project configuration. In the `config` folder, open `webpack.config.js` and look for the `devServer` object. Add (or verify) `server: 'https'`:
 ```javascript
 devServer: {
+  server: 'https',
   // ... existing config
-  allowedHosts: ['.ngrok-free.dev']
 }
 ```
-3. `cd` to the project root and run `npm install`. Run `npm run serve` to run the local development server.
-4. Open a seperate terminal window and run the following command (in most cases, `[port]` will be `8080`)
-```bash
-ngrok http [port]
+2. `cd` to the project root and run `npm install`. Run `npm run serve` to run the local development server.
+3. In the output, find the `On Your Network (IPv4)` URL, for example `https://192.168.1.20:8080/`. Make sure your phone is connected to the same network as your computer, then open that URL in your phone's browser.
+4. Because the certificate is self-signed, the browser shows a security warning the first time. Accept it to continue to your project:
+   - Chrome on Android: tap **Advanced**, then **Proceed to ... (unsafe)**.
+   - Safari on iOS: tap **Show Details**, then **visit this website**.
+
+:::tip
+If your phone can't reach your computer, for example because of a firewall or a network that isolates devices, you can use a tunnel service such as [ngrok](https://ngrok.com/) instead. ngrok provides the HTTPS URL and forwards it to your local server over plain HTTP, so in the `devServer` object remove `server: 'https'` and add ngrok as an allowed host:
+```javascript
+devServer: {
+  allowedHosts: ['.ngrok-free.dev'],
+  // ... existing config
+}
 ```
-
-In the output you should see an ngrok URL that uses HTTPS and forwards to your local development server. You can paste this into your browser window and test your project on a mobile device.
-
-![](/images/getting-started/ngrok-terminal.png)
+Then run `npm run serve`, and in a separate terminal run `ngrok http 8080`. Open the `https://...ngrok-free.dev` URL from the output on your phone.
+:::
