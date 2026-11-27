@@ -81,7 +81,11 @@ await XR8.loadChunk('slam')
 
 8th Wall can be integrated with your A-Frame project in a few easy steps:
 
-1. Include a slightly modified version of A-Frame (referred to as "8-Frame") which fixes some polish concerns in your project. You can find 8-Frame in the `external` folder of A-Frame example projects, such as https://github.com/8thwall/aframe-world-effects-example/tree/main/external/scripts
+1. Include [A-Frame](https://aframe.io/) (1.8.0 or later) and [XRExtras](https://github.com/8thwall/8thwall/tree/main/packages/xrextras) in the `<head>` of your page, in this order. XRExtras makes the A-Frame scene wait for the 8th Wall Engine and disables A-Frame UI that 8th Wall replaces. If your project uses 8-Frame, see [Migrate from 8-Frame to A-Frame](/docs/engine/guides/aframe-migration).
+```html
+<script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@8thwall/xrextras@2/dist/xrextras.js" crossorigin="anonymous"></script>
+```
 2. Add the `xrconfig` component to your `<a-scene>`. See [documentation on xrconfig](/docs/api/engine/aframe/xrconfig/) for more details.
 3. Depending on the type of experience you want to develop, add one of the following components to your `<a-scene>`:
 * **World Tracking & Image Targets**: `xrweb`. See [documentation on xrweb](/docs/api/engine/aframe/xrweb/) for more details.
