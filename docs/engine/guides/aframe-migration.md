@@ -122,6 +122,14 @@ Values you set on the material, for example `material="shader: shadow; opacity: 
 8-Frame's shadow shader also had a `color` property, which A-Frame's doesn't have: the shadow is
 always black, which was the default color.
 
+### Custom load screen styles
+
+The new XRExtras version prefixes the ids of its loading screen elements with `xrextras-`. If you
+customized the load screen with CSS or JavaScript, update the ids, for example
+`#loadBackground` → `#xrextras-load-background`, `#loadImage` → `#xrextras-load-image` and
+`#requestingCameraPermissions` → `#xrextras-requesting-camera-permissions`. See
+[Customizing the Load Screen](/docs/engine/guides/load-screen).
+
 ### Adding the page to the iOS home screen
 
 8-Frame removed the meta tags A-Frame adds on iOS for web apps added to the home screen. With A-Frame,

@@ -40,10 +40,10 @@ badge on the loading page. It's included by default in the `Loading Module` and 
     <tr>
       <td width="50%">
         <ol>
-          <li>#requestingCameraPermissions</li>
-          <li>#requestingCameraIcon</li>
-          <li>#loadBackground</li>
-          <li>#loadImage</li>
+          <li>#xrextras-requesting-camera-permissions</li>
+          <li>#xrextras-requesting-camera-icon</li>
+          <li>#xrextras-load-background</li>
+          <li>#xrextras-load-image</li>
         </ol>
       </td>
       <td width="50%">
@@ -95,7 +95,7 @@ loadAnimation | `String` | Animation style of `loadImage`.  Choose from `spin` (
 const load = () => {
   XRExtras.Loading.showLoading()
   console.log('customizing loading spinner')
-  const loadImage = document.getElementById("loadImage")
+  const loadImage = document.getElementById("xrextras-load-image")
   if (loadImage) {
     loadImage.src = require("./assets/my-custom-image.png")
   }
@@ -106,11 +106,11 @@ window.XRExtras ? load() : window.addEventListener('xrextrasloaded', load)
 #### CSS example {#css-example}
 
 ```css
-#requestingCameraPermissions {
+#xrextras-requesting-camera-permissions {
   color: black !important;
   background-color: white !important;
 }
-#requestingCameraIcon {
+#xrextras-requesting-camera-icon {
   /* This changes the image from white to black */
   filter: invert(1) !important;
 }
