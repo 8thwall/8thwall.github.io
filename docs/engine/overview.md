@@ -81,7 +81,11 @@ await XR8.loadChunk('slam')
 
 8th Wall can be integrated with your A-Frame project in a few easy steps:
 
-1. Include a slightly modified version of A-Frame (referred to as "8-Frame") which fixes some polish concerns in your project. You can find 8-Frame in the `external` folder of A-Frame example projects, such as https://github.com/8thwall/aframe-world-effects-example/tree/main/external/scripts
+1. Include [A-Frame](https://aframe.io/) (1.8.0 or later) and [XRExtras](https://github.com/8thwall/8thwall/tree/main/packages/xrextras) in the `<head>` of your page, in this order. XRExtras makes the A-Frame scene wait for the 8th Wall Engine and disables A-Frame UI that 8th Wall replaces. If your project uses 8-Frame, see [Migrate from 8-Frame to A-Frame](/docs/engine/guides/aframe-migration).
+```html
+<script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@8thwall/xrextras@2/dist/xrextras.js" crossorigin="anonymous"></script>
+```
 2. Add the `xrconfig` component to your `<a-scene>`. See [documentation on xrconfig](/docs/api/engine/aframe/xrconfig/) for more details.
 3. Depending on the type of experience you want to develop, add one of the following components to your `<a-scene>`:
 * **World Tracking & Image Targets**: `xrweb`. See [documentation on xrweb](/docs/api/engine/aframe/xrweb/) for more details.
@@ -150,22 +154,28 @@ See documentation on the [Camera Pipeline Module API](/docs/api/engine/camerapip
 
 ### Test on Mobile
 
-To test your project on mobile devices, especially for AR experiences that require camera access, you'll need to serve your development server over HTTPS. We recommend using [ngrok](https://ngrok.com/) to create a secure tunnel to your local server.
+To test your project on mobile devices, especially for AR experiences that require camera access, you'll need to serve your development server over HTTPS. The example projects already do this: their development server uses HTTPS with a self-signed certificate, so you can open the project from a phone on the same Wi-Fi network as your computer.
 
-1. Go to [ngrok.com](https://ngrok.com/) and create an account. Once signed in, follow the steps on the dashboard to install ngrok.
-2. Update (or verify) your project configuration. In the `config` folder, open `webpack.config.js` and look for the `devServer` object. Add (or verify) ngrok as an `allowedHost`:
+1. Update (or verify) your project configuration. In the `config` folder, open `webpack.config.js` and look for the `devServer` object. Add (or verify) `server: 'https'`:
 ```javascript
 devServer: {
+  server: 'https',
   // ... existing config
-  allowedHosts: ['.ngrok-free.dev']
 }
 ```
-3. `cd` to the project root and run `npm install`. Run `npm run serve` to run the local development server.
-4. Open a seperate terminal window and run the following command (in most cases, `[port]` will be `8080`)
-```bash
-ngrok http [port]
+2. `cd` to the project root and run `npm install`. Run `npm run serve` to run the local development server.
+3. In the output, find the `On Your Network (IPv4)` URL, for example `https://192.168.1.20:8080/`. Make sure your phone is connected to the same network as your computer, then open that URL in your phone's browser.
+4. Because the certificate is self-signed, the browser shows a security warning the first time. Accept it to continue to your project:
+   - Chrome on Android: tap **Advanced**, then **Proceed to ... (unsafe)**.
+   - Safari on iOS: tap **Show Details**, then **visit this website**.
+
+:::tip
+If your phone can't reach your computer, for example because of a firewall or a network that isolates devices, you can use a tunnel service such as [ngrok](https://ngrok.com/) instead. ngrok provides the HTTPS URL and forwards it to your local server over plain HTTP, so in the `devServer` object remove `server: 'https'` and add ngrok as an allowed host:
+```javascript
+devServer: {
+  allowedHosts: ['.ngrok-free.dev'],
+  // ... existing config
+}
 ```
-
-In the output you should see an ngrok URL that uses HTTPS and forwards to your local development server. You can paste this into your browser window and test your project on a mobile device.
-
-![](/images/getting-started/ngrok-terminal.png)
+Then run `npm run serve`, and in a separate terminal run `ngrok http 8080`. Open the `https://...ngrok-free.dev` URL from the output on your phone.
+:::

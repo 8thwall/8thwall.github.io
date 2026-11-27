@@ -66,13 +66,27 @@ Be sure to make [required project updates](/docs/migration/project-updates.md) a
 
 ### Test on Mobile
 
-To test your project on mobile devices, especially for AR experiences that require camera access, you'll need to serve your development server over HTTPS. We recommend using [ngrok](https://ngrok.com/) to create a secure tunnel to your local server.
+To test your project on mobile devices, especially for AR experiences that require camera access, you'll need to serve your development server over HTTPS. The development server can do this itself with a self-signed certificate, so you can open the project from a phone on the same Wi-Fi network as your computer.
 
-After setting up ngrok, add the following configuration to `config/webpack.config.js` under the `devServer` section:
-
+1. In the `config` folder, open `webpack.config.js` and add `server: 'https'` to the `devServer` object:
 ```javascript
 devServer: {
+  server: 'https',
   // ... existing config
-  allowedHosts: ['.ngrok-free.dev']
 }
 ```
+2. Run `npm run serve`. In the output, find the `On Your Network (IPv4)` URL, for example `https://192.168.1.20:8080/`. Make sure your phone is connected to the same network as your computer, then open that URL in your phone's browser.
+3. Because the certificate is self-signed, the browser shows a security warning the first time. Accept it to continue to your project:
+   - Chrome on Android: tap **Advanced**, then **Proceed to ... (unsafe)**.
+   - Safari on iOS: tap **Show Details**, then **visit this website**.
+
+:::tip
+If your phone can't reach your computer, for example because of a firewall or a network that isolates devices, you can use a tunnel service such as [ngrok](https://ngrok.com/) instead. ngrok provides the HTTPS URL and forwards it to your local server over plain HTTP, so don't add `server: 'https'`; add ngrok as an allowed host instead:
+```javascript
+devServer: {
+  allowedHosts: ['.ngrok-free.dev'],
+  // ... existing config
+}
+```
+Then run `npm run serve`, and in a separate terminal run `ngrok http 8080`. Open the `https://...ngrok-free.dev` URL from the output on your phone.
+:::
